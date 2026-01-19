@@ -10,7 +10,7 @@
         }
     },
 
-    "resource_config": "local_resource/config/global_resource.json",
+    "resource_config": "local_resource/config/wins_resource.json",
 
     "local_config_list":
     [
