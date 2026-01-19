@@ -103,36 +103,16 @@ class KShellMainApp:
         return ERR_OK
     
     ################################################# 외부 실행 메소드 (reflection)
-    
-    #최초 메소드, test, TODO: 알파벳 순서 철저히
-    #TODO: 미구현 명령, 미구현 명령은 제일 상단에. TODO: Api 출력 파라미터, 처음부터 강제하자.
-    def test(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
-        
-        self.__appHelper.TestKshellMainApp(dictOpt, apiResponseHandler)        
-        pass
-    
-    # LT 관리 명령
-    def manage_lt_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
-        
-        self.__appHelper.ManageLTModules(dictOpt, apiResponseHandler)        
-        pass
-    
-    # stock 관리 명령
-    def manage_stock_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
-        
-        self.__appHelper.ManageStockModules(dictOpt, apiResponseHandler)        
-        pass
 
     # wins cli
     def manage_wins_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
         
         self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
-        pass
+        # pass
 
     # util cli modules
     def manage_operation_util_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
 
         self.__appHelper.ManageOperationUtilModules(dictOpt, apiResponseHandler)
-
-        pass
+        # pass
 
