@@ -1,6 +1,7 @@
 
 import getopt
 import logging
+import uvloop
 
 from lib_include import *
 from common_modules.type_hint import *
@@ -10,6 +11,10 @@ from common_modules.global_common_module import GlobalCommonModule
 from mainapp.kshell_mainapp import KShellMainApp
 
 from web_app_modules.web_api_mainapp import WebApiMainApp
+
+# uvloop 설치 (기본 asyncio 루프 대신 uvloop 사용)
+uvloop.install()
+
 
 def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
     

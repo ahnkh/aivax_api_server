@@ -92,7 +92,7 @@
 		"ssl_cert_file_path" : "local_resource/web_api_resource_files/openapi/ssl_key_files/cert.pem",
 
 		"host" : "0.0.0.0",
-		"port" : 8000,
+		"port" : 9100,
 
         "router_config":
         {
