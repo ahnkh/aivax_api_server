@@ -1,0 +1,10 @@
+{
+    "use" : 1,
+    "module_path" : "web_app_modules.api_router.open_api_router", 
+    "class_name" : "OpenAPIRouter", 
+    "method_name": "InitializeRouter", 
+    "local_config":
+    {
+        "comment" : "openapi는 route를 소스에 추가"	
+    }
+}

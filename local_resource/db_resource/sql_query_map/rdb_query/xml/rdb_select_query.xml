@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- rdb, select interface -->
+
+<QueryMap category = "rdb" connection_id = "mariadb_connector">
+
+	<!-- 종목코드, history -->
+
+</QueryMap>

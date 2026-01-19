@@ -1,0 +1,27 @@
+{
+    "category" : "rdb",
+    "connection_id" : "mariadb_connector",
+
+    "desc" : [        
+        "rdb - mariadb에 대한 쿼리맵, 틀만 잡음",
+        "db 접속 등 마무리 시점에 설정 변경 가능"
+    ],
+
+    "query_map":
+    [
+        {
+            "desc" : "테스트 쿼리",
+            "key" : "rdb_select_dummy", 
+	        "action" : "query_for_object",
+            "query" : "select 1 where test = {test}"
+        },
+
+	    {
+            "desc" : "종목 history, 종목코드 로 정렬된 종목코드 - 테스트 쿼리",
+            "key": "rdb_select_stock_base_info_history",
+	        "action" : "query_for_list",
+            "query" : "SELECT STOCK_CODE FROM STOCK_BASE_INFO.STOCK_BASE_INFO_HISTORY GROUP BY STOCK_CODE"
+        }
+    ]
+}
+

@@ -1,0 +1,165 @@
+{
+	"use" : 1,
+	"module_path" : "web_app_modules.api_router.wins_api_router", 
+	"class_name" : "WinsApiRouter",
+	"method_name": "InitializeRouter", 
+	"desc_comment": [			
+	],
+
+	"local_config":
+	{
+		"prefix" : "/api/policy",
+
+		"route_list":
+		[
+
+			{
+				"use":1, 
+				"path" : "/list-user",
+				"endpoint" : "getUserAccount",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 계정"],
+				"summary" : "사용자 정보 조회",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/add-user",
+				"endpoint" : "insertUserAccount",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 계정"],
+				"summary" : "사용자 등록",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/edit-user",
+				"endpoint" : "editUserAccount",
+				"methods" : ["PATCH"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 계정"],
+				"summary" : "사용자 수정",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/delete-user",
+				"endpoint" : "deleteUserAccount",
+				"methods" : ["DELETE"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 계정"],
+				"summary" : "사용자 삭제",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/list-group",
+				"endpoint" : "getUserGroup",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 그룹"],
+				"summary" : "그룹 조회",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/add-group",
+				"endpoint" : "insertUserGroup",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 그룹"],
+				"summary" : "그룹 추가",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/edit-group",
+				"endpoint" : "editUserGroup",
+				"methods" : ["PATCH"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 그룹"],
+				"summary" : "그룹 수정",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/delete-group",
+				"endpoint" : "deleteUserGroup",
+				"methods" : ["DELETE"],
+				"include_in_schema" : 1,
+				"tags" : ["사용자 그룹"],
+				"summary" : "그룹 삭제",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/list-filterview",
+				"endpoint" : "getFilterView",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["차단 필터뷰"],
+				"summary" : "필터뷰 조회",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/add-filterview",
+				"endpoint" : "insertFilterView",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["차단 필터뷰"],
+				"summary" : "필터뷰 추가",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/edit-filterview",
+				"endpoint" : "editFilterView",
+				"methods" : ["PATCH"],
+				"include_in_schema" : 1,
+				"tags" : ["차단 필터뷰"],
+				"summary" : "필터뷰 수정",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/delete-filterview",
+				"endpoint" : "deleteFilterView",
+				"methods" : ["DELETE"],
+				"include_in_schema" : 1,
+				"tags" : ["차단 필터뷰"],
+				"summary" : "필터뷰 삭제",
+				"description" : "",
+				"description_alt_text" : ""
+			}
+
+		]
+	}
+}
+
+
+

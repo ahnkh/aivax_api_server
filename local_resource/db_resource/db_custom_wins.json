@@ -1,0 +1,37 @@
+{
+	"db_connector_list":
+	[
+		{
+			"use" : 1,
+			"connection_id" : "sqlite_connector",
+
+			"connector_type" : "sqlite",
+
+			"connector_info" : 
+			{
+				"dbb_path" : "local_resource/db_resource/local_db/local_config.dbb",
+				"keep_alive" : 0
+			}
+		},
+
+		{
+			"use" : 1,
+			"connection_id" : "mariadb_connector",
+
+			"connector_type" : "mariadb",
+
+			"connector_info" :
+			{
+				"host" : "127.0.0.1",
+				"port" : 3306,
+				"user" : "root",
+				"password" : "sniper123",				
+				"charset" : "utf8",
+				"keep_alive" : 1,
+				"auto_commit" : 1
+			}
+		}
+	]
+
+
+}

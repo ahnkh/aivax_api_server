@@ -1,0 +1,41 @@
+<h2>기본 정보</h2>
+- API Header
+    <table border=2>
+        <tr>
+        <th align=center>Header</th>
+        <th align=center>Description</th>
+        </tr>
+        <tr>
+        <td> x-api-access-key</td>
+        <td> 발급받은 Access key ID</td>
+        </tr>
+        <tr>
+        <td> x-api-signature</td>
+        <td> StringToSign을 사용자 ID와 맵핑되는 Secret Key로 암호화한 서명 <br/>
+        </td>
+        </tr>
+    </table>
+
+- 응답 데이터
+  <table border=2>
+    <tr><td style="background:#e2efda;"><strong><span style="color:#333333;">응답데이터</span></strong></td><td style="background:#e2efda;"><strong><span style="color:#333333;">설명</span></strong></td><td style="background:#e2efda;"><strong><span style="color:#333333;">데이터 유형</span></strong></td><td style="background:#e2efda;"><strong><span style="color:#333333;">범위</span></strong></td></tr>
+    <tr><td><span style="color:#333333;">api_code</span></td><td><span style="color:#333333;">응답코드</span></td><td><span style="color:#333333;">문자열</span></td><td><span style="color:#333333;">success/fail</span></td></tr>
+    <tr><td><span style="color:#333333;">api_ext_command_option</span></td><td><span style="color:#333333;">명령 구분 옵션</span></td><td><span style="color:#333333;">문자열</span></td><td><span style="color:#333333;">세부 응답 구분값</span></td></tr>
+    <tr><td><span style="color:#333333;">api_result_data</span></td><td><span style="color:#333333;">Api 수행후 후 응답 결과</span></td><td><span style="color:#333333;">문자열</span></td><td><span style="color:#333333;">tms+ 웹API 응답 결과</span></td></tr>
+    <tr><td><span style="color:#333333;">out_complete_date</span></td><td><span style="color:#333333;">api 수행 완료 시간</span></td><td><span style="color:#333333;">날짜형 문자열</span></td><td><span style="color:#333333;">yyy:mm:hh HH:mm:ss 형 문자열</span></td></tr>
+  </table>
+  
+
+- Signature 생성
+  - StringToSign: HTTP Method + " " + uri + "\n" + timestamp + "\n" + access_key
+  - SecretKey로 HmacSHA256 알고리즘으로 암호화한 후 Base64로 인코딩
+- 호출 예시
+
+  ```
+    curl -k -X '[HTTP Method]'
+      'https://127.0.0.1:[PORT]/api/v1/operation/version'      
+      -H 'x-api-access-key: 74cd9c4cc37d6e55815bbc5ce5631501'
+      -H 'x-api-signature: ZkupsgZjzjjrb6BGI1phgZWwvimDLFCsId16yQp21eM='
+      -H 'Content-Type: application/json'
+      ]'
+  ```

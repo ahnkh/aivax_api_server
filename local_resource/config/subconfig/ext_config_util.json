@@ -1,0 +1,52 @@
+{
+    "desc_util": [
+       
+    ],
+
+    "operation.sql_cli_process_module":
+    {
+        "desc":[
+            "operation util, sql cli 관리"
+        ],
+        
+        "local_instance_module_map":
+        {
+            "sql_cli_module":
+            {
+
+                "default_module_path" : "util_modules.operation_util_manage_modules.sql_cli_modules",
+
+                "sql_map_cli":
+                {                    
+                    "package" : "command_sql_map_module.sql_map_cli_command",
+                    "class" : "SQLMapCliCommand",
+                    "method" : "RunCommand"
+                }
+            }
+        }
+    },
+
+    "operation.etc_util_module":
+    {
+        "desc":[
+            "operation util, 기타 util 관리"
+        ],
+        
+        "local_instance_module_map":
+        {
+            "etc_util_module":
+            {
+                "desc" : "개발중",
+                "default_module_path" : "util_modules.operation_util_manage_modules.etc_util_modules",
+
+                "schedule_daemon":
+                {                    
+                    "package" : "command_schedule_module.schedule_daemon_command",
+                    "class" : "ScheduleDaemonCommand",
+                    "method" : "RunCommand"
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,57 @@
+{
+	"use" : 1,
+	"module_path" : "web_app_modules.api_router.wins_api_router", 
+	"class_name" : "WinsApiRouter",
+	"method_name": "InitializeRouter", 
+	"desc_comment": [			
+	],
+
+	"local_config":
+	{
+		"prefix" : "/api/log",
+
+		"route_list":
+		[
+
+			{
+				"use":1, 
+				"path" : "/list-promptblock",
+				"endpoint" : "getPromptBlockInfo",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["차단 로그"],
+				"summary" : "프롬프트 차단 로그 조회",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/list-mcpblock",
+				"endpoint" : "getMCPServerBlockInfo",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["차단 로그"],
+				"summary" : "MCPServer 차단 로그 조회",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/list-usermonitor",
+				"endpoint" : "getUserMonitorStatus",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["차단 로그"],
+				"summary" : "사용자 현황 로그 조회",
+				"description" : "",
+				"description_alt_text" : ""
+			}
+
+		]
+	}
+}
+
+
+

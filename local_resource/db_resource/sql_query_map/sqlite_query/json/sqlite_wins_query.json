@@ -1,0 +1,18 @@
+{
+    "category" : "sqlite",
+    "connection_id" : "sqlite_connector",
+
+    "desc" : [        
+    ],
+
+    "query_map":
+    [
+        {
+            "desc" : "",
+            "key" : "sqlite_select_local_config", 
+	        "action" : "query_for_object",
+            "query" : "select package, class, method from instance_module_map where cmd_category = '{cmd_category}' and command = '{command}' limit 1"
+        }
+    ]
+}
+

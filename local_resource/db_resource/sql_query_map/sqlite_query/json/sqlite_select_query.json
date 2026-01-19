@@ -1,0 +1,29 @@
+{
+    "category" : "sqlite",
+    "connection_id" : "sqlite_connector",
+
+    "desc" : [
+        "sqlite에 대한 쿼리맵, category 확장에 대한 대응, 각 json 별 category 지정",
+        "하나의 파일에는 하나의 query_map만 지원하고, 파일 단위로 설정 config에서 관리",
+        "사용, 미사용은 고려하지 않는다. 모두 올린다. => id로 접근하므로 복잡성만 커진다.",
+        "조회용 query map"
+    ],
+
+    "query_map":
+    [
+        {
+            "desc" : "테스트 쿼리",
+            "key" : "sqlite_select_dummy", 
+	    "action" : "query_for_object",
+            "query" : "select 1 where test = {test}"
+        },
+
+        {
+            "desc" : "종목 history, 종목코드 로 정렬된 종목코드 - 테스트 쿼리",
+            "key": "sqlite_select_stock_base_info_history",
+	    "action" : "query_for_list",
+            "query" : "SELECT STOCK_CODE FROM STOCK_BASE_INFO_HISTORY GROUP BY STOCK_CODE"
+        }
+    ]
+}
+

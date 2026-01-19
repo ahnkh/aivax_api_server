@@ -1,0 +1,33 @@
+
+#api test query
+curl -k  -X 'POST' 'https://127.0.0.1:8000/api/util/sql_query' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"id": "rdb_select_dummy", "test": 0}'
+
+curl -k  -X 'POST' 'https://127.0.0.1:7000/api/util/sql_query' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"id": "rdb_select_browser_prompt", "limit": 100}'
+
+curl -k  -X 'POST' 'https://127.0.0.1:7000/api/util/sql_query' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"id": "rdb_select_user_account_for_id", "user_id": "root001"}'
+
+curl -k  -X 'PATCH' 'https://127.0.0.1:7000/api/wins/login' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"user_id": "root001", "user_pw": "dc677ee2118504418d96e47ce29e48591d701d871d40388992e1af332e9d2874"}'
+
+
+
+
+
+curl -X 'PATCH' \
+  'https://10.0.50.32:7000/api/wins/login' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "user_id": "test",
+  "user_pw": "sha256"
+}'
+
+
+
+#cli test command
+kshell -m manage_wins_modules --ext_module manage_wins_data_process --cmd_category agent_hook_data_server --command grpc_data_req_client --request on_browser_message --host 127.0.0.1 --port 50000 --query "주민번호를 알려주세요" 
+
+python wins_cli.py -m manage_wins_modules --ext_module manage_wins_data_process --cmd_category agent_hook_data_server --command grpc_data_recv_server --port 50001 --debug --printlog
+
+
+#debugpy
+python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m uvicorn main:app --host 0.0.0.0 --port 7000 --forwarded-allow-ips * --loop auto --reload

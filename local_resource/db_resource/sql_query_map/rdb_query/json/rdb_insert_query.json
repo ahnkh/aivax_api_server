@@ -1,0 +1,13 @@
+{
+    "category" : "rdb",
+    "connection_id" : "mariadb_connector",
+
+    "desc" : [        
+        "rdb - mariadb에 대한 쿼리맵, 틀만 잡음"
+    ],
+
+    "query_map":
+    [        
+    ]
+}
+

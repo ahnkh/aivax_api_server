@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<QueryMap category = "sqlite" connection_id = "sqlite_connector">
+
+	<!-- 종목코드, history -->
+
+	<Query key = "sqlite_legacy_select_stock_csv_code_db" action = "query_for_list">
+					
+		<![CDATA[			
+			SELECT NO, STOCK_CODE, STOCK_NAME FROM StockCsvCodeDB
+		]]>
+	</Query>
+
+	<Query key = "sqlite_legacy_select_stock_base_info" action = "query_for_list">
+					
+		<![CDATA[			
+			SELECT NO, STOCK_CODE, STOCK_NAME FROM StockBaseInfo
+		]]>
+	</Query>
+
+	<Query key = "sqlite_new_select_stock_csv_code_db" action = "query_for_list">
+					
+		<![CDATA[			
+			SELECT NO, STOCK_CODE, STOCK_NAME FROM STOCK_CSV_CODE_DB
+		]]>
+	</Query>
+
+	<Query key = "sqlite_new_select_stock_base_info" action = "query_for_list">
+					
+		<![CDATA[			
+			SELECT NO, STOCK_CODE, STOCK_NAME FROM STOCK_BASE_INFO
+		]]>
+	</Query>
+
+	<!-- 뉴스 데이터 -->
+
+	
+
+	<!-- 네이버 재무재표, legay, 테이블 상이 -->
+	<Query key = "sqlite_select_naver_finance" action = "query_for_list">
+					
+		<![CDATA[
+			
+			SELECT NO, DIVISION, REG_DATE, STOCK_CODE, STOCK_CODE_VALID, STOCK_NAME, 
+                FACE_VALUE, PUBLIC_STOCKS, MARKET_CAPITAL, SALES, TOTAL_ASSET, TOTAL_DEBT, FOREIGN_RATE, 
+                BUSINESS_PROFIT, CURRENT_NET_PROFIT, INCOME_PER_SHARE, COMMON_DIVIDEND, GROW_RATE_SALES, 
+                BUSINESS_PROFIT_GROW_RATE, PER, ROE, ROA, PBR, INTERNAL_RESERVE_RATE 
+			FROM NaverFinance 
+         WHERE NOT STOCK_CODE IN ('000000') {where_query}
+
+		]]>
+	</Query>
+
+	<!-- 네이버 재무재표, new, 테이블 상이, naver_finance -->
+	<Query key = "sqlite_select_new_naver_finance" action = "query_for_list">
+					
+		<![CDATA[
+			
+			SELECT NO, DIVISION, REG_DATE, STOCK_CODE, STOCK_CODE_VALID, STOCK_NAME, 
+                FACE_VALUE, PUBLIC_STOCKS, MARKET_CAPITAL, SALES, TOTAL_ASSET, TOTAL_DEBT, FOREIGN_RATE, 
+                BUSINESS_PROFIT, CURRENT_NET_PROFIT, INCOME_PER_SHARE, COMMON_DIVIDEND, GROW_RATE_SALES, 
+                BUSINESS_PROFIT_GROW_RATE, PER, ROE, ROA, PBR, INTERNAL_RESERVE_RATE 
+			FROM naver_finance 
+         WHERE 1=1 {where_query}
+
+		]]>
+	</Query>
+
+</QueryMap>

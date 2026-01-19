@@ -1,0 +1,13 @@
+{
+    "category" : "sqlite",
+    "connection_id" : "sqlite_connector",
+
+    "desc" : [
+        "insert 용 query map"
+    ],
+
+    "query_map":
+    [
+    ]
+}
+

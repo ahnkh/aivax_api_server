@@ -1,0 +1,80 @@
+{	
+	"local_common_http_option":
+	{
+
+		"response_encoding" : "utf-8",
+
+		"timeout" : 60,
+		"request_retry" : 3,
+		"ssl_verify" : 0,
+
+		"use_debug" :0,
+		"debug_file" : "debug_http_query.txt"
+		
+	},
+
+	"embed_custom_reflection_desc":
+	[
+	],
+
+	"http_query_map_list":
+	[
+
+		{
+			"desc_group" : "기본 http 쿼리 수행, url, post 자유도 제공, reflection 제공, get, post 구분만 배제, 호출시 선택 옵션 한개 제외, reflection은 호출시 전달",
+
+			"forward_get_request" : 
+			{
+				"desc" : "기본 http 쿼리 수행, 인위적인 쿼리 없이 전달",
+				"http_url" : "https://finance.naver.com/sise/sise_market_sum.nhn?sosok={sosok}&page={page}",
+				"method" : "get",
+
+				"ext_local_config" : 
+				{
+
+					"request_reflect": [	
+					],
+
+					"response_reflect": [							
+					]
+				}
+			},
+
+			"forward_post_request" : 
+			{
+				"desc" : "기본 http 쿼리 수행, 인위적인 쿼리 없이 전달",
+				"http_url" : "https://{devip}:{port}/{url}",
+				"method" : "post",
+				"post_data" : "{post_data}",
+
+				"ext_local_config" : 
+				{
+
+					"request_reflect": [	
+					],
+
+					"response_reflect": [
+					]
+				}
+			},
+
+			"any_get_request" : 
+			{
+				"desc" : "임의의 http 요청, localhost",
+				"http_url" : "https://{ip}:{port}/{url}",
+				"method" : "get",
+
+				"ext_local_config" : 
+				{
+				}
+			}
+
+		},
+
+		{
+			"desc_group" : "다음에 추가할 데이터"
+		}
+		
+	]
+
+}

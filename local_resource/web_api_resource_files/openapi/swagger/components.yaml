@@ -1,0 +1,10 @@
+components:
+ schemas:
+  Response:
+   properties:
+    statusCode:
+     type: integer
+     description: HTTP 상태 코드
+    message:
+     type: string
+     description: 메세지

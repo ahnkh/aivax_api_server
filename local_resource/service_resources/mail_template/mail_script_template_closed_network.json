@@ -1,0 +1,13 @@
+{
+    "mail_url": "175.113.82.233",
+    "mail_port": 25,
+    "subject": "",
+    "from_mail": "acf21s@gmail.com",
+    "recv_mail_list": [
+        "ghahn@wins21.co.kr"
+    ],
+    "data_map": {
+        
+    },
+    "style_file": ""
+}

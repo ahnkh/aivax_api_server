@@ -1,0 +1,112 @@
+{
+
+    "initial_local_resource":
+    {
+
+        "default_init_directory":
+        {
+            "directory_list_group":
+            [
+                {
+                    "directory_list" : 
+                    [                        
+                    ]
+                }
+            ]
+        }
+    },
+
+    "http_query_map":
+    {
+
+        "http_query_map_list":
+        [
+            "local_resource/http_query_map/base_request.json",
+            "local_resource/http_query_map/wins_query/ai_pipeline.json"
+        ]
+    },
+
+    "db_connector":
+    {
+        "db_connection_list" : [
+            "local_resource/db_resource/db_custom_wins.json"
+        ]
+    },
+
+    "sql_query_map":
+    {
+
+        "querymap_list":
+        [
+            {
+                
+                "category" : "rdb",
+
+                "json_query": [                    
+                    "local_resource/db_resource/sql_query_map/rdb_query/json/rdb_wins_select_query.json",
+                    "local_resource/db_resource/sql_query_map/rdb_query/json/rdb_wins_insert_query.json"
+                ],
+                "xml_query": [
+                ]
+            },
+
+            {
+                "category": "sqlite",
+
+                "json_query": [
+                    "local_resource/db_resource/sql_query_map/sqlite_query/json/sqlite_wins_query.json"
+                ],
+                "xml_query": [
+                ]
+            }
+        ]
+    },
+
+    "mail_info":
+    {
+
+        "mail_url" : "175.113.82.233",
+        "mail_port" : 25,
+    
+        "subject" : "[wins] test query",
+        "from_mail" : "ghahn@wins21.co.kr",
+        
+        "recv_mail_list" : 
+        [
+            "ghahn@wins21.co.kr"
+        ],
+        
+        "data_map" :
+        {
+            "#data#" : ""
+        },
+    
+        "style_file" : "./style.txt",
+        "attach_file" : ""
+    },
+
+    "fast_api_server_config":
+	{
+
+		"ssl_key_file_path" : "local_resource/web_api_resource_files/openapi/ssl_key_files/key.pem",
+		"ssl_cert_file_path" : "local_resource/web_api_resource_files/openapi/ssl_key_files/cert.pem",
+
+		"host" : "0.0.0.0",
+		"port" : 8000,
+
+        "router_config":
+        {
+
+            "router_config_list":
+            [
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/open_api_router.json"},
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/operation_util_api_router.json"},
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_base_router.json"},
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_policy_router.json"},
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_log_router.json"}
+            ]
+        }
+
+	}
+
+}

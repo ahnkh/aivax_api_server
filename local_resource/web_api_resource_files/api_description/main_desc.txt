@@ -1,0 +1,8 @@
+<h2>기본 정보</h2>
+
+  ```
+    curl -k -X '[HTTP Method]'
+      'https://127.0.0.1:[PORT]/api/v1/operation/version'      
+      -H 'Content-Type: application/json'
+      ]'
+  ```

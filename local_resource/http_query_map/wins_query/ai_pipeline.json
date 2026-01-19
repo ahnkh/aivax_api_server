@@ -1,0 +1,41 @@
+{	
+	"local_common_http_option":
+	{
+		"response_encoding" : "utf-8",
+		"timeout" : 10,
+		"request_retry" : 3,
+		"ssl_verify" : 0,
+
+		"use_debug" :0,
+		"debug_file" : "debug_http_query.txt"
+		
+	},
+
+    "desc_group" : "",
+
+	"http_query_map_list":
+	[
+		{
+			"pipeline_filter_query" :
+			{
+				"desc" : "",
+				"http_url" : "http://{server_ip}:{port}/{pipeline_id}/filter/inlet",
+				"method" : "post",
+
+				"post_data" : null,
+
+				"desc_post_data_desc_success" : "{\"result\" : \"{result}\", \"total_cnt\" : {total_cnt}, \"error_cnt\" : {error_cnt}, \"rule_file_nm\" : \"{rule_file_nm}\"}",
+
+				"ext_local_config" : 
+				{
+				}
+			}
+		},
+
+		{
+			"desc_group" : "다음에 추가할 데이터"
+		}
+
+	]
+
+}

@@ -1,0 +1,128 @@
+{
+    "desc_wins": [        
+    ],
+
+    "wins_data_process_module":
+    {
+        "desc":
+        [           
+        ],  
+
+        "local_instance_module_map":
+        {
+
+            "agent_hook_data_server":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_data_process_modules",
+
+                "grpc_data_recv_server":
+                {                    
+                    "package" : "command_agent_hook_data_server.grpc_agent_data_recv_server_command",
+                    "class" : "GRPCAgentDataRecvServerCommand",
+                    "method" : "RunDaemon"
+                },
+
+                "grpc_data_recv_server_fromapi":
+                {                    
+                    "package" : "command_agent_hook_data_server.grpc_agent_data_recv_server_command",
+                    "class" : "GRPCAgentDataRecvServerCommand",
+                    "method" : "RunExtProcess"
+                },
+
+                "grpc_data_req_client":
+                {                    
+                    "package" : "command_agent_hook_data_server.grpc_client_command",
+                    "class" : "GrpcClientCommand",
+                    "method" : "RequestToGrpcServer"
+                }
+            }
+
+        },
+
+        "grpc_recv_server_command": {
+
+            "log_write_thread":
+            {
+                "string_buffer_config_list":
+                [
+                    {
+                        "queue_id" : "bwmsg",
+
+                        "collection_prefix" : "browser_message",
+                        "temp_file_path" : "../.TEMP/GRPC_LOG/",
+                        "bulk_file_path" : "../bulk_files/grpc_log/",
+                        "max_limit" : 10000,
+
+                        "flush_finish_script" : "ls -t ../../../.TEMP/GRPC_LOG 2> /dev/null | tail -n +1000 | xargs -i rm ../../../.TEMP/GRPC_LOG/{} &> /dev/null"
+                    },
+
+                    {
+                        "queue_id" : "llmreq",
+                        "collection_prefix" : "llm_request",
+                        "temp_file_path" : "../.TEMP/GRPC_LOG/",
+                        "bulk_file_path" : "../bulk_files/grpc_log/",
+                        "max_limit" : 10000,
+
+                        "flush_finish_script" : ""
+                    },
+
+                    {
+                        "queue_id" : "mcpcall",
+
+                        "collection_prefix" : "mcp_request",
+                        "temp_file_path" : "../.TEMP/GRPC_LOG/",
+                        "bulk_file_path" : "../bulk_files/grpc_log/",
+                        "max_limit" : 10000,
+
+                        "flush_finish_script" : ""
+                    },
+
+                    {
+                        "queue_id" : "strchk",
+
+                        "collection_prefix" : "llm_stream_chunk",
+                        "temp_file_path" : "../.TEMP/GRPC_LOG/",
+                        "bulk_file_path" : "../bulk_files/grpc_log/",
+                        "max_limit" : 10000,
+
+                        "flush_finish_script" : ""
+                    },
+
+                    {
+                        "queue_id" : "llmres",
+
+                        "collection_prefix" : "llm_response",
+                        "temp_file_path" : "../.TEMP/GRPC_LOG/",
+                        "bulk_file_path" : "../bulk_files/grpc_log/",
+                        "max_limit" : 10000,
+
+                        "flush_finish_script" : ""
+                    },
+
+                    {
+                        "queue_id" : "mcpres",
+
+                        "collection_prefix" : "mcp_response",
+                        "temp_file_path" : "../.TEMP/GRPC_LOG/",
+                        "bulk_file_path" : "../bulk_files/grpc_log/",
+                        "max_limit" : 10000,
+
+                        "flush_finish_script" : ""
+                    }
+                ]
+
+            }
+        }
+
+    },
+
+    "wins_api_module":
+    {
+        "local_instance_module_map":
+        {
+
+        }
+    }
+
+}

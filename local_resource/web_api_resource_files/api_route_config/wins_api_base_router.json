@@ -1,0 +1,57 @@
+{
+	"use" : 1,
+	"module_path" : "web_app_modules.api_router.wins_api_router", 
+	"class_name" : "WinsApiRouter",
+	"method_name": "InitializeRouter", 
+	"desc_comment": [			
+	],
+
+	"local_config":
+	{
+		"prefix" : "/api/exec",
+
+		"route_list":
+		[
+
+			{
+				"use":1, 
+				"path" : "/auth-login",
+				"endpoint" : "authLogin",
+				"methods" : ["PATCH"],
+				"include_in_schema" : 1,
+				"tags" : ["login"],
+				"summary" : "login api",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":0, 
+				"path" : "/grpc-server",
+				"endpoint" : "runGrpcServer",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["run grpc server"],
+				"summary" : "run grpc server",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/grpc-client",
+				"endpoint" : "runGrpcClient",
+				"methods" : ["PATCH"],
+				"include_in_schema" : 1,
+				"tags" : ["run grpc client"],
+				"summary" : "run grpc client",
+				"description" : "",
+				"description_alt_text" : ""
+			}
+
+		]
+	}
+}
+
+
+

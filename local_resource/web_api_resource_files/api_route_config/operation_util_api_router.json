@@ -1,0 +1,32 @@
+{
+	"use" : 1,
+	"module_path" : "web_app_modules.api_router.operation_util_api_router", 
+	"class_name" : "OperationUtilApiRouter",
+	"method_name": "InitializeRouter", 
+	"desc_comment": [			
+	],
+
+	"local_config":
+	{
+		"prefix" : "/api/util",
+
+		"route_list":
+		[
+
+			{
+				"use":1, 
+				"path" : "/sql_query",
+				"endpoint" : "executeSQLApi",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["run SQL Query"],
+				"summary" : "run SQL Query",
+				"description" : "",
+				"description_alt_text" : ""
+			}
+		]
+	}
+}
+
+
+

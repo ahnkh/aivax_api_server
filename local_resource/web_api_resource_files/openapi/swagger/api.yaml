@@ -1,0 +1,68 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Open API Test
+#servers:
+#  - url: 'http://10.0.5.210:8000/'
+components:
+  schemas:
+    Response:
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP STATUS CODE
+        message:
+          type: string
+          description: MESSAGE
+paths:
+  /forward:
+    post:
+      summary: ONE API master concept API that forwards all APIs to ONE equipment
+      tags:
+        - forward API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                protocol:
+                  type: string
+                sensorlist:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ip:
+                        type: string
+                      port:
+                        type: string
+                datasetlist:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string                    
+                      method:
+                        type: string
+                      params:
+                        type: object
+                        additionalProperties: {}
+                      postdata:
+                        type: string
+      responses:
+        '200':
+          description: communication success
+          schema:
+            $ref: '#/components/schemas/Response'
+        '400':
+          description: Input value revalidation required
+          schema:
+            $ref: '#/components/schemas/Response'
+        '500':
+          description: server problem
+          schema:
+            $ref: '#/components/schemas/Response'
+
+      

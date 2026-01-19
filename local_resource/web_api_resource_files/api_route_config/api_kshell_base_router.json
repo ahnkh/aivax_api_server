@@ -1,0 +1,34 @@
+{
+	"use" : 1,
+	"module_path" : "web_app_modules.api_router.kshell_base_api_router", 
+	"class_name" : "KshellBaseApiRouter",
+	"method_name": "InitializeRouter", 
+	"desc_comment": [
+		"내부 통신용 공용 api",
+		"prefix 부분은 다른 api가 개발되면 다시 정의"
+	],
+
+	"local_config":
+	{
+		"prefix" : "/api/v1/wcli",
+
+		"route_list":
+		[
+
+			{
+				"use":1, 
+				"path" : "/wshell",
+				"endpoint" : "runKShell",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["kshell web cli"],
+				"summary" : "kshell 명령 콘솔 web cli",
+				"description" : "local_resource/web_api_resource_files/api_description/main_desc.txt",
+				"description_alt_text" : ""
+			}
+		]
+	}
+}
+
+
+
