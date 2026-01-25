@@ -6,24 +6,26 @@ import uvloop
 from lib_include import *
 from common_modules.type_hint import *
 
-from common_modules.global_common_module import GlobalCommonModule
+# from common_modules.global_common_module import GlobalCommonModule
 
 from mainapp.kshell_mainapp import KShellMainApp
 
 from web_app_modules.web_api_mainapp import WebApiMainApp
 
-# uvloop 설치 (기본 asyncio 루프 대신 uvloop 사용)
 uvloop.install()
-
 
 def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
     
     strMainDescriptFile = "local_resource/web_api_resource_files/api_description/main_desc.txt"
     strDescription = FileIOHelper.OpenFileAsUTFToStream(strMainDescriptFile)
     
-    webMainApp = WebApiMainApp(title="Wins Open API", 
-                                        description = strDescription)
-
+    webMainApp = WebApiMainApp(title="AIVAX Open API", 
+                               doc_url="/docs", 
+                               redoc_url=None, 
+                               root_path="/openapi",
+                               openapi_url="/openapi.json", 
+                               description = strDescription)
+                            
     strRootFilePath = os.path.dirname(__file__)
     strAbsoluteDir = os.path.join(strRootFilePath, "local_resource/web_api_resource_files/openapi/static/")
 
@@ -39,7 +41,7 @@ def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
 
 def main():
 
-    InitLogger("log.txt", TRACE_LOG_PATH, TRACE_PREFIX)
+    InitLogger("tracelog.txt", TRACE_LOG_PATH, TRACE_PREFIX)
     
     winsCliMainApp = KShellMainApp()
     
@@ -68,6 +70,7 @@ def main():
         dictOpt = {
             KShellParameterDefine.APP_ROOT : KSHELL_APP_ROOT,
             KShellParameterDefine.CONFIG_BASE_PATH : CONFIG_BASE_PATH,
+            KShellParameterDefine.OPEN_API : CONFIG_OPT_ENABLE,
 
             KShellParameterDefine.METHOD : [],
         }

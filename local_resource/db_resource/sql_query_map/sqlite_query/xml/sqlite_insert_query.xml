@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!-- sqlite, insert interface -->
-
-<QueryMap category = "sqlite" connection_id = "sqlite_connector">
-
-	<!-- 종목코드, history -->
-
-</QueryMap>

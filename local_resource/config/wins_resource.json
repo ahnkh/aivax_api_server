@@ -65,15 +65,15 @@
     "mail_info":
     {
 
-        "mail_url" : "175.113.82.233",
+        "mail_url" : "127.0.0.1",
         "mail_port" : 25,
     
-        "subject" : "[wins] test query",
-        "from_mail" : "ghahn@wins21.co.kr",
+        "subject" : "[aivax] subject mail template",
+        "from_mail" : "wins@wins21.co.kr",
         
         "recv_mail_list" : 
         [
-            "ghahn@wins21.co.kr"
+            "wins@wins21.co.kr"
         ],
         
         "data_map" :

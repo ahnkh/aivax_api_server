@@ -62,7 +62,7 @@ CONFIG_OPT_ENABLE = 1
 CONFIG_OPT_DISABLE = 0
 
 KSHELL_APP_ROOT = "./"
-CONFIG_BASE_PATH = "./local_resource/config/base-config.json"
+CONFIG_BASE_PATH = "./local_resource/config/wins-config.json"
 TRACE_LOG_PATH = "./trace-log"
 TRACE_PREFIX = "api_server"
 
