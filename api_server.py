@@ -20,7 +20,7 @@ def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
     strDescription = FileIOHelper.OpenFileAsUTFToStream(strMainDescriptFile)
     
     webMainApp = WebApiMainApp(title="AIVAX Open API", 
-                               doc_url="/docs", 
+                               docs_url="/docs", 
                                redoc_url=None, 
                                root_path="/openapi",
                                openapi_url="/openapi.json", 
