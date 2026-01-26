@@ -21,8 +21,8 @@ def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
     
     webMainApp = WebApiMainApp(title="AIVAX Open API", 
                                docs_url="/docs", 
-                               redoc_url=None, 
-                               root_path="/openapi",
+                               redoc_url=None,                             
+                               root_path="",
                                openapi_url="/openapi.json", 
                                description = strDescription)
                             
