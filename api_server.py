@@ -19,10 +19,12 @@ def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
     strMainDescriptFile = "local_resource/web_api_resource_files/api_description/main_desc.txt"
     strDescription = FileIOHelper.OpenFileAsUTFToStream(strMainDescriptFile)
     
+    strApiRootPath:str = dictOpt.get(KShellParameterDefine.API_ROOT_PATH)
+    
     webMainApp = WebApiMainApp(title="AIVAX Open API", 
                                docs_url="/docs", 
                                redoc_url=None,                             
-                               root_path="",
+                               root_path=strApiRootPath,
                                openapi_url="/openapi.json", 
                                description = strDescription)
                             
@@ -52,7 +54,7 @@ def main():
                 "debug", "printlog", "method=", "module=", "dummy", "cmd_category=", "command=", "ext_module=",
                 "open_api",
                                 
-                "api_out_response=", "api_print_console=", "app_root=",
+                "api_out_response=", "api_print_console=", "app_root=", "api_root_path=",
                 "config_base_path=",
                 
                 "host=",                
@@ -69,6 +71,7 @@ def main():
                     
         dictOpt = {
             KShellParameterDefine.APP_ROOT : KSHELL_APP_ROOT,
+            KShellParameterDefine.API_ROOT_PATH : "",
             KShellParameterDefine.CONFIG_BASE_PATH : CONFIG_BASE_PATH,
             KShellParameterDefine.OPEN_API : CONFIG_OPT_ENABLE,
 
@@ -85,16 +88,6 @@ def main():
 
             elif o in ("-m", "--method", "--module"): 
                 dictOpt["method"].append(args)
-
-            elif o == ("-s", "--script_config"):                
-                dictOpt.update(args)
-                pass
-                
-            elif o == ("-f", "--script_file"):
-                
-                strScriptFile = str(args)                
-                JsonHelperX.JsonFileToDictionary(strScriptFile, dictOpt)                
-                pass
 
             else:
                                 
