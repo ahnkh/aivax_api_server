@@ -181,4 +181,74 @@ class UserMonitorLogItem(BaseModel):
         
     condition : Optional[UserMonitorBaseConditionItem]
     pass
+
+
+############################################ pipeline 관련
+
+# 차단정보
+class FileAttachItem(BaseModel):
+    
+    id : Optional[str] = Field(default="", description="file id")
+    size : Optional[int] = Field(default=0, description="file size")
+    name : Optional[str] = Field(default="", description="file name")
+    mime_type : Optional[str] = Field(default="", description="mime type")
+    # pass
+
+#엔진등, 다중 차단을 위한 API 데이터
+class VariantFilterForm(BaseModel):
+    
+    '''
+    filter_list : 차단 필터 리스트
+    
+    - llm_filter : AI 필터
+    - inlet_raw_logger : 테스트용, 미사용
+    - secret_filter : API 차단 필터
+    - regex_filter : 정규표현식 기반 필터
+    - file_block_filter : 파일 분석 필터
+    - input_filter : opensearch 저장 (프롬프트)
+    - output_filter : opensearch 저장 (LLM 응답)    
+    
+    prompt : 프롬프트 문자열 (예: 프롬프트를 입력해주세요)
+    
+    - prompt, prompt_base64 둘다 사용시, prompt를 우선하여 사용
+    
+        body": {
+        "messages": [
+        {"role": "user", "content": "안녕하세요"}
+        ]
+    },
+    "user": {
+        "id": "u1234",
+        "name": "홍길동"
+    }
+    }'
+    '''
+    
+    server_ip:str = Field(default="127.0.0.1", description="pipeline server ip")
+    port:str = Field(default="9099", description="pipeline server port")
+    openapi:str = Field(default="", description="pipeline server api root")
+        
+    filter_list: Optional[List[str]] = ["input_filter", "secret_filter", "slm_filter", "file_block_filter"] 
+        
+    prompt: str = Field(default="", description="입력 프롬프트")
+    
+    user_id : Optional[str] = Field(default="", description="사용자ID")
+    email : Optional[str] = Field(default="", description="email")
+    ai_service : Optional[int] = Field(default=0, description="ai 서비스 타입 (GPT=0, CLAUDE=1, GEMINI=2,)")
+    client_host : Optional[str] = Field(default="", description="사용자 host, ip")
+    session_id : Optional[str] = Field(default="", description="session id")
+    
+    attachments: Optional[List[FileAttachItem]] = Field(default_factory=list, description="첨부 파일 리스트")
+        
+    message_id:str = Field(default="", description="message id, 요청 및 응답간의 연결 키")
+    # pass
+    
+#filter 룰 테스트 기능
+class FilterRuleTestItem(BaseModel):
+    
+    prompt: str = Field(default="", description="입력 프롬프트")
+    
+    rule:str = Field(default="", description="정책 Rule")
+    action:str = Field(default="", description="action (block/masking)")    
+    # pass
     

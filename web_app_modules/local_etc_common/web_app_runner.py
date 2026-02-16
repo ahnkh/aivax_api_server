@@ -71,9 +71,8 @@ class WebAppRunner:
             ssl_keyfile=strSSLKeyFilePath,
             ssl_certfile=strSSLCertFilePath,
             log_level=logLevel, #2024.06.02 출력 옵션 추가
-            root_path = "/apiserver", #nginx 테스트, root-path 추가
-            loop="uvloop", 
-            http="httptools",           
+            root_path = ".", #nginx 테스트, root-path 추가
+            
         )
 
         return ERR_OK

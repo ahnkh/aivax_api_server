@@ -44,9 +44,18 @@
                     "package" : "command_schedule_module.schedule_daemon_command",
                     "class" : "ScheduleDaemonCommand",
                     "method" : "RunCommand"
+                },
+
+                "http_request":
+                {                    
+                    "package" : "command_http_request.http_request_command",
+                    "class" : "HttpRequestCommand",
+                    "method" : "RunCommand"
                 }
             }
         }
     }
+
+    
 
 }

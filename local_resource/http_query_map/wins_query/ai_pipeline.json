@@ -2,7 +2,7 @@
 	"local_common_http_option":
 	{
 		"response_encoding" : "utf-8",
-		"timeout" : 10,
+		"timeout" : 60,
 		"request_retry" : 3,
 		"ssl_verify" : 0,
 
@@ -16,15 +16,45 @@
 	"http_query_map_list":
 	[
 		{
-			"pipeline_filter_query" :
+			"pipeline_inlet_filter" :
 			{
-				"desc" : "",
+				"desc" : "sample query",
 				"http_url" : "http://{server_ip}:{port}/{pipeline_id}/filter/inlet",
 				"method" : "post",
 
 				"post_data" : null,
 
 				"desc_post_data_desc_success" : "{\"result\" : \"{result}\", \"total_cnt\" : {total_cnt}, \"error_cnt\" : {error_cnt}, \"rule_file_nm\" : \"{rule_file_nm}\"}",
+
+				"ext_local_config" : 
+				{
+				}
+			}
+		},
+
+		{
+			"pipeline_multiplue_filter" :
+			{
+				"desc" : "pipeline 다중 filter, local 요청",
+				"http_url" : "http://{server_ip}:{port}/{openapi}/v1/filter/multiple_filter",
+				"method" : "post",
+				
+				"post_data" : "",
+
+				"ext_local_config" : 
+				{
+				}
+			}
+		},
+
+		{
+			"pipeline_test_rule" :
+			{
+				"desc" : "pipeline 다중 filter, local 요청",
+				"http_url" : "http://{server_ip}:{port}/{openapi}/v1/filter/testrule",
+				"method" : "post",
+				
+				"post_data" : "",
 
 				"ext_local_config" : 
 				{

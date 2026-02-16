@@ -41,6 +41,21 @@ class WinsApiRouter:
 
         return router
     
+    ########################################################## pipeline api
+    
+    # pipeline 차단 filter, 검증 API
+    async def forwardPipelineMultipleMultipleFilter(self, modelItem:VariantFilterForm):
+        
+        dictItemModel = WinsModelConvertHelper.forwardPipelineMultipleMultipleFilter(modelItem)
+        return self.__runKshell(dictItemModel)
+    
+    async def forwardPipelineTestFilter(self, modelItem:FilterRuleTestItem):
+        
+        dictItemModel = WinsModelConvertHelper.forwardPipelineTestFilter(modelItem)
+        return self.__runKshell(dictItemModel)
+    
+    ########################################################## 미사용 기능
+    
     #디노티시아, grpc 서버 수집 데몬 기동
     async def runGrpcServer(self, modelItem:GrpcServerItem):
 

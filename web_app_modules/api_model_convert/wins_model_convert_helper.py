@@ -43,6 +43,64 @@ class WinsModelConvertHelper:
 
             #TODO: 부가기능, 프롬프트등 전달. 통일된 파라미터로 전달
         }
+        
+    ###################################### pipeline 관련
+    
+    # pipeline 차단 filter
+    @staticmethod    
+    def forwardPipelineMultipleMultipleFilter(modelItem:VariantFilterForm): 
+        
+        '''
+        TODO: modelItem을 dictionary로 만들어서, http_request를 요청하는 api를 만든다.
+        api를 통해서 전달하니, 유연하게 전달 가능하다.
+        pipeline ip, port - 관리되는 port 정보가 필요하며, 수집 기능이 필요하다.
+        http_request를 요청하니, 외부에서 받아서 전달한다.
+        request를 modelItem => dictionary로 전달하면 된다. 인자만 정의하면 쉽게 개발 가능
+        test filter, pipeline filter 모두 동일하다.
+        output filter는 굳이 필요하지 않다.
+        '''   
+        
+        return {
+            
+            KShellParameterDefine.METHOD : ["manage_operation_util_modules"], 
+            KShellParameterDefine.EXT_MODULE : "manage_etc_util_module",
+            KShellParameterDefine.CMD_CATEGORY : "etc_util_module",
+            KShellParameterDefine.COMMAND : "http_request",
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_REQUEST_ID : "pipeline_multiplue_filter",
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_URL_OPT : {
+                "server_ip" : modelItem.server_ip, 
+                "port" : modelItem.port,
+                "openapi" : modelItem.openapi
+                },
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_COOKIE : {
+                "accept" : "application/json",
+                "Content-Type" : "application/json"
+            },
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_JSON_REQUEST : {
+                
+                "filter_list": modelItem.filter_list,                
+                "prompt" : modelItem.prompt,
+                "user_id" : modelItem.user_id,
+                "email" : modelItem.email,
+                "ai_service" : modelItem.ai_service,
+                "client_host" : modelItem.client_host,
+                "session_id" : modelItem.session_id,
+                "message_id" : modelItem.message_id                
+                },
+            
+        }
+        
+    # pipeline test filter
+    @staticmethod    
+    def forwardPipelineTestFilter(modelItem:FilterRuleTestItem):    
+        
+        return {
+            
+        }
     
     #사용자 로그인 요청
     @staticmethod

@@ -44,7 +44,7 @@ class OperationUtilManageModule:
             # pass
             
         elif UtilCommandDefine.EXT_MODULE_MANAGE_ETC_UTIL_MODULE == ext_module:
-            strLocalModuleConfigName = "operation.sql_cli_process_module"
+            strLocalModuleConfigName = "operation.etc_util_module"
             #pass
         else:            
             GlobalCommonModule.RaiseHttpException(UtilErrorDefine.CLI_COMMAND_ERROR, UtilErrorDefine.CLI_COMMAND_ERROR_MSG, f"not defined ext module {ext_module}", apiResponseHandler)

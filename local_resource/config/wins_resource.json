@@ -20,8 +20,7 @@
     {
 
         "http_query_map_list":
-        [
-            "local_resource/http_query_map/base_request.json",
+        [            
             "local_resource/http_query_map/wins_query/ai_pipeline.json"
         ]
     },
@@ -102,8 +101,10 @@
                 {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/open_api_router.json"},
                 {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/operation_util_api_router.json"},
                 {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_base_router.json"},
-                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_policy_router.json"},
-                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_log_router.json"}
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_log_router.json"},
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_pipeline_router.json"},
+                {"use" : 1, "path" : "local_resource/web_api_resource_files/api_route_config/wins_api_policy_router.json"}
+                
             ]
         }
 
