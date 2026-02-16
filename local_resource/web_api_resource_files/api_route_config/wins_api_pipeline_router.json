@@ -1,0 +1,45 @@
+{
+	"use" : 1,
+	"module_path" : "web_app_modules.api_router.wins_api_router", 
+	"class_name" : "WinsApiRouter",
+	"method_name": "InitializeRouter", 
+	"desc_comment": [			
+	],
+
+	"local_config":
+	{
+		"prefix" : "/api/pipeline",
+
+		"route_list":
+		[
+
+			{
+				"use":1, 
+				"path" : "/filter",
+				"endpoint" : "forwardPipelineMultipleMultipleFilter",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["pipeline filter"],
+				"summary" : "pipeline filter",
+				"description" : "",
+				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/test-rule",
+				"endpoint" : "forwardPipelineTestFilter",
+				"methods" : ["POST"],
+				"include_in_schema" : 1,
+				"tags" : ["pipeline filter"],
+				"summary" : "pipeline filter",
+				"description" : "",
+				"description_alt_text" : ""
+			}
+
+		]
+	}
+}
+
+
+

@@ -66,6 +66,6 @@ CONFIG_BASE_PATH = "./local_resource/config/wins-config.json"
 TRACE_LOG_PATH = "./trace-log"
 TRACE_PREFIX = "api_server"
 
-from mainapp.global_resource.module_function import http_request
-from mainapp.global_resource.module_function import UTF8Text
-from mainapp.global_resource.module_function import sqlprintf
+from common_modules.module_function import http_request
+from common_modules.module_function import UTF8Text
+from common_modules.module_function import sqlprintf
