@@ -14,7 +14,7 @@ from web_app_modules.web_api_mainapp import WebApiMainApp
 
 uvloop.install()
 
-def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
+def run_openapi_server(dictOpt:dict, mainApp:KShellMainApp):
     
     strMainDescriptFile = "local_resource/web_api_resource_files/api_description/main_desc.txt"
     strDescription = FileIOHelper.OpenFileAsUTFToStream(strMainDescriptFile)
@@ -39,6 +39,18 @@ def RunOpenApiServer(dictOpt:dict, mainApp:KShellMainApp):
     webMainApp.AddApiRouter()
      
     webMainApp.RunWebApiServer(dictOpt)
+    pass
+
+#script file option의 실행
+def do_script_file_opt(strScriptFile:str, lstMultiCommand:list):
+    
+    #안에서 전달된 인자로 update 된다.
+    dictScriptJson = {}
+    JsonHelperX.JsonFileToDictionary(strScriptFile, dictScriptJson)
+    
+    command_list:list = dictScriptJson.get(KShellParameterDefine.SCRIPT_MODULE.COMMAND_LIST)    
+    lstMultiCommand.extend(command_list)
+    
     pass
 
 def main():
@@ -73,10 +85,12 @@ def main():
             KShellParameterDefine.APP_ROOT : KSHELL_APP_ROOT,
             KShellParameterDefine.API_ROOT_PATH : "",
             KShellParameterDefine.CONFIG_BASE_PATH : CONFIG_BASE_PATH,
-            KShellParameterDefine.OPEN_API : CONFIG_OPT_ENABLE,
+            KShellParameterDefine.OPEN_API : CONFIG_OPT_DISABLE, #기본 비활성화, 별도 데몬 기동을 위해서 사양 변경
 
             KShellParameterDefine.METHOD : [],
         }
+        
+        lstMultiCommand:list = []
         
         for o, args in opts:
 
@@ -88,6 +102,11 @@ def main():
 
             elif o in ("-m", "--method", "--module"): 
                 dictOpt["method"].append(args)
+                
+            elif o in ("-f", "--script_file"):
+                                
+                strScriptFile:str = str(args)                
+                do_script_file_opt(strScriptFile, lstMultiCommand)
 
             else:
                                 
@@ -109,10 +128,13 @@ def main():
         if CONFIG_OPT_ENABLE == dictOpt.get(KShellParameterDefine.OPEN_API):
             
             LOG().info("start open api server")
-            RunOpenApiServer(dictOpt, winsCliMainApp)            
+            run_openapi_server(dictOpt, winsCliMainApp)            
             pass
         
         winsCliMainApp.RunCLICommand(dictOpt)
+        
+        if 0 < len(lstMultiCommand):
+            winsCliMainApp.RunMultiCommand(lstMultiCommand)
         
     except Exception as err: 
         

@@ -80,12 +80,24 @@ class KShellMainApp:
         호출구조 
         dictOpt에서 method를 꺼내서, 호출한다.
         요청및 응답, 사실상 메인의 처리를 여기서 수행한다.
+        #TODO: 다중 리스트 구조는, 유지하자.
+        TODO: api에서 호출시 cli와 다르게 반환값이 중요하다.
         '''
 
         LOG().debug(f"run cli command, opt = {dictOpt}")
         
         #TODO: Helper로 이관하자.
         return self.__commandManager.RunCLICommand(self, dictOpt)
+    
+    #다중 실행 옵션의 추가
+    def RunMultiCommand(self, lstMultiCommand:list):
+        
+        '''
+        '''
+        
+        LOG().debug(f"run multi command")
+        
+        return self.__commandManager.RunMultiCommand(self, lstMultiCommand)
         
     
     #모듈의 종료 처리
@@ -103,25 +115,6 @@ class KShellMainApp:
         return ERR_OK
     
     ################################################# 외부 실행 메소드 (reflection)
-    
-    #최초 메소드, test, TODO: 알파벳 순서 철저히
-    #TODO: 미구현 명령, 미구현 명령은 제일 상단에. TODO: Api 출력 파라미터, 처음부터 강제하자.
-    def test(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
-        
-        self.__appHelper.TestKshellMainApp(dictOpt, apiResponseHandler)        
-        pass
-    
-    # LT 관리 명령
-    def manage_lt_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
-        
-        self.__appHelper.ManageLTModules(dictOpt, apiResponseHandler)        
-        pass
-    
-    # stock 관리 명령
-    def manage_stock_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
-        
-        self.__appHelper.ManageStockModules(dictOpt, apiResponseHandler)        
-        pass
 
     # wins cli
     def manage_wins_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):

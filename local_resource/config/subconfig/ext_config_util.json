@@ -36,14 +36,14 @@
         {
             "etc_util_module":
             {
-                "desc" : "개발중",
+                "desc" : "",
                 "default_module_path" : "util_modules.operation_util_manage_modules.etc_util_modules",
 
                 "schedule_daemon":
                 {                    
                     "package" : "command_schedule_module.schedule_daemon_command",
                     "class" : "ScheduleDaemonCommand",
-                    "method" : "RunCommand"
+                    "method" : "RunDaemon"
                 },
 
                 "http_request":

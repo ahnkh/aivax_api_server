@@ -38,16 +38,24 @@ class ScheduleDaemonCommand:
 
         apiResponseHandler.attachApiCommandCode("schedule daemon command")
         
-        # scheudler 실행, 외부 path를 기본으로 수행한다. 향후 확장
-        strScheduleConfigPath:str = dictOpt.get(KShellParameterDefine.UTIL_MODULE.SCHEDULE_CONFIG)
         
-        # schedule에 등록한다. (1차 버전, 향후 추가 개발, 옵션 분기)
-        # lstScheduleConfig:list = []
-        scheduleUtil:ScheduleUtilHelper = self.__scheduleUtil
-        scheduleJobAppHelper:ScheduleJobAppHelper = self.__scheduleJobAppHelper
-        self.__loadFromScheduleConfig(scheduleUtil, scheduleJobAppHelper, strScheduleConfigPath)
+        # # scheudler 실행, 외부 path를 기본으로 수행한다. 향후 확장
+        # strScheduleConfigPath:str = dictOpt.get(KShellParameterDefine.UTIL_MODULE.SCHEDULE_CONFIG)
+        
+        # # schedule에 등록한다. (1차 버전, 향후 추가 개발, 옵션 분기)
+        # # lstScheduleConfig:list = []
+        # scheduleUtil:ScheduleUtilHelper = self.__scheduleUtil
+        # scheduleJobAppHelper:ScheduleJobAppHelper = self.__scheduleJobAppHelper
+        # self.__loadFromScheduleConfig(scheduleUtil, scheduleJobAppHelper, strScheduleConfigPath)
         
         # apiResponseHandler.attachSuccessCode(dictDBResult)
+        
+        # schedule_list 기반으로 실행
+        schedule_list:list = dictOpt.get(KShellParameterDefine.SCRIPT_MODULE.SCHEDULE_LIST)
+        
+        scheduleUtil:ScheduleUtilHelper = self.__scheduleUtil
+        scheduleJobAppHelper:ScheduleJobAppHelper = self.__scheduleJobAppHelper
+        self.__loadFromScheduleConfig(scheduleUtil, scheduleJobAppHelper, schedule_list)
         
         # python의 기본 스케쥴러, 더 개선할수 있지만, 우선 유지한다. 
         # sleep만 3초로, 분 이상의 스케쥴러만 사용한다.
@@ -62,21 +70,27 @@ class ScheduleDaemonCommand:
     ##################################### private
     
     # schedule config를 읽는다. 역할 분리
-    def __loadFromScheduleConfig(self, scheduleUtil:ScheduleUtilHelper, scheduleJobAppHelper:ScheduleJobAppHelper, strScheduleConfigPath:str):
+    # def __loadFromScheduleConfig(self, scheduleUtil:ScheduleUtilHelper, scheduleJobAppHelper:ScheduleJobAppHelper, strScheduleConfigPath:str):
+    def __loadFromScheduleConfig(self, scheduleUtil:ScheduleUtilHelper, scheduleJobAppHelper:ScheduleJobAppHelper, lstScheduleConfig:list):
         '''
         schedule config 경로의 파일을 읽어서 dictionary에 추가
         현재 schedule은 list형으로 관리, list형 변수에 각각 담아서 반환
         '''
         
-        dictScheduleConfig:dict = dict()
-        JsonHelperX.JsonFileToDictionary(strScheduleConfigPath, dictScheduleConfig)
+        # dictScheduleConfig:dict = dict()
+        # JsonHelperX.JsonFileToDictionary(strScheduleConfigPath, dictScheduleConfig)
         
-        schedule_list:list = dictScheduleConfig.get("schedule_list")
+        # schedule_list:list = dictScheduleConfig.get("schedule_list")
         
-        for dictEachSchedule in schedule_list:
+        for dictEachSchedule in lstScheduleConfig:
             
             #{"use":0, "interval":10, "schedule_unit":"seconds", "method":"", "extern_command":""}
             use:int = dictEachSchedule.get("use")
+            
+            if CONFIG_OPT_DISABLE == use:
+                LOG().info(f"skip schedule {dictEachSchedule}")
+                continue
+            
             interval:int = dictEachSchedule.get("interval")
             schedule_unit:str = dictEachSchedule.get("schedule_unit")
             
