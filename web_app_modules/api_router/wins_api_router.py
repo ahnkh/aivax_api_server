@@ -44,9 +44,9 @@ class WinsApiRouter:
     ########################################################## pipeline api
     
     # pipeline 차단 filter, 검증 API
-    async def forwardPipelineMultipleMultipleFilter(self, modelItem:VariantFilterForm):
+    async def forwardPipelineMultipleFilter(self, modelItem:VariantFilterForm):
         
-        dictItemModel = WinsModelConvertHelper.forwardPipelineMultipleMultipleFilter(modelItem)
+        dictItemModel = WinsModelConvertHelper.forwardPipelineMultipleFilter(modelItem)
         return self.__runKshell(dictItemModel)
     
     async def forwardPipelineTestFilter(self, modelItem:FilterRuleTestItem):

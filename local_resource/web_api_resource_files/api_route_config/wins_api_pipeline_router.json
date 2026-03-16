@@ -16,7 +16,7 @@
 			{
 				"use":1, 
 				"path" : "/filter",
-				"endpoint" : "forwardPipelineMultipleMultipleFilter",
+				"endpoint" : "forwardPipelineMultipleFilter",
 				"methods" : ["POST"],
 				"include_in_schema" : 1,
 				"tags" : ["pipeline filter"],

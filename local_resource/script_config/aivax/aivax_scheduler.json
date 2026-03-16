@@ -1,0 +1,16 @@
+{
+    "command_list":
+    [
+        {
+            "desc" : "aivax scheduler 실행",
+            "enable_command" : 1,
+            "method" : ["manage_operation_util_modules"],
+            "ext_module" : "manage_etc_util_module",
+            "cmd_category" : "etc_util_module",
+            "command" : "schedule_daemon",
+            "schedule_list": [
+                {"use":0, "interval":10, "schedule_unit":"seconds", "method":"do_extern_command", "parameter":"ls -al"}
+            ]
+        }
+    ]
+}

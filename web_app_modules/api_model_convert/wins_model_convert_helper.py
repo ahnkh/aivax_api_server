@@ -48,7 +48,7 @@ class WinsModelConvertHelper:
     
     # pipeline 차단 filter
     @staticmethod    
-    def forwardPipelineMultipleMultipleFilter(modelItem:VariantFilterForm): 
+    def forwardPipelineMultipleFilter(modelItem:VariantFilterForm): 
         
         '''
         TODO: modelItem을 dictionary로 만들어서, http_request를 요청하는 api를 만든다.
