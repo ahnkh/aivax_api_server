@@ -90,14 +90,14 @@ class KShellMainApp:
         return self.__commandManager.RunCLICommand(self, dictOpt)
     
     #다중 실행 옵션의 추가
-    def RunMultiCommand(self, lstMultiCommand:list):
+    def RunMultiCommand(self, lstMultiCommand:list, dictOpt:dict):
         
         '''
         '''
         
         LOG().debug(f"run multi command")
         
-        return self.__commandManager.RunMultiCommand(self, lstMultiCommand)
+        return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
         
     
     #모듈의 종료 처리

@@ -41,10 +41,8 @@ def run_openapi_server(dictOpt:dict, mainApp:KShellMainApp):
     webMainApp.RunWebApiServer(dictOpt)
     pass
 
-#script file option의 실행
 def do_script_file_opt(strScriptFile:str, lstMultiCommand:list):
-    
-    #안에서 전달된 인자로 update 된다.
+        
     dictScriptJson = {}
     JsonHelperX.JsonFileToDictionary(strScriptFile, dictScriptJson)
     
@@ -85,7 +83,7 @@ def main():
             KShellParameterDefine.APP_ROOT : KSHELL_APP_ROOT,
             KShellParameterDefine.API_ROOT_PATH : "",
             KShellParameterDefine.CONFIG_BASE_PATH : CONFIG_BASE_PATH,
-            KShellParameterDefine.OPEN_API : CONFIG_OPT_DISABLE, #기본 비활성화, 별도 데몬 기동을 위해서 사양 변경
+            KShellParameterDefine.OPEN_API : CONFIG_OPT_DISABLE,
 
             KShellParameterDefine.METHOD : [],
         }
@@ -134,7 +132,7 @@ def main():
         winsCliMainApp.RunCLICommand(dictOpt)
         
         if 0 < len(lstMultiCommand):
-            winsCliMainApp.RunMultiCommand(lstMultiCommand)
+            winsCliMainApp.RunMultiCommand(lstMultiCommand, dictOpt)
         
     except Exception as err: 
         
