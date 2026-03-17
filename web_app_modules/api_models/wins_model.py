@@ -248,6 +248,10 @@ class VariantFilterForm(BaseModel):
 #filter 룰 테스트 기능
 class FilterRuleTestItem(BaseModel):
     
+    server_ip:str = Field(default="127.0.0.1", description="pipeline server ip")
+    port:str = Field(default="9099", description="pipeline server port")
+    openapi:str = Field(default="", description="pipeline server api root")
+    
     prompt: str = Field(default="", description="입력 프롬프트")
     
     rule:str = Field(default="", description="정책 Rule")

@@ -10,6 +10,7 @@ from util_modules.operation_util_manage_modules.etc_util_modules.command_schedul
 '''
 scheduler daemon 구현
 우선 schedule 기능에만 집중, 기존 로직 그대로 구현
+TODO: 스케쥴러 추가는 외부 API를 통해서 실행 (방향 찾아볼것.)
 '''
 
 class ScheduleDaemonCommand:
