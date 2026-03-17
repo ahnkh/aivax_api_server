@@ -241,6 +241,8 @@ class VariantFilterForm(BaseModel):
     attachments: Optional[List[FileAttachItem]] = Field(default_factory=list, description="첨부 파일 리스트")
         
     message_id:str = Field(default="", description="message id, 요청 및 응답간의 연결 키")
+    
+    debug: Optional[bool] = Field(default=False, description="debug mode")
     # pass
     
 #filter 룰 테스트 기능
@@ -251,4 +253,17 @@ class FilterRuleTestItem(BaseModel):
     rule:str = Field(default="", description="정책 Rule")
     action:str = Field(default="", description="action (block/masking)")    
     # pass
+    
+# 정책 signal 갱신 요청
+class FilterPolicySignalItem(BaseModel):
+    
+    '''
+    '''
+    
+    server_ip:str = Field(default="127.0.0.1", description="pipeline server ip")
+    port:str = Field(default="9099", description="pipeline server port")
+    openapi:str = Field(default="", description="pipeline server api root")
+    
+    date : datetime.datetime = Field(default_factory=datetime.datetime.now)    
+    pass
     

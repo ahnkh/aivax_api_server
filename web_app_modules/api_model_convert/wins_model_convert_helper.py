@@ -89,7 +89,8 @@ class WinsModelConvertHelper:
                 "ai_service" : modelItem.ai_service,
                 "client_host" : modelItem.client_host,
                 "session_id" : modelItem.session_id,
-                "message_id" : modelItem.message_id                
+                "message_id" : modelItem.message_id,
+                "debug" :   modelItem.debug              
                 },
             
         }
@@ -99,6 +100,36 @@ class WinsModelConvertHelper:
     def forwardPipelineTestFilter(modelItem:FilterRuleTestItem):    
         
         return {
+            
+        }
+        
+    @staticmethod    
+    def forwardPolicySignal(modelItem:FilterPolicySignalItem):    
+        
+        return {
+            
+            KShellParameterDefine.METHOD : ["manage_operation_util_modules"], 
+            KShellParameterDefine.EXT_MODULE : "manage_etc_util_module",
+            KShellParameterDefine.CMD_CATEGORY : "etc_util_module",
+            KShellParameterDefine.COMMAND : "http_request",
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_REQUEST_ID : "pipeline_policy_signal",
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_URL_OPT : {
+                "server_ip" : modelItem.server_ip, 
+                "port" : modelItem.port,
+                "openapi" : modelItem.openapi
+                },
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_COOKIE : {
+                "accept" : "application/json",
+                "Content-Type" : "application/json"
+            },
+            
+            KShellParameterDefine.UTIL_MODULE.HTTP_JSON_REQUEST : {
+                
+                "date": modelItem.date.strftime("%Y-%m-%d %H:%M:%S"),                                         
+                },
             
         }
     

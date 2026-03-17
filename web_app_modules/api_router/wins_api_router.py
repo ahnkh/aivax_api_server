@@ -54,6 +54,11 @@ class WinsApiRouter:
         dictItemModel = WinsModelConvertHelper.forwardPipelineTestFilter(modelItem)
         return self.__runKshell(dictItemModel)
     
+    async def forwardPolicySignal(self, modelItem:FilterPolicySignalItem):
+        
+        dictItemModel = WinsModelConvertHelper.forwardPolicySignal(modelItem)
+        return self.__runKshell(dictItemModel)
+    
     ########################################################## 미사용 기능
     
     #디노티시아, grpc 서버 수집 데몬 기동

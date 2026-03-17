@@ -35,6 +35,18 @@
 				"summary" : "pipeline filter",
 				"description" : "",
 				"description_alt_text" : ""
+			},
+
+			{
+				"use":1, 
+				"path" : "/policy-signal",
+				"endpoint" : "forwardPolicySignal",
+				"methods" : ["PATCH"],
+				"include_in_schema" : 1,
+				"tags" : ["pipeline filter"],
+				"summary" : "pipeline filter",
+				"description" : "",
+				"description_alt_text" : "pipeline - 정책 갱신 요청, signal"
 			}
 
 		]
