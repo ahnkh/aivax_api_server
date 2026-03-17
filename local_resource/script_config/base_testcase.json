@@ -1,9 +1,0 @@
-{
-    "command_list":
-    [
-        {
-            "desc" : "pipeline, 차단 동작 테스트",
-            "enable_command" : 0
-        }
-    ]
-}
