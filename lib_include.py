@@ -66,7 +66,7 @@ CONFIG_OPT_DISABLE = 0
 KSHELL_APP_ROOT = "./"
 CONFIG_BASE_PATH = "./local_resource/config/wins-config.json"
 TRACE_LOG_PATH = "./trace-log"
-TRACE_PREFIX = "api_server"
+TRACE_PREFIX = "aivax"
 
 from common_modules.module_function import http_request
 from common_modules.module_function import UTF8Text
