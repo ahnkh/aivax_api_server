@@ -15,8 +15,8 @@
                 "app.settings",
                 "app.users"
                 ],
-            "source_path" : "./backup.json",
-            "use_truncate" : false
+            "source_path" : "/tmp/backup.json",
+            "use_truncate" : true
         }        
     ]
 }

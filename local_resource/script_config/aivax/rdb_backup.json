@@ -26,7 +26,7 @@
                 "app.user_groups_closure",
                 "app.users"
                 ],
-            "dest_path" : "./backup.json"
+            "dest_path" : "/tmp/backup.json"
         }
         
     ]
