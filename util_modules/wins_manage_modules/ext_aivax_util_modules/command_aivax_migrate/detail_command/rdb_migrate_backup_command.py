@@ -51,6 +51,27 @@ class RDBMigrateBackupCommand:
         
         for strBackupTable in lstBackupTableList:
             
+            #TODO: 개별 테이블에 대한 백업
+            #백업이 실패하거나 없더라도, 오류만 기록하고 다음으로 이동한다.
+            nErrEachBackup:int = self.__exportEachBackupRDBTable(strBackupTable, strSQLQueryMapID, dictAllDBExportInfo)
+            
+            if ERR_FAIL == nErrEachBackup:
+                LOG().error(f"fail backup table {strBackupTable}")
+            # pass
+        
+        #TODO: json 으로 저장
+        JsonHelperX.WriteMapToJsonFile(dictAllDBExportInfo, strBackupDestPath, bIndent=False, strDateTime="%Y-%m-%d %H:%M:%S")
+        
+        return ERR_OK
+    
+    # 개별 테이블에 대한 백업, 오류 발생시 오류만 출력한다.
+    def __exportEachBackupRDBTable(self, strBackupTable:str, strSQLQueryMapID:str, dictAllDBExportInfo:dict):
+        
+        '''
+        '''
+        
+        try:
+            
             dictParameter = {
                 "table" : strBackupTable
             }
@@ -63,11 +84,18 @@ class RDBMigrateBackupCommand:
             #table 이름으로 update하는게 가장 깔끔
             #TODO: 결과에 대한 처리 - 그대로 저장도 가능
             dictAllDBExportInfo[strBackupTable] = dictDBResult
-            # pass
+            
+        except Exception as err: 
+                       
+            LOG().error(traceback.format_exc())
+            return ERR_FAIL
         
-        #TODO: json 으로 저장
-        JsonHelperX.WriteMapToJsonFile(dictAllDBExportInfo, strBackupDestPath, bIndent=False, strDateTime="%Y-%m-%d %H:%M:%S")
         
         return ERR_OK
+            
+        
+            
+        
+        
     
     
