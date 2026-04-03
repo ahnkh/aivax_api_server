@@ -76,6 +76,16 @@ class RDBMigrateBackupCommand:
                 "table" : strBackupTable
             }
             
+            #table, 존재 여부 체크
+            strTableNameForExistCheck:str = self.__splitTableName(strBackupTable)
+            
+            nTableCount:int = self.__getTableCount(strTableNameForExistCheck)
+            
+            if 0 == nTableCount:
+                LOG().info(f"table {strBackupTable} is not exist, stop backup table")
+                return ERR_FAIL
+            
+            # DB 조회
             dictDBResult = {}
                 
             sqlprintf(DBSQLDefine.BASE_CATEGORY_RDB, strSQLQueryMapID, dictParameter, dictDBResult)
@@ -92,6 +102,40 @@ class RDBMigrateBackupCommand:
         
         
         return ERR_OK
+    
+    
+    # table 명, 추출한다.
+    def __splitTableName(self, strTableName:str) -> str:
+        
+        '''
+        '''
+        
+        if "." in strTableName:
+            return strTableName.rsplit(".", 1)[-1]
+        else:
+            return strTableName
+        
+    # DB내에 Table이 존재하는지 확인
+    def __getTableCount(self, strTableName:str) -> int:
+        
+        '''
+        '''
+        
+        dictDBResult = {}
+        
+        dictParameter = {
+            "table" : strTableName
+        }
+                
+        sqlprintf(DBSQLDefine.BASE_CATEGORY_RDB, "rdb_select_migrate_table_exist", dictParameter, dictDBResult)
+        
+        dictQueryData:dict = dictDBResult.get(DBSQLDefine.QUERY_DATA)
+        
+        count:int = dictQueryData.get("count")
+        
+        return count
+        
+    
             
         
             
