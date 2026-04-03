@@ -8,7 +8,7 @@
             "command" : "migrate_rdb",
                         
             "detail_cmd" : "restore",             
-            "backup_table_list" : [                
+            "restore_table_list" : [                
                 "app.admin",                
                 "app.admin_password",
                 "app.ai_services",
