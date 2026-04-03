@@ -35,11 +35,10 @@ class KShellMainApp:
         pass
     
     #local 설정 config Root 반환
-    def GetLocalConfigRoot(self):        
+    def GetLocalConfigRoot(self) ->dict:        
         return self.__globalResourceManager.GetLocalConfigRoot()
     
-    def IsInitialize(self):
-        
+    def IsInitialize(self) -> bool:        
         return self.__bInitialize
     
     

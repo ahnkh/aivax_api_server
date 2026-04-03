@@ -6,8 +6,6 @@ import uvloop
 from lib_include import *
 from common_modules.type_hint import *
 
-# from common_modules.global_common_module import GlobalCommonModule
-
 from mainapp.kshell_mainapp import KShellMainApp
 
 from web_app_modules.web_api_mainapp import WebApiMainApp
@@ -47,8 +45,7 @@ def do_script_file_opt(strScriptFile:str, lstMultiCommand:list):
     JsonHelperX.JsonFileToDictionary(strScriptFile, dictScriptJson)
     
     command_list:list = dictScriptJson.get(KShellParameterDefine.SCRIPT_MODULE.COMMAND_LIST)    
-    lstMultiCommand.extend(command_list)
-    
+    lstMultiCommand.extend(command_list)    
     pass
 
 def main():
@@ -56,6 +53,17 @@ def main():
     InitLogger("tracelog.txt", TRACE_LOG_PATH, TRACE_PREFIX)
     
     winsCliMainApp = KShellMainApp()
+    
+    dictOpt = {
+        KShellParameterDefine.APP_ROOT : KSHELL_APP_ROOT,
+        KShellParameterDefine.API_ROOT_PATH : "",
+        KShellParameterDefine.CONFIG_BASE_PATH : CONFIG_BASE_PATH,
+        KShellParameterDefine.OPEN_API : CONFIG_OPT_DISABLE,
+
+        KShellParameterDefine.METHOD : [],
+    }
+    
+    lstMultiCommand:list = []
     
     try:
         
@@ -79,16 +87,7 @@ def main():
                 "uniq_id=",
             ])
                     
-        dictOpt = {
-            KShellParameterDefine.APP_ROOT : KSHELL_APP_ROOT,
-            KShellParameterDefine.API_ROOT_PATH : "",
-            KShellParameterDefine.CONFIG_BASE_PATH : CONFIG_BASE_PATH,
-            KShellParameterDefine.OPEN_API : CONFIG_OPT_DISABLE,
-
-            KShellParameterDefine.METHOD : [],
-        }
         
-        lstMultiCommand:list = []
         
         for o, args in opts:
 
@@ -114,6 +113,16 @@ def main():
                     dictOpt[strOptKey] = args
                 else:
                     dictOpt[strOptKey] = CONFIG_OPT_ENABLE
+                    
+    except getopt.GetoptError as err:
+        
+        #에러가 나면, 화면에 출력해야 함
+        AddStreamLogger() #화면출력용 Logger (디버그용) => TODO: 개선 방향 검토 필요
+        
+        # LOG().error(str(err))        
+        LOG().error(traceback.format_exc())
+        
+    try:
         
         LOG().info(f"start process pid = {os.getpid()}, argc = {len(sys.argv)}, argv = {str(sys.argv)}, option = {dictOpt}")
         
@@ -141,13 +150,13 @@ def main():
         LOG().error(traceback.format_exc())
         
         GlobalCommonModule.RaiseException(ErrorDefine.CLI_UNKNOWN_ERROR, ErrorDefine.CLI_UNKNOWN_ERROR_MSG, str(err))      
-        pass
     
     finally:
 
         strDisposeMethodName:str = "dispose_instance"
-        winsCliMainApp.DisposeApplication(strDisposeMethodName)
-        pass
+        
+        if True == winsCliMainApp.IsInitialize():
+            winsCliMainApp.DisposeApplication(strDisposeMethodName)
     
     return ERR_OK
 
