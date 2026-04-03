@@ -121,6 +121,7 @@ def main():
         
         # LOG().error(str(err))        
         LOG().error(traceback.format_exc())
+        sys.exit()
         
     try:
         

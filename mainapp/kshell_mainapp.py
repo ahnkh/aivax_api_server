@@ -34,15 +34,12 @@ class KShellMainApp:
         
         pass
     
-    #local 설정 config Root 반환
     def GetLocalConfigRoot(self) ->dict:        
         return self.__globalResourceManager.GetLocalConfigRoot()
     
     def IsInitialize(self) -> bool:        
         return self.__bInitialize
-    
-    
-    #초기화, 지연된 초기화
+            
     def Initialize(self, dictOpt:dict):
                 
         self.__globalResourceManager = KShellGlobalResourceManager()
@@ -80,9 +77,6 @@ class KShellMainApp:
 
     def manage_wins_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):        
         self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
-        pass
 
     def manage_operation_util_modules(self, dictOpt:dict, apiResponseHandler:ApiResponseHandlerX):
         self.__appHelper.ManageOperationUtilModules(dictOpt, apiResponseHandler)
-
-        pass
