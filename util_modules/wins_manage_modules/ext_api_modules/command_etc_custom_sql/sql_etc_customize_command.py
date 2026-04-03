@@ -29,7 +29,7 @@ class SQLEtcCustomizeCommand:
             
             detailCommand = UserGroupDetailSQLCommand()
             detailCommand.RunCommand(dictOpt, dictWinsApiModuleLocalConfig, apiResponseHandler)
-            pass
+            # pass
         
         elif WinsCommandDefine.DETAIL_CMD_CUSTOM_FILTER_VIEW == detail_cmd:
             
@@ -37,7 +37,7 @@ class SQLEtcCustomizeCommand:
             
             detailCommand = FilterViewDetailSQLCommand()
             detailCommand.RunCommand(dictOpt, dictWinsApiModuleLocalConfig, apiResponseHandler)
-            pass
+            # pass
         
         elif WinsCommandDefine.DETAIL_CMD_CUSTOM_ETC_SQL_COMMAND == detail_cmd:
             
@@ -45,7 +45,7 @@ class SQLEtcCustomizeCommand:
             
             detailCommand = EtcDetailSQLCommand()
             detailCommand.RunCommand(dictOpt, dictWinsApiModuleLocalConfig, apiResponseHandler)
-            pass
+            # pass
         
         else:
             GlobalCommonModule.RaiseHttpException(WinsErrorDefine.API_ROUTER_COMMAND_ERROR, WinsErrorDefine.API_ROUTER_COMMAND_ERROR_MSG, f"unknown user account detail command {detail_cmd}")

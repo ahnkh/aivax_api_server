@@ -123,6 +123,35 @@
         {
 
         }
+    },
+
+    "aivax_util_module":
+    {
+
+        "local_instance_module_map":
+        {
+
+            "aivax_db_util":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_util_modules",
+
+                "migrate_rdb":
+                {                    
+                    "package" : "command_aivax_migrate.aivax_rdb_migrate_command",
+                    "class" : "AivaxRDBMigrateCommand",
+                    "method" : "RunCommand"
+                }
+            }
+
+        },
+
+        "aivax_rdb_migrate_command":
+        {
+            "backup_sql_query_map_id" : "rdb_select_migrate_rdb",
+            "restore_sql_query_map_id" : ""
+        }
+
     }
 
 }

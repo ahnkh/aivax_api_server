@@ -46,7 +46,7 @@ class UserAccountManageCommand:
             detailModule = UserAccountListDetailCommand()
             detailModule.ListUserAccount(dictOpt, dictWinsApiModuleLocalConfig, apiResponseHandler)
             
-            pass
+            # pass
         
         else:
             

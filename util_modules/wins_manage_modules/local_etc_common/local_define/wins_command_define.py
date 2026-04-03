@@ -5,6 +5,8 @@ class WinsCommandDefine:
     EXT_MODULE_MANAGE_WINS_DATA_PROCESS = "manage_wins_data_process"
 
     EXT_MODULE_MANAGE_WINS_API_MODULE = "manage_wins_api_module"
+    
+    EXT_MODULE_MANAGE_AIVAX_UTIL = "manage_aivax_util"
 
     CMD_CATEGORY_DATA_PROCESS_SERVER = "data_process_server"
 

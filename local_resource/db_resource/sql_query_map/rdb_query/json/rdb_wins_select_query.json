@@ -72,6 +72,13 @@
             "query" : "SELECT 
                         NO, USER_ID, SESSION_ID, REG_DATE, ETC, ALLOWED, REASON
                     FROM LLM_DATA.LOG_USER_MONITOR {where} order by REG_DATE DESC limit {limit}"
+        },
+
+        {
+            "desc" : "migration backup, 공통 쿼리",
+            "key": "rdb_select_migrate_rdb",
+	        "action" : "query_for_list",
+            "query" : "SELECT * FROM {table}"
         }
     ]
 }

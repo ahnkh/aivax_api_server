@@ -16,7 +16,6 @@ class WinsManageModule:
         '''
 
         self.__runModule(dictOpt, dictJsonLocalConfigRoot, apiResponseHandler)
-
         return ERR_OK
 
     def __runModule(self, dictOpt:dict, dictJsonLocalConfigRoot:dict, apiResponseHandler:ApiResponseHandlerX):
@@ -35,6 +34,10 @@ class WinsManageModule:
         elif WinsCommandDefine.EXT_MODULE_MANAGE_WINS_API_MODULE == ext_module:
 
             strLocalModuleConfigName = "wins_api_module"
+            
+        elif WinsCommandDefine.EXT_MODULE_MANAGE_AIVAX_UTIL == ext_module:
+            
+            strLocalModuleConfigName = "aivax_util_module"
 
         else:            
             GlobalCommonModule.RaiseException(ErrorDefine.CLI_COMMAND_ERROR, ErrorDefine.CLI_COMMAND_ERROR_MSG, f"not defined ext module {ext_module}", apiResponseHandler)

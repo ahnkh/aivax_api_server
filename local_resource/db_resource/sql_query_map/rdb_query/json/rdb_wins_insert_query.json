@@ -95,6 +95,20 @@
             "key": "rdb_update_set_filter_view",
 	        "action" : "execute",
             "query" : "UPDATE LLM_POLICY.FILTER_VIEW_INFO {set} {where}"
+        },
+
+        {
+            "desc" : "DB Migration 임의의 bulk",
+            "key" : "rdb_bulk_migration_any_table",
+            "action" : "execute_many",
+            "query" : "INSERT INTO `{table}` ({columns}) VALUES ( {values} )"
+        },
+
+        {
+            "desc" : "DB Migration Table 초기화",
+            "key" : "rdb_bulk_truncate_any_table",
+            "action" : "execute",
+            "query" : "DELETE FROM `{table}`"
         }
 
     ]
