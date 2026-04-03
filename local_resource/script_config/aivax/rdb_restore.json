@@ -1,0 +1,22 @@
+{
+    "command_list":
+    [
+        {
+            "method" : ["manage_wins_modules"],
+            "ext_module" : "manage_aivax_util",
+            "cmd_category" : "aivax_db_util",
+            "command" : "migrate_rdb",
+                        
+            "detail_cmd" : "restore",             
+            "backup_table_list" : [                
+                "app.admin",                
+                "app.admin_password",
+                "app.ai_services",
+                "app.settings",
+                "app.users"
+                ],
+            "source_path" : "./backup.json",
+            "use_truncate" : false
+        }        
+    ]
+}
