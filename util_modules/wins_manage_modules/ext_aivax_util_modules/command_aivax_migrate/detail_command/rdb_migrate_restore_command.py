@@ -21,7 +21,7 @@ class RDBMigrateRestoreCommand:
         
         LOG().info("aivax migrate - restore command")
         
-        restore_table_list:list = dictOpt.get(KShellParameterDefine.WINS_MODULE.DB_MIGRATE_RESTORE_QUERY)
+        restore_table_list:list = dictOpt.get(KShellParameterDefine.WINS_MODULE.DB_MIGRATE_RESTORE_TABLE_LIST)
         
         restore_source_path:str = dictOpt.get(KShellParameterDefine.WINS_MODULE.DB_MIGRATE_RESTORE_SOURCE_PATH)
         
