@@ -7,27 +7,16 @@
             "cmd_category" : "aivax_db_util",
             "command" : "migrate_rdb",
                         
-            "detail_cmd" : "backup",             
-            "backup_table_list" : [                
-                "app.admin",
-                "app.admin_groups",
-                "app.admin_groups_closure",
+            "detail_cmd" : "restore",             
+            "restore_table_list" : [                
+                "app.admin",                
                 "app.admin_password",
                 "app.ai_services",
-                "app.filters",                
-                "app.policy_rule_categories",
-                "app.policy_rule_filter_groups",
-                "app.policy_rule_filters",
-                "app.policy_rule_run",
-                "app.policy_rule_run_history",
-                "app.policy_rules",
                 "app.settings",
-                "app.user_groups",
-                "app.user_groups_closure",
                 "app.users"
                 ],
-            "dest_path" : "/tmp/backup.json"
-        }
-        
+            "source_path" : "/tmp/backup.json",
+            "use_truncate" : true
+        }        
     ]
 }

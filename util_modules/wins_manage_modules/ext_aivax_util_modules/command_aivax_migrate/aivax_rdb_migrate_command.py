@@ -3,15 +3,13 @@ from lib_include import *
 
 from common_modules.type_hint import *
 
+from util_modules.wins_manage_modules.local_etc_common.local_etc_define import WinsModuleDefine
+
 '''
 aivax rdb migrate module 추가
 '''
 
 class AivaxRDBMigrateCommand:
-    
-    #TODO: 필요시 향후 적절한 곳으로 이동
-    MIGRATE_TYPE_BACKUP = "backup"
-    MIGRATE_TYPE_RESTORE = "restore"
     
     def __init__(self):
         pass
@@ -28,8 +26,6 @@ class AivaxRDBMigrateCommand:
         
         apiResponseHandler.attachApiCommandCode("rdb migrate command")
         
-        apiResponseHandler.attachSuccessCode(f"login success")
-        
         # migration 유형에 따른 분기
         # TODO: deftail command 로 분기
         
@@ -37,7 +33,7 @@ class AivaxRDBMigrateCommand:
         
         # db_migrate_type:str = dictOpt.get(KShellParameterDefine.WINS_MODULE.DB_MIGRATE_TYPE)
         
-        if AivaxRDBMigrateCommand.MIGRATE_TYPE_BACKUP == detail_cmd:
+        if WinsModuleDefine.AIVAX_COMMAND_DEFINE.DETAIL_CMD_MIGRATE_TYPE_BACKUP == detail_cmd:
             
             from util_modules.wins_manage_modules.ext_aivax_util_modules.command_aivax_migrate.detail_command.rdb_migrate_backup_command import RDBMigrateBackupCommand
             
@@ -45,7 +41,7 @@ class AivaxRDBMigrateCommand:
             detailCommand.RunCommand(dictOpt, dictAivaxUtilModuleLocalConfig, apiResponseHandler)
             # LOG().info("backup aivax rdb")
             
-        elif AivaxRDBMigrateCommand.MIGRATE_TYPE_RESTORE == detail_cmd:
+        elif WinsModuleDefine.AIVAX_COMMAND_DEFINE.DETAIL_CMD_MIGRATE_TYPE_RESTORE == detail_cmd:
             
             from util_modules.wins_manage_modules.ext_aivax_util_modules.command_aivax_migrate.detail_command.rdb_migrate_restore_command import RDBMigrateRestoreCommand
             

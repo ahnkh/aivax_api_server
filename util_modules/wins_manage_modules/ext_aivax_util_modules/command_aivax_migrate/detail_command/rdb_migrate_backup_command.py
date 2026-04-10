@@ -26,6 +26,8 @@ class RDBMigrateBackupCommand:
         
         LOG().info("aivax migrate - backup command")
         
+        apiResponseHandler.attachApiDetailCommandCode("aivax rdb backup")
+        
         backup_table_list:list = dictOpt.get(KShellParameterDefine.WINS_MODULE.DB_MIGRATE_BACKUP_TABLE_LIST)
         
         backup_dest_path:str = dictOpt.get(KShellParameterDefine.WINS_MODULE.DB_MIGRATE_BACKUP_DEST_PATH)
@@ -33,21 +35,35 @@ class RDBMigrateBackupCommand:
         # migration 관련 local config
         aivax_rdb_migrate_command:dict = dictAivaxUtilModuleLocalConfig.get("aivax_rdb_migrate_command")
         
+        #TODO: 불필요한 설ㅈ렁, 향후 제거
         backup_sql_query_map_id:str = aivax_rdb_migrate_command.get("backup_sql_query_map_id")
         
-        self.__exportBackupRDBTable(backup_sql_query_map_id, backup_table_list, backup_dest_path)
+        
+        # 백업 저장 결과
+        # TODO: 최초 헤더 추가
+        dictAllDBExportInfo = {
+            "header.metadata":
+            {
+                "backup_date" : datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), # 백업 날짜
+                "dest_path" : backup_dest_path, #백업 경로 
+                "table_list" : backup_table_list, #백업 대상 테이블
+            }
+        }
+        
+        self.__exportBackupRDBTable(backup_sql_query_map_id, backup_table_list, backup_dest_path, dictAllDBExportInfo)
+        
+        #정상 백업시 호출
+        apiResponseHandler.attachSuccessCode(dictAllDBExportInfo)
         
         return ERR_OK
     
     ############################## private
     
     #RDB의 테이블을 외부 파일로 백업, export 시킨다.
-    def __exportBackupRDBTable(self, strSQLQueryMapID:str, lstBackupTableList:list, strBackupDestPath:str):
+    def __exportBackupRDBTable(self, strSQLQueryMapID:str, lstBackupTableList:list, strBackupDestPath:str, dictAllDBExportInfo:dict):
         
         '''
         '''
-        
-        dictAllDBExportInfo = {}
         
         for strBackupTable in lstBackupTableList:
             
@@ -83,6 +99,7 @@ class RDBMigrateBackupCommand:
             
             if 0 == nTableCount:
                 LOG().info(f"table {strBackupTable} is not exist, stop backup table")
+                dictAllDBExportInfo[strBackupTable] = {"error": "backup fail"} #TODO: 예외처리 필요
                 return ERR_FAIL
             
             # DB 조회
@@ -99,8 +116,7 @@ class RDBMigrateBackupCommand:
                        
             LOG().error(traceback.format_exc())
             return ERR_FAIL
-        
-        
+                
         return ERR_OK
     
     

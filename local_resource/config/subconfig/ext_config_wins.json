@@ -141,6 +141,18 @@
                     "package" : "command_aivax_migrate.aivax_rdb_migrate_command",
                     "class" : "AivaxRDBMigrateCommand",
                     "method" : "RunCommand"
+                },
+
+                "pipeline_filter":
+                {                    
+                    "package" : "command_pipeline.pipeline_filter_command",
+                    "class" : "PipelineFilterCommand",
+                    "method" : "RunCommand"
+                },
+
+                "opensearch_util":
+                {
+                    
                 }
             }
 
@@ -150,8 +162,62 @@
         {
             "backup_sql_query_map_id" : "rdb_select_migrate_rdb",
             "restore_sql_query_map_id" : ""
-        }
+        },
 
+        "pipeline_filter_command":
+        {
+            "pipeline_api_request":
+            {
+                "url_option":
+                {
+                    "server_ip" : "127.0.0.1",
+                    "port" : 9099,
+                    "openapi" : ""
+                },
+
+                "post_default_parameter":
+                {
+
+                    "filter_list" : [
+
+                    ],
+                    "prompt" : "",
+                    "user_id": "user-wIwLGrOf18CagvAXrlLVAueH",
+                    "email": "ghahn@wins21.co.kr",
+                    "ai_service": 0,
+                    "client_host": "127.0.0.1",
+                    "session_id": "",
+
+                    "attachments": [
+                        {
+                            "id": "",
+                            "size": 0,
+                            "name": "",
+                            "mime_type": ""
+                        }
+                    ],
+
+                    "message_id": "aec807d3-6835-4922-bb35-daccac78a015",
+                    "debug" : true
+
+                }
+            },
+
+            "test_output_writer": 
+            {
+                "regex_policy_writer":
+                {
+                    "policy_output_path" : "./policy.csv"
+                },
+
+                "filter_detect_writer":
+                {
+                    "detect_result_output_path" : "./detect_test.csv"
+                }
+            }
+
+            
+        }
     }
 
 }

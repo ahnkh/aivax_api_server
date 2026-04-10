@@ -9,7 +9,8 @@
             "cmd_category" : "etc_util_module",
             "command" : "schedule_daemon",
             "schedule_list": [
-                {"use":0, "interval":10, "schedule_unit":"seconds", "method":"do_extern_command", "parameter":"ls -al"}
+                {"use":0, "interval":10, "schedule_unit":"seconds", "method":"do_extern_command", "parameter":"ls -al"},
+                {"use":0, "interval":1, "schedule_unit":"minutes", "method":"do_extern_command", "parameter":"echo test"}
             ]
         }
     ]

@@ -86,6 +86,13 @@
             "key": "rdb_select_migrate_table_exist",
 	        "action" : "query_for_object",
             "query" : "SELECT COUNT(*) AS count FROM information_schema.tables WHERE table_schema = 'app' AND table_name = '{table}'"
+        },
+
+        {
+            "desc" : "pipeline 정책, 테스트용 regex 정책의 조회",
+            "key": "rdb_select_pipline_all_pattern_list",
+	        "action" : "query_for_list",
+            "query" : "SELECT id, name, type_mask, rule, regex_flag, regex_group, regex_group_val, action, status, category, category_id from app.policy_rules"
         }
         
     ]

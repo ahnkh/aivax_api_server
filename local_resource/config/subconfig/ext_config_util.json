@@ -51,6 +51,11 @@
                     "package" : "command_http_request.http_request_command",
                     "class" : "HttpRequestCommand",
                     "method" : "RunCommand"
+                },
+
+                "mail_alarm":
+                {
+                    
                 }
             }
         }
