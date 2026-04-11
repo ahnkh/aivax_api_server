@@ -69,7 +69,7 @@ class PipelineTestOutWriter:
         # 거의 유사, 리펙토링, 모듈화는 나중에
         
         #필드명, custom TODO: 눈에 안들어온다. 실제 정책명을 보이는게 낫다.
-        lstFieldName:list = ["NO", "프롬프트", "탐지결과", "탐지일자", "탐지된정책"]
+        lstFieldName:list = ["NO", "프롬프트", "탐지일자", "탐지결과(종합)", "REGEX", "SLM",  "탐지된정책"]
         
         # 그냥 다시 만들자. 큰 의미 없다.
         # lstDetectSummaryCopy:list = copy.deepcopy(lstDetectSummary)
@@ -90,11 +90,18 @@ class PipelineTestOutWriter:
         #탐지 결과, csv 형태로 보정한다.
         for dictDetectSummary in lstDetectSummary:
             
+            each_filter:dict = dictDetectSummary.get("each_filter")
+            regex:str = each_filter.get("regex", "")
+            slm:str = each_filter.get("slm", "")
+            
             lstDetectSummaryRow.append({
-                "NO" : dictDetectSummary.get("no"),
+                "NO" : dictDetectSummary.get("no"),                
                 "프롬프트" : dictDetectSummary.get("prompt"),
-                "탐지결과" : dictDetectSummary.get("mode"),
                 "탐지일자" : dictDetectSummary.get("date"),
+                "탐지결과(종합)" : dictDetectSummary.get("final_mode"),
+                "REGEX" : regex,
+                "SLM" : slm,
+                
                 "탐지된정책" : dictDetectSummary.get("detect_policy_name_row"),
             })
         

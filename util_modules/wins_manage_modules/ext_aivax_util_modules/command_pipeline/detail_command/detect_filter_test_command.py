@@ -156,7 +156,8 @@ class DetectFilterTestCommand:
             
             #pipeline의 최종 탐지 결과
             # strMode:str = "undetect" #탐지 결과
-            strMode:str = dictEachDetectResult.get("mode") #TODO: regex, file, slm등 filter별로 분리되면, mode값이 달라질수는 있다.
+            strFinalMode:str = dictEachDetectResult.get("mode") #TODO: regex, file, slm등 filter별로 분리되면, mode값이 달라질수는 있다.
+            #TODO: regex 와 slm을 추출한다.
             strDate:str = dictEachDetectResult.get("completed_date")
             
             log_evidence:dict = dictEachDetectResult.get("log_evidence", {})
@@ -165,12 +166,17 @@ class DetectFilterTestCommand:
             #여기서 부터는 aggregateHelper로 전달, customize가 필요할수 있다. 탐지가 안되면 log_evidence는 없다.
             filter_detect:list = log_evidence.get("filter_detect", [])
             
+            # 개별 filter별 차단 결과값도 꺼낸다.
+            dictEachFilterResult = {}
+            aggregateHelper.GenerateEachFilterDetectResult(filter_detect, dictEachFilterResult)
+            
             #evidence
             # evidence:list = filter_detect.get("evidence")
             
+            # 칸을 줄이고, regex, slm으로 분류한다.
             #TODO: 이 타입말고, 다른 타입으로 저장도 필요
             listDetectMatrixRow:list = []
-            aggregateHelper.GenerateDetectResultMatrix(filter_detect, lstRegexPolicyPattern, listDetectMatrixRow)
+            aggregateHelper.GenerateRegexDetectResultMatrix(filter_detect, lstRegexPolicyPattern, listDetectMatrixRow)
             
             #탐지된 패턴에 대한 이름, 기본 5개
             listDetectPolicyNameRow:list = ["","","","",""]
@@ -188,7 +194,8 @@ class DetectFilterTestCommand:
             lstDetectSummary.append({
                 "no" : nIndex,
                 "prompt" : strPrompt,
-                "mode" : strMode,
+                "final_mode" : strFinalMode,  
+                "each_filter" : dictEachFilterResult,                  
                 "date" : strDate,
                 "detect_policy_name_row" : listDetectPolicyNameRow,
                 "detect_matrix_row" : listDetectMatrixRow, #regex 정책과 비교, 행열의 한 행으로 생성

@@ -13,8 +13,26 @@ class PipelineDataAggregateHelper:
     def __init__(self):
         pass
     
+    # 개별 filter별 차단 결과값의 수집
+    def GenerateEachFilterDetectResult(self, lstAllFilterDetectList:list, dictEachFilterResult:dict):
+        
+        '''
+        각 filter별 mode 값을 꺼낸다.
+        filter, mode값의 쌍으로 반환하면 된다.
+        '''
+        
+        for dictFilterDetect in lstAllFilterDetectList:
+            
+            mode:str = dictFilterDetect.get("mode")
+            filter:str = dictFilterDetect.get("filter")
+            
+            dictEachFilterResult[filter] = mode
+            # pass
+        
+        return ERR_OK
+    
     # 탐지결과와 기존 정책을 받아서 행열의 행으로 만든다.
-    def GenerateDetectResultMatrix(self, lstAllFilterDetectList:list, lstRegexPolicyPattern:list, listDetectMatrixRow:list):
+    def GenerateRegexDetectResultMatrix(self, lstAllFilterDetectList:list, lstRegexPolicyPattern:list, listDetectMatrixRow:list):
         
         '''
         탐지된 패턴, id, name, category 등이 제공된다. 해당값을 토대로 regex 패턴과 비교하여, 행,열을 만든다.
