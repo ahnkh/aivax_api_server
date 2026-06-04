@@ -171,7 +171,7 @@
                 "url_option":
                 {
                     "server_ip" : "127.0.0.1",
-                    "port" : 9099,
+                    "port" : 7000,
                     "openapi" : ""
                 },
 
@@ -214,9 +214,22 @@
                 {
                     "detect_result_output_path" : "./detect_test.csv"
                 }
+            },
+
+            "mail_sender":
+            {
+                "mail_url" : "175.113.82.233",
+                "mail_port" : 25,
+                "subject" : "aivax 탐지 결과 메일 전송 테스트",
+                "from_mail" : "aivax@wins21.co.kr",                
+                "recv_mail_list_bak" : ["ghahn@wins21.co.kr"],
+                "recv_mail_list" : ["ghahn@wins21.co.kr", "juyonglee@wins21.co.kr", "rlatkdvy12@wins21.co.kr"],
+                "contents" : "",
+                "debug_level" : 1,
+                "timeout" : 30,
+                "attach_file" : []
             }
 
-            
         }
     }
 

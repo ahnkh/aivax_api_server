@@ -48,6 +48,11 @@ from libhttp.restapi.api_response_handler import ApiResponseHandler
 
 from libnetwork.network_util import NetworkUtil
 
+from libmail.smtp_mail_sender import SMTPMailSender
+from libmail.mail_style_text_convertor import MailStyleTextConvertor
+
+from liboffice.office_document_reader import OfficeDocumentReader
+
 from common_modules.const_define.kshell_global_define import KShellGlobalDefine
 from common_modules.const_define.kshell_parameter_define import KShellParameterDefine
 

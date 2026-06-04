@@ -53,9 +53,11 @@
                     "method" : "RunCommand"
                 },
 
-                "mail_alarm":
+                "mail_client":
                 {
-                    
+                    "package" : "command_mail_client.mail_client_command",
+                    "class" : "MailClientCommand",
+                    "method" : "RunCommand"
                 }
             }
         }

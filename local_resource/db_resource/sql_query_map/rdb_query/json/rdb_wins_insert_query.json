@@ -109,6 +109,13 @@
             "key" : "rdb_bulk_truncate_any_table",
             "action" : "execute",
             "query" : "DELETE FROM {table}"
+        },
+
+        {
+            "desc" : "AIVAX Regex Pattern replace",
+            "key" : "rdb_update_regex_pattern_replace",
+            "action" : "execute",
+            "query" : "UPDATE app.policy_rules SET rule = '{rule}' WHERE id = '{id}'"
         }
 
     ]
