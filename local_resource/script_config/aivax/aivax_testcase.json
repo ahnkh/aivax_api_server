@@ -8,7 +8,7 @@
             "ext_module" : "manage_etc_util_module",
             "cmd_category" : "etc_util_module",
             "command" : "http_request",
-            "http_request_id" : "pipeline_multiplue_filter",
+            "http_request_id" : "pipeline_multiple_filter",
 
             "http_url_opt" : {
                 "server_ip" : "127.0.0.1", 

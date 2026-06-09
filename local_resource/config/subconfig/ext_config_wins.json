@@ -154,7 +154,8 @@
                 {
                     
                 }
-            }
+
+            }  
 
         },
 
@@ -230,6 +231,79 @@
                 "attach_file" : []
             }
 
+        }
+
+    },
+
+    "aivax_pipeline_module":
+    {
+
+        "local_instance_module_map":
+        {
+
+            "aivax_pipeline_util":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_pipeline_modules",
+
+                "aivax_backup":
+                {
+                    "package" : "command_aivax_backup.aivax_backup_command",
+                    "class" : "AivaxBackupCommand",
+                    "method" : "RunCommand"
+                }
+            } 
+        },
+
+        "aivax_backup_command":
+        {
+
+            "attach_file_backup_detail_command":
+            {
+                "aivax_attach_file_dir" : "/home1/aivax/data_resource/attach_file",
+                "aivax_evidence_temp_dir" : "/home1/aivax/data_resource/.tmp_detail_dir",
+
+                "aivax_backup_dest_dir" : "/backup/attach_file_backup",
+
+                "file_expire_min_time" : 30
+            },
+
+            "prompt_log_backup_detail_command":
+            {
+                "desc" : [
+                    "promptlog의 백업, 실시간 로그, fluent-log의 일단위 백업 + 최근 데이터 백업",
+                    "db로그의 백업, elasticdump, 과거 날짜의 백업, aivax_log는 일자별로 index가 생성된다는 가정으로 수행"
+                ]
+            },
+
+            "attach_file_disk_rotation_detail_command":
+            {
+                "desc":[
+                    "정해진 주기, 기본 30분 => 스케쥴러에 등록, custom",
+                    "지정된 첨부파일 경로, customize, 경로에서 디스크 사용량 이상이면 사용량 아래일때까지 로그 삭제",
+                    "TODO: 첨부파일, 프롬프트 로그 2개를 확인해야 한다.",
+                    "등록된 목록을 순회, 삭제하면서 디스크를 체크해야 한다. 안그러면 특정 자원이 과도하게 삭제된다."
+                ],
+
+                "disk_threshold_rate" : 70.0,
+                "disk_overflow_clear_rate" : 50.0,
+
+                "date_delete_try_count" : 30,
+
+                "backup_target_disk" : "/backup",
+
+                "attach_backup_rotation":
+                {                                        
+                    "attach_file_backup_dest_dir" : "/backup/attach_file_backup"
+                },
+
+                "prompt_log_rotation":
+                {                                        
+                    "prompt_log_backup_dest_dir" : "/backup/prmpt_log_backup"
+                }
+            }
+
+            
         }
     }
 
