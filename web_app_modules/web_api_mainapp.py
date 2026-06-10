@@ -1,4 +1,5 @@
 
+from fastapi import FastAPI
 from lib_include import *
 
 from web_app_modules.web_lib_include import *

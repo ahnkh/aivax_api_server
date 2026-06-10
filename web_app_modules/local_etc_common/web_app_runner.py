@@ -2,6 +2,7 @@
 import logging
 import uvicorn
 import socket
+from fastapi import FastAPI
 
 from lib_include import *
 

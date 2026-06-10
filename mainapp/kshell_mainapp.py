@@ -54,21 +54,18 @@ class KShellMainApp:
         return ERR_OK
         
     def RunCLICommand(self, dictOpt:dict):
-
-        LOG().debug(f"run cli command, opt = {dictOpt}")
+        
                 
         return self.__commandManager.RunCLICommand(self, dictOpt)
         
     def RunMultiCommand(self, lstMultiCommand:list, dictOpt:dict):
         
-        LOG().debug(f"run multi command")
         
         return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
                 
     def DisposeApplication(self, strDisposeMethodName:str):
 
         if None == self.__globalResourceManager:
-            LOG().error("kshell main is not initialize, cancel dispose application")
             return ERR_FAIL
 
         self.__globalResourceManager.DisposeGlobalResource(strDisposeMethodName)
