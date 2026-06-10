@@ -305,6 +305,55 @@
 
             
         }
+    },
+
+    "aivax_log_data_module":
+    {
+        "local_instance_module_map":
+        {
+            "aivax_log_data":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_log_data_modules",
+
+                "opensearch_log_data":
+                {
+                    "package" : "command_opensearch_data.opensearch_log_data_command",
+                    "class" : "OpensearchLogDataCommand",
+                    "method" : "RunCommand"
+                }
+            } 
+        }
+    },
+
+    "aivax_install_module":
+    {
+        "local_instance_module_map":
+        {
+            "aivax_install":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_install_modules",
+
+                "aivax_install_util_module":
+                {
+                    "package" : "command_install_util_module.aivax_install_util_command",
+                    "class" : "AivaxInstallUtilCommand",
+                    "method" : "RunCommand"
+                }
+            } 
+        },
+
+        "aivax_install_util_module":
+        {
+            "version_config":
+            {
+
+                "export_path" : "/home1/aivax",
+                "version_file" : "version.json"
+            }
+        }
     }
+
 
 }

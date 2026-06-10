@@ -59,6 +59,8 @@ def main():
         KShellParameterDefine.API_ROOT_PATH : "",
         KShellParameterDefine.CONFIG_BASE_PATH : CONFIG_BASE_PATH,
         KShellParameterDefine.OPEN_API : CONFIG_OPT_DISABLE,
+        
+        KShellParameterDefine.KSHELL_MAIN_APP : winsCliMainApp,
 
         KShellParameterDefine.METHOD : [],
     }
@@ -86,7 +88,6 @@ def main():
                 
                 "uniq_id=",
             ])
-                    
         
         
         for o, args in opts:
@@ -99,6 +100,13 @@ def main():
 
             elif o in ("-m", "--method", "--module"): 
                 dictOpt["method"].append(args)
+                
+            elif o in ("-s", "--script_config"):
+                
+                dictScriptJson = {}
+                JsonHelperX.LoadToDictionary(args, dictScriptJson)
+                
+                dictOpt.update(dictScriptJson)
                 
             elif o in ("-f", "--script_file"):
                                 
@@ -146,8 +154,7 @@ def main():
         
     except Exception as err: 
         
-        AddStreamLogger()
-        
+        AddStreamLogger()        
         LOG().error(traceback.format_exc())
         
         GlobalCommonModule.RaiseException(ErrorDefine.CLI_UNKNOWN_ERROR, ErrorDefine.CLI_UNKNOWN_ERROR_MSG, str(err))      
