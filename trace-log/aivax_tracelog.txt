@@ -1,0 +1,1051 @@
+[2026-04-03 14:49:50,299][469552][aivax_toolkit.py][INFO] (main:128) start process pid = 469552, argc = 4, argv = ['aivax_toolkit.py', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_backup.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-03 14:49:50,299][469552][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 14:49:50,300][469552][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 14:49:50,300][469552][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 14:49:50,300][469552][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 14:49:50,300][469552][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 14:49:50,302][469552][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 14:49:50,302][469552][rdb_migrate_backup_command.py][INFO] (RunCommand:27) aivax migrate - backup command
+[2026-04-03 14:49:50,350][469552][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-03 14:49:50,350][469552][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-03 14:49:50,350][469552][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-04-03 14:50:04,578][469627][aivax_toolkit.py][INFO] (main:128) start process pid = 469627, argc = 4, argv = ['aivax_toolkit.py', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_restore.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-03 14:50:04,578][469627][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 14:50:04,579][469627][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 14:50:04,579][469627][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 14:50:04,579][469627][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 14:50:04,579][469627][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 14:50:04,580][469627][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 14:50:04,581][469627][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-04-03 14:50:04,583][469627][aivax_toolkit.py][ERROR] (main:151) Traceback (most recent call last):
+  File "/home1/git-root/aivax_toolkit/aivax_toolkit.py", line 145, in main
+    winsCliMainApp.RunMultiCommand(lstMultiCommand, dictOpt)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 66, in RunMultiCommand
+    return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 70, in RunMultiCommand
+    self.__runCommandList(mainApp, dictCommand, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 114, in __runCommandList
+    self.__runCommandAt(mainApp, dictOpt, strMethod, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 132, in __runCommandAt
+    method(dictOpt, apiResponseHandler)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 79, in manage_wins_modules
+    self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_app_helper.py", line 41, in ManageWinsModules
+    utilModule.RunModule(dictOpt, self.__dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/wins_manage_module.py", line 18, in RunModule
+    self.__runModule(dictOpt, dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/wins_manage_module.py", line 46, in __runModule
+    GlobalCommonModule.ExecuteUtilCliInstanceMethod(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/global_common_module.py", line 98, in ExecuteUtilCliInstanceMethod
+    utilModuleMapHelper.RunExtModule(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/instance_factory/util_module_map_helper.py", line 39, in RunExtModule
+    return methodFunction(dictOpt, dictLocalModuleConfig, apiResponseHandler)
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/aivax_rdb_migrate_command.py", line 53, in RunCommand
+    detailCommand.RunCommand(dictOpt, dictAivaxUtilModuleLocalConfig, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 24, in RunCommand
+    restore_table_list:list = dictOpt.get(KShellParameterDefine.WINS_MODULE.DB_MIGRATE_RESTORE_QUERY)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'WinsModuleParameterDefine' has no attribute 'DB_MIGRATE_RESTORE_QUERY'. Did you mean: 'DB_MIGRATE_RESTORE_SOURCE_PATH'?
+
+[2026-04-03 14:50:04,584][469627][exception_handle_module.py][ERROR] (RaiseException:20) code = 20001000, message = type object 'WinsModuleParameterDefine' has no attribute 'DB_MIGRATE_RESTORE_QUERY'
+[2026-04-03 14:50:04,584][469627][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-03 14:50:04,584][469627][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-03 14:50:04,584][469627][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-04-03 15:05:26,073][470820][aivax_toolkit.py][INFO] (main:128) start process pid = 470820, argc = 4, argv = ['aivax_toolkit.py', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_restore.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-03 15:05:26,073][470820][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 15:05:26,074][470820][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 15:05:26,074][470820][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 15:05:26,074][470820][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 15:05:26,074][470820][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 15:05:26,076][470820][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 15:05:26,077][470820][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-04-03 15:05:26,083][470820][aivax_toolkit.py][ERROR] (main:151) Traceback (most recent call last):
+  File "/home1/git-root/aivax_toolkit/aivax_toolkit.py", line 145, in main
+    winsCliMainApp.RunMultiCommand(lstMultiCommand, dictOpt)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 66, in RunMultiCommand
+    return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 70, in RunMultiCommand
+    self.__runCommandList(mainApp, dictCommand, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 114, in __runCommandList
+    self.__runCommandAt(mainApp, dictOpt, strMethod, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 132, in __runCommandAt
+    method(dictOpt, apiResponseHandler)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 79, in manage_wins_modules
+    self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_app_helper.py", line 41, in ManageWinsModules
+    utilModule.RunModule(dictOpt, self.__dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/wins_manage_module.py", line 18, in RunModule
+    self.__runModule(dictOpt, dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/wins_manage_module.py", line 46, in __runModule
+    GlobalCommonModule.ExecuteUtilCliInstanceMethod(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/global_common_module.py", line 98, in ExecuteUtilCliInstanceMethod
+    utilModuleMapHelper.RunExtModule(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/instance_factory/util_module_map_helper.py", line 39, in RunExtModule
+    return methodFunction(dictOpt, dictLocalModuleConfig, apiResponseHandler)
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/aivax_rdb_migrate_command.py", line 53, in RunCommand
+    detailCommand.RunCommand(dictOpt, dictAivaxUtilModuleLocalConfig, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 31, in RunCommand
+    self.__restoreFromBakupDBFile(restore_table_list, restore_source_path, use_truncate)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 56, in __restoreFromBakupDBFile
+    if strTableName in lstRestoreTable:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+
+[2026-04-03 15:05:26,085][470820][exception_handle_module.py][ERROR] (RaiseException:20) code = 20001000, message = argument of type 'NoneType' is not iterable
+[2026-04-03 15:05:26,085][470820][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-03 15:05:26,085][470820][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-03 15:05:26,085][470820][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-04-03 15:06:54,329][470974][aivax_toolkit.py][INFO] (main:128) start process pid = 470974, argc = 7, argv = ['/home1/git-root/aivax_toolkit/aivax_toolkit.py', '--debug', '--printlog', '-f', 'local_resource/script_config/aivax/rdb_restore.json', '--api_print_console', '1'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': [], 'api_print_console': '1'}
+[2026-04-03 15:06:54,330][470974][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-04-03 15:06:54,330][470974][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-04-03 15:06:54,331][470974][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-04-03 15:06:54,331][470974][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-04-03 15:06:54,331][470974][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-04-03 15:06:54,332][470974][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 15:06:54,332][470974][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 15:06:54,332][470974][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 15:06:54,333][470974][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-04-03 15:06:54,334][470974][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-04-03 15:06:54,334][470974][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 15:06:54,335][470974][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 15:06:54,335][470974][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-04-03 15:06:54,335][470974][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': [], 'api_print_console': '1'}
+[2026-04-03 15:06:54,336][470974][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-04-03 15:06:54,339][470974][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 15:06:54,340][470974][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-04-03 15:08:43,149][471211][aivax_toolkit.py][INFO] (main:128) start process pid = 471211, argc = 7, argv = ['/home1/git-root/aivax_toolkit/aivax_toolkit.py', '--debug', '--printlog', '-f', 'local_resource/script_config/aivax/rdb_restore.json', '--api_print_console', '1'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': [], 'api_print_console': '1'}
+[2026-04-03 15:08:43,150][471211][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-04-03 15:08:43,150][471211][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-04-03 15:08:43,150][471211][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-04-03 15:08:43,151][471211][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-04-03 15:08:43,151][471211][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-04-03 15:08:43,151][471211][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 15:08:43,152][471211][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 15:08:43,152][471211][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 15:08:43,152][471211][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-04-03 15:08:43,153][471211][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-04-03 15:08:43,153][471211][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 15:08:43,154][471211][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 15:08:43,154][471211][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-04-03 15:08:43,155][471211][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': [], 'api_print_console': '1'}
+[2026-04-03 15:08:43,155][471211][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-04-03 15:08:43,158][471211][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 15:08:43,159][471211][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-04-03 15:08:59,785][471211][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin is empty, no data, skip
+[2026-04-03 15:09:09,349][471211][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin_password is empty, no data, skip
+[2026-04-03 15:09:17,447][471211][aivax_toolkit.py][ERROR] (main:151) Traceback (most recent call last):
+  File "/home1/git-root/aivax_toolkit/aivax_toolkit.py", line 145, in main
+    winsCliMainApp.RunMultiCommand(lstMultiCommand, dictOpt)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 66, in RunMultiCommand
+    return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 70, in RunMultiCommand
+    self.__runCommandList(mainApp, dictCommand, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 114, in __runCommandList
+    self.__runCommandAt(mainApp, dictOpt, strMethod, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 132, in __runCommandAt
+    method(dictOpt, apiResponseHandler)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 79, in manage_wins_modules
+    self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_app_helper.py", line 41, in ManageWinsModules
+    utilModule.RunModule(dictOpt, self.__dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/wins_manage_module.py", line 18, in RunModule
+    self.__runModule(dictOpt, dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/wins_manage_module.py", line 46, in __runModule
+    GlobalCommonModule.ExecuteUtilCliInstanceMethod(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/global_common_module.py", line 98, in ExecuteUtilCliInstanceMethod
+    utilModuleMapHelper.RunExtModule(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/instance_factory/util_module_map_helper.py", line 39, in RunExtModule
+    return methodFunction(dictOpt, dictLocalModuleConfig, apiResponseHandler)
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/aivax_rdb_migrate_command.py", line 53, in RunCommand
+    detailCommand.RunCommand(dictOpt, dictAivaxUtilModuleLocalConfig, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 31, in RunCommand
+    self.__restoreFromBakupDBFile(restore_table_list, restore_source_path, use_truncate)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 69, in __restoreFromBakupDBFile
+    self.__restoreEachDBTableAt(strTableName, query_data, bUseTruncate)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 121, in __restoreEachDBTableAt
+    sqlbulk(DBSQLDefine.BASE_CATEGORY_RDB, "rdb_bulk_migration_any_table", lstBulkData, dictDBBulkResult, dictSQLParameter=dictSQLParameter)
+    ^^^^^^^
+NameError: name 'sqlbulk' is not defined
+
+[2026-04-03 15:09:17,448][471211][exception_handle_module.py][ERROR] (RaiseException:20) code = 20001000, message = name 'sqlbulk' is not defined
+[2026-04-03 15:09:17,448][471211][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-03 15:09:17,449][471211][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-03 15:09:17,449][471211][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-04-03 15:12:23,445][471599][aivax_toolkit.py][INFO] (main:128) start process pid = 471599, argc = 7, argv = ['/home1/git-root/aivax_toolkit/aivax_toolkit.py', '--debug', '--printlog', '-f', 'local_resource/script_config/aivax/rdb_restore.json', '--api_print_console', '1'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': [], 'api_print_console': '1'}
+[2026-04-03 15:12:23,446][471599][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-04-03 15:12:23,446][471599][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-04-03 15:12:23,447][471599][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-04-03 15:12:23,447][471599][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-04-03 15:12:23,448][471599][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-04-03 15:12:23,448][471599][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 15:12:23,449][471599][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 15:12:23,449][471599][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 15:12:23,450][471599][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-04-03 15:12:23,450][471599][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-04-03 15:12:23,451][471599][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 15:12:23,452][471599][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 15:12:23,452][471599][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-04-03 15:12:23,452][471599][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': [], 'api_print_console': '1'}
+[2026-04-03 15:12:23,454][471599][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-04-03 15:12:23,457][471599][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 15:12:23,458][471599][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-04-03 15:12:35,385][471599][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin is empty, no data, skip
+[2026-04-03 15:12:35,388][471599][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin_password is empty, no data, skip
+[2026-04-03 15:12:56,958][471599][mariadb_connector.py][ERROR] (execute_many:361) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 346, in execute_many
+    cursor.executemany(strQuery, lstTupleData)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 182, in executemany
+    return self._do_execute_many(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db().encoding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 220, in _do_execute_many
+    rows += self.execute(sql + postfix)
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:13:10,528][471599][rdb_migrate_restore_command.py][INFO] (__restoreEachDBTableAt:123) restore app.ai_services, data count = 6, result = {'error_code': 0, 'query_data': {}}
+[2026-04-03 15:13:20,029][471599][mariadb_connector.py][ERROR] (execute_many:361) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 346, in execute_many
+    cursor.executemany(strQuery, lstTupleData)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 182, in executemany
+    return self._do_execute_many(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db().encoding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 220, in _do_execute_many
+    rows += self.execute(sql + postfix)
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:13:21,009][471599][rdb_migrate_restore_command.py][INFO] (__restoreEachDBTableAt:123) restore app.settings, data count = 4, result = {'error_code': 0, 'query_data': {}}
+[2026-04-03 15:13:21,010][471599][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.users is empty, no data, skip
+[2026-04-03 15:13:21,012][471599][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-03 15:13:21,013][471599][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-03 15:13:21,013][471599][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-04-03 15:14:56,606][471954][aivax_toolkit.py][INFO] (main:128) start process pid = 471954, argc = 4, argv = ['aivax_toolkit.py', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_restore.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-03 15:14:56,606][471954][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 15:14:56,607][471954][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 15:14:56,607][471954][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 15:14:56,607][471954][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 15:14:56,607][471954][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 15:14:56,609][471954][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 15:14:56,609][471954][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-04-03 15:14:56,611][471954][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin is empty, no data, skip
+[2026-04-03 15:14:56,611][471954][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin_password is empty, no data, skip
+[2026-04-03 15:14:56,614][471954][mariadb_connector.py][ERROR] (execute:318) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 303, in execute
+    cursor.execute(strQuery, tupleData)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:14:56,617][471954][mariadb_connector.py][ERROR] (execute_many:361) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 346, in execute_many
+    cursor.executemany(strQuery, lstTupleData)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 182, in executemany
+    return self._do_execute_many(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db().encoding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 220, in _do_execute_many
+    rows += self.execute(sql + postfix)
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:14:56,617][471954][rdb_migrate_restore_command.py][INFO] (__restoreEachDBTableAt:123) restore app.ai_services, data count = 6, result = {'error_code': 0, 'query_data': {}}
+[2026-04-03 15:14:56,619][471954][mariadb_connector.py][ERROR] (execute:318) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 303, in execute
+    cursor.execute(strQuery, tupleData)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:14:56,622][471954][mariadb_connector.py][ERROR] (execute_many:361) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 346, in execute_many
+    cursor.executemany(strQuery, lstTupleData)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 182, in executemany
+    return self._do_execute_many(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db().encoding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 220, in _do_execute_many
+    rows += self.execute(sql + postfix)
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:14:56,622][471954][rdb_migrate_restore_command.py][INFO] (__restoreEachDBTableAt:123) restore app.settings, data count = 4, result = {'error_code': 0, 'query_data': {}}
+[2026-04-03 15:14:56,622][471954][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.users is empty, no data, skip
+[2026-04-03 15:14:56,622][471954][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-03 15:14:56,623][471954][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-03 15:14:56,623][471954][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-04-03 15:15:15,605][472032][aivax_toolkit.py][INFO] (main:128) start process pid = 472032, argc = 5, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_restore.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-03 15:15:15,606][472032][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-04-03 15:15:15,606][472032][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-04-03 15:15:15,606][472032][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-04-03 15:15:15,606][472032][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-04-03 15:15:15,606][472032][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-04-03 15:15:15,606][472032][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-03 15:15:15,606][472032][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-03 15:15:15,606][472032][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-03 15:15:15,606][472032][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-04-03 15:15:15,607][472032][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-04-03 15:15:15,607][472032][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-03 15:15:15,607][472032][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-03 15:15:15,607][472032][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-04-03 15:15:15,607][472032][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-03 15:15:15,607][472032][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-04-03 15:15:15,608][472032][aivax_rdb_migrate_command.py][INFO] (RunCommand:27) migrate aivax rdb migrate command
+[2026-04-03 15:15:15,609][472032][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-04-03 15:15:15,610][472032][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin is empty, no data, skip
+[2026-04-03 15:15:15,610][472032][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.admin_password is empty, no data, skip
+[2026-04-03 15:15:15,613][472032][mariadb_connector.py][ERROR] (execute:318) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 303, in execute
+    cursor.execute(strQuery, tupleData)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:15:15,615][472032][mariadb_connector.py][ERROR] (execute_many:361) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 346, in execute_many
+    cursor.executemany(strQuery, lstTupleData)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 182, in executemany
+    return self._do_execute_many(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db().encoding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 220, in _do_execute_many
+    rows += self.execute(sql + postfix)
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:15:15,615][472032][rdb_migrate_restore_command.py][INFO] (__restoreEachDBTableAt:123) restore app.ai_services, data count = 6, result = {'error_code': 0, 'query_data': {}}
+[2026-04-03 15:15:15,617][472032][mariadb_connector.py][ERROR] (execute:318) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 303, in execute
+    cursor.execute(strQuery, tupleData)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:15:15,619][472032][mariadb_connector.py][ERROR] (execute_many:361) Traceback (most recent call last):
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/libsql/connector/mariadb_connector.py", line 346, in execute_many
+    cursor.executemany(strQuery, lstTupleData)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 682, in tough_method
+    raise error  # re-raise the original error again
+    ^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/dbutils/steady_db.py", line 605, in tough_method
+    result = method(*args, **kwargs)  # try to execute
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 182, in executemany
+    return self._do_execute_many(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db().encoding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 220, in _do_execute_many
+    rows += self.execute(sql + postfix)
+            ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1046, 'No database selected')
+
+[2026-04-03 15:15:15,619][472032][rdb_migrate_restore_command.py][INFO] (__restoreEachDBTableAt:123) restore app.settings, data count = 4, result = {'error_code': 0, 'query_data': {}}
+[2026-04-03 15:15:15,619][472032][rdb_migrate_restore_command.py][INFO] (__restoreFromBakupDBFile:65) table app.users is empty, no data, skip
+[2026-04-03 15:15:15,619][472032][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-03 15:15:15,619][472032][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-03 15:15:15,619][472032][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-04-11 11:27:16,400][1175799][aivax_toolkit.py][INFO] (main:128) start process pid = 1175799, argc = 5, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--script_file', 'local_resource/script_config/aivax/aivax_scheduler.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-11 11:27:16,401][1175799][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-04-11 11:27:16,401][1175799][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-04-11 11:27:16,402][1175799][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-04-11 11:27:16,403][1175799][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-04-11 11:27:16,403][1175799][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-04-11 11:27:16,403][1175799][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-04-11 11:27:16,403][1175799][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-04-11 11:27:16,403][1175799][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-04-11 11:27:16,403][1175799][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-04-11 11:27:16,404][1175799][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-04-11 11:27:16,405][1175799][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-04-11 11:27:16,405][1175799][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-04-11 11:27:16,405][1175799][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-04-11 11:27:16,406][1175799][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-04-11 11:27:16,406][1175799][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-04-11 11:27:16,409][1175799][operation_util_manage_module.py][DEBUG] (__runModule:37) run module, ext_module = manage_etc_util_module
+[2026-04-11 11:27:16,412][1175799][schedule_daemon_command.py][INFO] (RunDaemon:35) run schedule daemon command
+[2026-04-11 11:27:16,412][1175799][schedule_daemon_command.py][INFO] (__loadFromScheduleConfig:92) skip schedule {'use': 0, 'interval': 10, 'schedule_unit': 'seconds', 'method': 'do_extern_command', 'parameter': 'ls -al'}
+[2026-04-11 11:27:16,412][1175799][schedule_daemon_command.py][INFO] (__loadFromScheduleConfig:92) skip schedule {'use': 0, 'interval': 1, 'schedule_unit': 'minutes', 'method': 'do_extern_command', 'parameter': 'echo test'}
+[2026-04-11 11:27:18,394][1175799][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-04-11 11:27:18,394][1175799][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-04-11 11:27:18,395][1175799][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-04 22:33:29,143][2376072][aivax_toolkit.py][INFO] (main:128) start process pid = 2376072, argc = 3, argv = ['aivax_toolkit.py', '--debug', '--printlog'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:33:29,144][2376072][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-04 22:33:29,144][2376072][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-04 22:33:29,146][2376072][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-04 22:33:29,147][2376072][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-04 22:33:29,148][2376072][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-04 22:33:29,148][2376072][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-04 22:33:29,148][2376072][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-04 22:33:29,148][2376072][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-04 22:33:29,149][2376072][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-04 22:33:29,151][2376072][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-04 22:33:29,152][2376072][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-04 22:33:29,152][2376072][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-04 22:33:29,152][2376072][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-04 22:33:29,153][2376072][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:33:29,154][2376072][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-04 22:33:29,154][2376072][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-04 22:33:29,154][2376072][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-04 22:39:59,990][2376639][aivax_toolkit.py][INFO] (main:128) start process pid = 2376639, argc = 3, argv = ['aivax_toolkit.py', '--debug', '--printlog'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:39:59,991][2376639][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-04 22:39:59,991][2376639][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-04 22:39:59,991][2376639][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-04 22:39:59,991][2376639][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-04 22:39:59,991][2376639][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-04 22:39:59,991][2376639][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-04 22:39:59,991][2376639][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-04 22:39:59,991][2376639][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-04 22:39:59,991][2376639][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-04 22:39:59,992][2376639][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-04 22:39:59,992][2376639][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-04 22:39:59,992][2376639][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-04 22:39:59,992][2376639][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-04 22:39:59,992][2376639][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:39:59,992][2376639][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-04 22:39:59,992][2376639][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-04 22:39:59,992][2376639][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-04 22:40:56,531][2376717][file_io_helper.py][ERROR] (OpenFileAsUTFToStream:263) fail open file, access error path = local_resource/script_config/rdb_backup.json
+[2026-06-04 22:41:16,225][2376759][aivax_toolkit.py][INFO] (main:128) start process pid = 2376759, argc = 5, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_backup.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:41:16,226][2376759][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-04 22:41:16,226][2376759][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-04 22:41:16,227][2376759][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-04 22:41:16,227][2376759][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-04 22:41:16,228][2376759][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-04 22:41:16,228][2376759][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-04 22:41:16,228][2376759][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-04 22:41:16,228][2376759][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-04 22:41:16,228][2376759][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-04 22:41:16,229][2376759][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-04 22:41:16,230][2376759][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-04 22:41:16,230][2376759][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-04 22:41:16,230][2376759][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-04 22:41:16,231][2376759][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:41:16,231][2376759][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-06-04 22:41:16,234][2376759][aivax_toolkit.py][ERROR] (main:151) Traceback (most recent call last):
+  File "/home1/git-root/aivax_toolkit/aivax_toolkit.py", line 145, in main
+    winsCliMainApp.RunMultiCommand(lstMultiCommand, dictOpt)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 66, in RunMultiCommand
+    return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 70, in RunMultiCommand
+    self.__runCommandList(mainApp, dictCommand, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 114, in __runCommandList
+    self.__runCommandAt(mainApp, dictOpt, strMethod, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 132, in __runCommandAt
+    method(dictOpt, apiResponseHandler)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 79, in manage_wins_modules
+    self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_app_helper.py", line 38, in ManageWinsModules
+    from util_modules.wins_manage_modules.wins_manage_module import WinsManageModule
+ModuleNotFoundError: No module named 'util_modules'
+
+[2026-06-04 22:41:16,234][2376759][exception_handle_module.py][ERROR] (RaiseException:20) code = 20001000, message = No module named 'util_modules'
+[2026-06-04 22:41:16,235][2376759][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-04 22:41:16,235][2376759][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-04 22:41:16,235][2376759][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-04 22:42:55,656][2376921][aivax_toolkit.py][INFO] (main:128) start process pid = 2376921, argc = 5, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_backup.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:42:55,656][2376921][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-04 22:42:55,656][2376921][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-04 22:42:55,656][2376921][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-04 22:42:55,657][2376921][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-04 22:42:55,657][2376921][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-04 22:42:55,657][2376921][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-04 22:42:55,657][2376921][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-04 22:42:55,657][2376921][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-04 22:42:55,657][2376921][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-04 22:42:55,657][2376921][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-04 22:42:55,657][2376921][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-04 22:42:55,657][2376921][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-04 22:42:55,657][2376921][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-04 22:42:55,658][2376921][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:42:55,658][2376921][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-06-04 22:42:55,659][2376921][aivax_toolkit.py][ERROR] (main:151) Traceback (most recent call last):
+  File "/home1/git-root/aivax_toolkit/aivax_toolkit.py", line 145, in main
+    winsCliMainApp.RunMultiCommand(lstMultiCommand, dictOpt)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 66, in RunMultiCommand
+    return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 70, in RunMultiCommand
+    self.__runCommandList(mainApp, dictCommand, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 114, in __runCommandList
+    self.__runCommandAt(mainApp, dictOpt, strMethod, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 132, in __runCommandAt
+    method(dictOpt, apiResponseHandler)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 79, in manage_wins_modules
+    self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_app_helper.py", line 38, in ManageWinsModules
+    from util_modules.wins_manage_modules.wins_manage_module import WinsManageModule
+ModuleNotFoundError: No module named 'util_modules'
+
+[2026-06-04 22:42:55,659][2376921][exception_handle_module.py][ERROR] (RaiseException:20) code = 20001000, message = No module named 'util_modules'
+[2026-06-04 22:42:55,660][2376921][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-04 22:42:55,660][2376921][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-04 22:42:55,660][2376921][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-04 22:48:07,481][2377536][aivax_toolkit.py][INFO] (main:128) start process pid = 2377536, argc = 5, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--script_file', 'local_resource/script_config/aivax/rdb_backup.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:48:07,481][2377536][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-04 22:48:07,481][2377536][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-04 22:48:07,481][2377536][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-04 22:48:07,481][2377536][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-04 22:48:07,482][2377536][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-04 22:48:07,482][2377536][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-04 22:48:07,482][2377536][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-04 22:48:07,482][2377536][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-04 22:48:07,482][2377536][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-04 22:48:07,482][2377536][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-04 22:48:07,482][2377536][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-04 22:48:07,482][2377536][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-04 22:48:07,482][2377536][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-04 22:48:07,483][2377536][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:48:07,483][2377536][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-06-04 22:48:07,487][2377536][aivax_rdb_migrate_command.py][INFO] (RunCommand:25) migrate aivax rdb migrate command
+[2026-06-04 22:48:07,488][2377536][rdb_migrate_restore_command.py][INFO] (RunCommand:22) aivax migrate - restore command
+[2026-06-04 22:48:07,488][2377536][file_io_helper.py][ERROR] (OpenFileAsUTFToStream:263) fail open file, access error path = /tmp/backup.json
+[2026-06-04 22:48:07,494][2377536][aivax_toolkit.py][ERROR] (main:151) Traceback (most recent call last):
+  File "/home1/git-root/aivax_toolkit/aivax_toolkit.py", line 145, in main
+    winsCliMainApp.RunMultiCommand(lstMultiCommand, dictOpt)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 66, in RunMultiCommand
+    return self.__commandManager.RunMultiCommand(self, lstMultiCommand, dictOpt)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 70, in RunMultiCommand
+    self.__runCommandList(mainApp, dictCommand, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 114, in __runCommandList
+    self.__runCommandAt(mainApp, dictOpt, strMethod, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_command_manager.py", line 132, in __runCommandAt
+    method(dictOpt, apiResponseHandler)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/kshell_mainapp.py", line 79, in manage_wins_modules
+    self.__appHelper.ManageWinsModules(dictOpt, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/git-root/aivax_toolkit/mainapp/apphelper/kshell_app_helper.py", line 41, in ManageWinsModules
+    utilModule.RunModule(dictOpt, self.__dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/util_modules/wins_manage_modules/wins_manage_module.py", line 18, in RunModule
+    self.__runModule(dictOpt, dictJsonLocalConfigRoot, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/util_modules/wins_manage_modules/wins_manage_module.py", line 46, in __runModule
+    GlobalCommonModule.ExecuteUtilCliInstanceMethod(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/global_common_module.py", line 98, in ExecuteUtilCliInstanceMethod
+    utilModuleMapHelper.RunExtModule(dictOpt, dictJsonLocalConfigRoot, strLocalModuleConfigName, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/common_modules/instance_factory/util_module_map_helper.py", line 39, in RunExtModule
+    return methodFunction(dictOpt, dictLocalModuleConfig, apiResponseHandler)
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/aivax_rdb_migrate_command.py", line 49, in RunCommand
+    detailCommand.RunCommand(dictOpt, dictAivaxUtilModuleLocalConfig, apiResponseHandler)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 43, in RunCommand
+    self.__restoreFromBakupDBFile(restore_table_list, restore_source_path, use_truncate, dictOutputResponse)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/aivax/aivax-venv/lib/python3.13/site-packages/util_modules/wins_manage_modules/ext_aivax_util_modules/command_aivax_migrate/detail_command/rdb_migrate_restore_command.py", line 62, in __restoreFromBakupDBFile
+    nErrorReadFile:int = JsonHelperX.JsonFileToDictionary(strSourceFilePath, dictSourceDBInfo)
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./libjson/json_helper.py", line 50, in JsonFileToDictionary
+Exception: fail open file, file = /tmp/backup.json
+
+[2026-06-04 22:48:07,494][2377536][exception_handle_module.py][ERROR] (RaiseException:20) code = 20001000, message = fail open file, file = /tmp/backup.json
+[2026-06-04 22:48:07,494][2377536][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-04 22:48:07,494][2377536][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-04 22:48:07,494][2377536][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-04 22:49:06,657][2377621][aivax_toolkit.py][INFO] (main:128) start process pid = 2377621, argc = 5, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--script_file', 'local_resource/script_config/aivax/aivax_scheduler.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:49:06,658][2377621][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-04 22:49:06,658][2377621][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-04 22:49:06,659][2377621][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-04 22:49:06,659][2377621][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-04 22:49:06,660][2377621][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-04 22:49:06,660][2377621][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-04 22:49:06,660][2377621][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-04 22:49:06,660][2377621][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-04 22:49:06,660][2377621][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-04 22:49:06,661][2377621][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-04 22:49:06,662][2377621][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-04 22:49:06,662][2377621][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-04 22:49:06,662][2377621][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-04 22:49:06,662][2377621][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:49:06,663][2377621][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-06-04 22:49:06,668][2377621][operation_util_manage_module.py][DEBUG] (__runModule:37) run module, ext_module = manage_etc_util_module
+[2026-06-04 22:49:06,671][2377621][schedule_daemon_command.py][INFO] (RunDaemon:35) run schedule daemon command
+[2026-06-04 22:49:06,671][2377621][schedule_daemon_command.py][INFO] (__loadFromScheduleConfig:99) skip schedule {'use': 0, 'interval': 10, 'schedule_unit': 'seconds', 'method': 'do_extern_command', 'parameter': 'ls -al'}
+[2026-06-04 22:49:06,671][2377621][schedule_daemon_command.py][INFO] (__loadFromScheduleConfig:99) skip schedule {'use': 0, 'interval': 1, 'schedule_unit': 'minutes', 'method': 'do_extern_command', 'parameter': 'echo test'}
+[2026-06-04 22:49:09,436][2377621][schedule_daemon_command.py][ERROR] (RunDaemon:71) keyboard interrupt exception
+[2026-06-04 22:49:09,437][2377621][schedule_daemon_command.py][INFO] (RunDaemon:73) finish scheduler
+[2026-06-04 22:49:09,437][2377621][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-04 22:49:09,437][2377621][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-04 22:49:09,438][2377621][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-04 22:49:20,169][2377633][aivax_toolkit.py][INFO] (main:128) start process pid = 2377633, argc = 5, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--script_file', 'local_resource/script_config/aivax/aivax_testcase.json'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:49:20,169][2377633][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-04 22:49:20,170][2377633][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-04 22:49:20,170][2377633][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-04 22:49:20,170][2377633][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-04 22:49:20,170][2377633][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-04 22:49:20,170][2377633][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-04 22:49:20,170][2377633][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-04 22:49:20,170][2377633][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-04 22:49:20,170][2377633][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-04 22:49:20,170][2377633][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-04 22:49:20,171][2377633][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-04 22:49:20,171][2377633][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-04 22:49:20,171][2377633][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-04 22:49:20,171][2377633][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-04 22:49:20,171][2377633][kshell_mainapp.py][DEBUG] (RunMultiCommand:64) run multi command
+[2026-06-04 22:49:20,172][2377633][operation_util_manage_module.py][DEBUG] (__runModule:37) run module, ext_module = manage_etc_util_module
+[2026-06-04 22:49:20,173][2377633][http_request_command.py][DEBUG] (RunCommand:23) run http request, option = {'desc': 'aivax pipeline filter test', 'enable_command': 1, 'method': ['manage_operation_util_modules'], 'ext_module': 'manage_etc_util_module', 'cmd_category': 'etc_util_module', 'command': 'http_request', 'http_request_id': 'pipeline_multiplue_filter', 'http_url_opt': {'server_ip': '127.0.0.1', 'port': 9099, 'openapi': ''}, 'http_cookie': {'accept': 'application/json', 'Content-Type': 'application/json'}, 'http_json_request': {'filter_list': ['input_filter', 'secret_filter', 'slm_filter', 'file_block_filter'], 'prompt': '안녕하세요', 'user_id': 'ghahn', 'email': 'ghahn@wins21.co.kr', 'ai_service': 1, 'client_host': '127.0.0.1', 'session_id': None, 'message_id': '', 'attachments': [{'id': '', 'size': 0, 'name': '', 'mime_type': ''}], 'debug': False}}
+[2026-06-04 22:49:21,016][2377633][operation_util_manage_module.py][DEBUG] (__runModule:37) run module, ext_module = manage_etc_util_module
+[2026-06-04 22:49:21,016][2377633][http_request_command.py][DEBUG] (RunCommand:23) run http request, option = {'desc': 'aivax rule test', 'enable_command': 1, 'method': ['manage_operation_util_modules'], 'ext_module': 'manage_etc_util_module', 'cmd_category': 'etc_util_module', 'command': 'http_request', 'http_request_id': 'pipeline_test_rule', 'http_url_opt': {'server_ip': '127.0.0.1', 'port': 9099, 'openapi': ''}, 'http_cookie': {'accept': 'application/json', 'Content-Type': 'application/json'}, 'http_json_request': {'action': 'block', 'prompt': '안녕하세요', 'rule': '(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?::(?:6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|[1-5][0-9]{4}|[0-9]{1,4}))?'}}
+[2026-06-04 22:49:21,079][2377633][operation_util_manage_module.py][DEBUG] (__runModule:37) run module, ext_module = manage_etc_util_module
+[2026-06-04 22:49:21,079][2377633][http_request_command.py][DEBUG] (RunCommand:23) run http request, option = {'desc': 'aivax signal test', 'enable_command': 1, 'method': ['manage_operation_util_modules'], 'ext_module': 'manage_etc_util_module', 'cmd_category': 'etc_util_module', 'command': 'http_request', 'http_request_id': 'pipeline_policy_signal', 'http_url_opt': {'server_ip': '127.0.0.1', 'port': 9099, 'openapi': ''}, 'http_cookie': {'accept': 'application/json', 'Content-Type': 'application/json'}, 'http_json_request': {}}
+[2026-06-04 22:49:21,102][2377633][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-04 22:49:21,102][2377633][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-04 22:49:21,102][2377633][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-09 21:19:34,938][2968859][aivax_toolkit.py][ERROR] (main:123) Traceback (most recent call last):
+  File "/home1/git-root/aivax_toolkit/aivax_toolkit.py", line 70, in main
+    opts, args = getopt.getopt(sys.argv[1:], "dhm:pw:f:s:",
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        [
+        ^
+    ...<15 lines>...
+            "uniq_id=",
+            ^^^^^^^^^^^
+        ])
+        ^^
+  File "/usr/local/lib/python3.13/getopt.py", line 93, in getopt
+    opts, args = do_longs(opts, args[0][2:], longopts, args[1:])
+                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/getopt.py", line 157, in do_longs
+    has_arg, opt = long_has_args(opt, longopts)
+                   ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/getopt.py", line 174, in long_has_args
+    raise GetoptError(_('option --%s not recognized') % opt, opt)
+getopt.GetoptError: option --debub not recognized
+
+[2026-06-09 21:19:49,044][2968883][aivax_toolkit.py][INFO] (main:128) start process pid = 2968883, argc = 3, argv = ['aivax_toolkit.py', '--debug', '--printlog'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-09 21:19:49,044][2968883][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:107) initialize local config root
+[2026-06-09 21:19:49,044][2968883][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:37) intialize local config root
+[2026-06-09 21:19:49,049][2968883][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-09 21:19:49,049][2968883][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:106) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-09 21:19:49,050][2968883][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:146) initialize factory instance
+[2026-06-09 21:19:49,050][2968883][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-09 21:19:49,050][2968883][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-09 21:19:49,050][2968883][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:42) initialize global directory
+[2026-06-09 21:19:49,050][2968883][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-09 21:19:49,051][2968883][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-09 21:19:49,052][2968883][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-09 21:19:49,052][2968883][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-09 21:19:49,052][2968883][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:177) initialize http request
+[2026-06-09 21:19:49,053][2968883][kshell_mainapp.py][DEBUG] (RunCLICommand:58) run cli command, opt = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-09 21:19:49,053][2968883][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-09 21:19:49,053][2968883][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-09 21:19:49,053][2968883][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-10 12:17:02,761][3042550][aivax_toolkit.py][INFO] (main:128) start process pid = 3042550, argc = 3, argv = ['aivax_toolkit.py', '--debug', '--printlog'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 0, 'method': []}
+[2026-06-10 12:17:02,765][3042550][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:60) initialize local config root
+[2026-06-10 12:17:02,765][3042550][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:21) intialize local config root
+[2026-06-10 12:17:02,766][3042550][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:55) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-10 12:17:02,766][3042550][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:55) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-10 12:17:02,767][3042550][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:84) initialize factory instance
+[2026-06-10 12:17:02,767][3042550][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-10 12:17:02,767][3042550][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-10 12:17:02,767][3042550][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:33) initialize global directory
+[2026-06-10 12:17:02,767][3042550][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-10 12:17:02,769][3042550][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-10 12:17:02,769][3042550][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-10 12:17:02,770][3042550][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-10 12:17:02,770][3042550][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:106) initialize http request
+[2026-06-10 12:17:02,770][3042550][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-10 12:17:02,770][3042550][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-10 12:17:02,771][3042550][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector
+[2026-06-10 12:17:10,842][3042602][aivax_toolkit.py][INFO] (main:128) start process pid = 3042602, argc = 4, argv = ['aivax_toolkit.py', '--debug', '--printlog', '--open_api'], option = {'app_root': './', 'api_root_path': '', 'config_base_path': './local_resource/config/wins-config.json', 'open_api': 1, 'method': []}
+[2026-06-10 12:17:10,843][3042602][kshell_global_resource_manager.py][DEBUG] (__initializeLocalConfigRoot:60) initialize local config root
+[2026-06-10 12:17:10,843][3042602][local_json_config_helper.py][DEBUG] (InitializeLocalConfig:21) intialize local config root
+[2026-06-10 12:17:10,843][3042602][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:55) merge sub config, name = ext_config_qtoz, path = local_resource/config/subconfig/ext_config_util.json
+[2026-06-10 12:17:10,843][3042602][local_json_config_helper.py][DEBUG] (__mergeSubJsonConfig:55) merge sub config, name = ext_config_wins, path = local_resource/config/subconfig/ext_config_wins.json
+[2026-06-10 12:17:10,844][3042602][kshell_global_resource_manager.py][DEBUG] (__initializeFactoryInstance:84) initialize factory instance
+[2026-06-10 12:17:10,844][3042602][global_instance_factory.py][INFO] (__init__:119) create global instance factory
+[2026-06-10 12:17:10,844][3042602][global_instance_factory.py][INFO] (_InitializeFactory:137) initialize global instance factory
+[2026-06-10 12:17:10,844][3042602][local_resource_init_helper.py][INFO] (__initalizeGlobalDirectory:33) initialize global directory
+[2026-06-10 12:17:10,844][3042602][sql_client_interface.py][DEBUG] (__initializeSQLMapInterface:131) initialize sql map interface
+[2026-06-10 12:17:10,845][3042602][sql_client_interface.py][DEBUG] (__initializeDBInstance:160) initialize db instance
+[2026-06-10 12:17:10,845][3042602][sqlite_connector.py][INFO] (CreateConnector:57) create sqlite connector, dbb path = local_resource/db_resource/local_db/local_config.dbb, keep alive = 0
+[2026-06-10 12:17:10,845][3042602][mariadb_connector.py][INFO] (CreateConnector:157) create mariadb connector host = 127.0.0.1, port = 3306, keep alive = 1
+[2026-06-10 12:17:10,845][3042602][kshell_global_resource_manager.py][DEBUG] (__initializeHttpRequest:106) initialize http request
+[2026-06-10 12:17:10,845][3042602][aivax_toolkit.py][INFO] (main:138) start open api server
+[2026-06-10 12:17:10,847][3042602][api_router_generator.py][INFO] (IncludeApiRouter:43) add api router
+[2026-06-10 12:17:10,850][3042602][api_router_generator.py][INFO] (__includeEachRouterConfigAt:335) add router module = web_app_modules.api_router.open_api_router, method = InitializeRouter
+[2026-06-10 12:17:10,854][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:115) add route info from config
+[2026-06-10 12:17:10,854][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /sql_query, endpoint = executeSQLApi
+[2026-06-10 12:17:10,854][3042602][api_router_generator.py][INFO] (__includeEachRouterConfigAt:335) add router module = web_app_modules.api_router.operation_util_api_router, method = InitializeRouter
+[2026-06-10 12:17:10,856][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:115) add route info from config
+[2026-06-10 12:17:10,857][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /auth-login, endpoint = authLogin
+[2026-06-10 12:17:10,857][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:149) skip add api route, path = /grpc-server, endpoint = runGrpcServer
+[2026-06-10 12:17:10,857][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /grpc-client, endpoint = runGrpcClient
+[2026-06-10 12:17:10,857][3042602][api_router_generator.py][INFO] (__includeEachRouterConfigAt:335) add router module = web_app_modules.api_router.wins_api_router, method = InitializeRouter
+[2026-06-10 12:17:10,858][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:115) add route info from config
+[2026-06-10 12:17:10,859][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /list-promptblock, endpoint = getPromptBlockInfo
+[2026-06-10 12:17:10,860][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /list-mcpblock, endpoint = getMCPServerBlockInfo
+[2026-06-10 12:17:10,860][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /list-usermonitor, endpoint = getUserMonitorStatus
+[2026-06-10 12:17:10,860][3042602][api_router_generator.py][INFO] (__includeEachRouterConfigAt:335) add router module = web_app_modules.api_router.wins_api_router, method = InitializeRouter
+[2026-06-10 12:17:10,862][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:115) add route info from config
+[2026-06-10 12:17:10,863][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /filter, endpoint = forwardPipelineMultipleFilter
+[2026-06-10 12:17:10,863][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /test-rule, endpoint = forwardPipelineTestFilter
+[2026-06-10 12:17:10,864][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /policy-signal, endpoint = forwardPolicySignal
+[2026-06-10 12:17:10,864][3042602][api_router_generator.py][INFO] (__includeEachRouterConfigAt:335) add router module = web_app_modules.api_router.wins_api_router, method = InitializeRouter
+[2026-06-10 12:17:10,865][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:115) add route info from config
+[2026-06-10 12:17:10,865][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /list-user, endpoint = getUserAccount
+[2026-06-10 12:17:10,866][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /add-user, endpoint = insertUserAccount
+[2026-06-10 12:17:10,866][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /edit-user, endpoint = editUserAccount
+[2026-06-10 12:17:10,867][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /delete-user, endpoint = deleteUserAccount
+[2026-06-10 12:17:10,867][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /list-group, endpoint = getUserGroup
+[2026-06-10 12:17:10,868][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /add-group, endpoint = insertUserGroup
+[2026-06-10 12:17:10,868][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /edit-group, endpoint = editUserGroup
+[2026-06-10 12:17:10,869][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /delete-group, endpoint = deleteUserGroup
+[2026-06-10 12:17:10,869][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /list-filterview, endpoint = getFilterView
+[2026-06-10 12:17:10,870][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /add-filterview, endpoint = insertFilterView
+[2026-06-10 12:17:10,870][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /edit-filterview, endpoint = editFilterView
+[2026-06-10 12:17:10,871][3042602][api_router_generator.py][DEBUG] (AddRouteEndPointFromConfig:228) add api route, path = /delete-filterview, endpoint = deleteFilterView
+[2026-06-10 12:17:10,871][3042602][api_router_generator.py][INFO] (__includeEachRouterConfigAt:335) add router module = web_app_modules.api_router.wins_api_router, method = InitializeRouter
+[2026-06-10 12:17:10,874][3042602][web_api_mainapp.py][DEBUG] (RunWebApiServer:96) initialize web api main
+[2026-06-10 12:17:10,875][3042602][config_option_parser.py][DEBUG] (GatherWebConfigOption:25) gather web config option
+[2026-06-10 12:17:10,875][3042602][config_option_parser.py][INFO] (GatherWebConfigOption:75) load web api config, host = 0.0.0.0, port = 9100, ssl.cert = local_resource/web_api_resource_files/openapi/ssl_key_files/cert.pem, ssl.key = local_resource/web_api_resource_files/openapi/ssl_key_files/key.pem, print = None
+[2026-06-10 12:17:10,924][3042602][web_app_runner.py][INFO] (RunWebApiServer:64) run uvicorn api server, host = 0.0.0.0, port = 9100
+[2026-06-10 12:17:13,863][3042602][global_instance_factory.py][INFO] (DisposeInstance:209) close all instance
+[2026-06-10 12:17:13,864][3042602][global_instance_factory.py][INFO] (DisposeInstance:231) close instance, instance key = SQLClientInterface, method = dispose_instance
+[2026-06-10 12:17:13,864][3042602][db_connector_manager.py][INFO] (CloseAllConnector:42) close all db connector

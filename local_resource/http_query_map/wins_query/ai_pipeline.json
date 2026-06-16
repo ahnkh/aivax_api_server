@@ -33,7 +33,7 @@
 		},
 
 		{
-			"pipeline_multiplue_filter" :
+			"pipeline_multiple_filter" :
 			{
 				"desc" : "pipeline 다중 filter, local 요청",
 				"http_url" : "http://{server_ip}:{port}/{openapi}/v1/filter/multiple_filter",

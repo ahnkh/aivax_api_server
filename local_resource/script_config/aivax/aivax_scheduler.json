@@ -13,7 +13,9 @@
 
                 {"use":1, "interval":10, "schedule_unit":"minutes", "method":"", "custom_kshell_command":"schedule_backup_aivax_etc_attach_file", "parameter":"" },
 
-                {"use":1, "interval":30, "schedule_unit":"minutes", "method":"", "custom_kshell_command":"schedule_rotate_aivax_backup_disk", "parameter":""}
+                {"use":1, "interval":30, "schedule_unit":"minutes", "method":"", "custom_kshell_command":"schedule_rotate_aivax_backup_disk", "parameter":""},
+
+                {"use":1, "interval":1, "schedule_unit":"hours", "method":"", "custom_kshell_command":"schedule_backup_aivax_prompt_log", "parameter":""}
                 
             ]
         }

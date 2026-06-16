@@ -2,6 +2,253 @@
     "desc_wins": [        
     ],
 
+
+    "aivax_install_module":
+    {
+        "local_instance_module_map":
+        {
+            "aivax_install":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_install_modules",
+
+                "aivax_install_util":
+                {
+                    "package" : "command_install_util_module.aivax_install_util_command",
+                    "class" : "AivaxInstallUtilCommand",
+                    "method" : "RunCommand"
+                }
+            } 
+        },
+
+        "aivax_install_util_module":
+        {
+            "version_config":
+            {
+
+                "export_path" : "/home1/aivax",
+                "version_file" : "version.json"
+            }
+        }
+    },
+
+    "aivax_log_data_module":
+    {
+        "local_instance_module_map":
+        {
+            "aivax_log_data":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_log_data_modules",
+
+                "opensearch_log_data":
+                {
+                    "package" : "command_opensearch_data.opensearch_log_data_command",
+                    "class" : "OpensearchLogDataCommand",
+                    "method" : "RunCommand"
+                }
+            } 
+        }
+    },
+
+    "aivax_util_module":
+    {
+
+        "local_instance_module_map":
+        {
+
+            "aivax_util":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_util_modules",
+
+                "migrate_rdb":
+                {                    
+                    "package" : "command_aivax_migrate.aivax_rdb_migrate_command",
+                    "class" : "AivaxRDBMigrateCommand",
+                    "method" : "RunCommand"
+                },
+
+                "pipeline_filter":
+                {
+                    "desc" : "pipeline filter test",                    
+                    "package" : "command_pipeline.pipeline_filter_command",
+                    "class" : "PipelineFilterCommand",
+                    "method" : "RunCommand"
+                },
+
+                "pross_guard":
+                {
+                    "package" : "command_process_guard.process_guard_command",
+                    "class" : "ProcessGuardCommand",
+                    "method" : "RunCommand"
+                }
+
+            }  
+
+        },
+
+        "aivax_rdb_migrate_command":
+        {
+            "backup_sql_query_map_id" : "rdb_select_migrate_rdb",
+            "restore_sql_query_map_id" : ""
+        },
+
+        "pipeline_filter_command":
+        {
+            "pipeline_api_request":
+            {
+                "url_option":
+                {
+                    "server_ip" : "127.0.0.1",
+                    "port" : 7000,
+                    "openapi" : ""
+                },
+
+                "post_default_parameter":
+                {
+
+                    "filter_list" : [
+
+                    ],
+                    "prompt" : "",
+                    "user_id": "user-wIwLGrOf18CagvAXrlLVAueH",
+                    "email": "ghahn@wins21.co.kr",
+                    "ai_service": 0,
+                    "client_host": "127.0.0.1",
+                    "session_id": "",
+
+                    "attachments": [
+                        {
+                            "id": "",
+                            "size": 0,
+                            "name": "",
+                            "mime_type": ""
+                        }
+                    ],
+
+                    "message_id": "aec807d3-6835-4922-bb35-daccac78a015",
+                    "debug" : true
+
+                }
+            },
+
+            "test_output_writer": 
+            {
+                "regex_policy_writer":
+                {
+                    "policy_output_path" : "./policy.csv"
+                },
+
+                "filter_detect_writer":
+                {
+                    "detect_result_output_path" : "./detect_test.csv"
+                }
+            },
+
+            "mail_sender":
+            {
+                "mail_url" : "175.113.82.233",
+                "mail_port" : 25,
+                "subject" : "aivax 탐지 결과 메일 전송 테스트",
+                "from_mail" : "aivax@wins21.co.kr",                
+                "recv_mail_list_bak" : ["ghahn@wins21.co.kr"],
+                "recv_mail_list" : ["ghahn@wins21.co.kr", "juyonglee@wins21.co.kr", "rlatkdvy12@wins21.co.kr"],
+                "contents" : "",
+                "debug_level" : 1,
+                "timeout" : 30,
+                "attach_file" : []
+            }
+
+        },
+
+        "process_guard":
+        {
+
+        }
+
+    },
+
+    "aivax_pipeline_module":
+    {
+
+        "local_instance_module_map":
+        {
+
+            "aivax_pipeline_util":
+            {
+
+                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_pipeline_modules",
+
+                "aivax_backup":
+                {
+                    "package" : "command_aivax_backup.aivax_backup_command",
+                    "class" : "AivaxBackupCommand",
+                    "method" : "RunCommand"
+                }
+            } 
+        },
+
+        "aivax_backup_command":
+        {
+
+            "attach_file_backup_detail_command":
+            {
+                "aivax_attach_file_dir" : "/home1/aivax/data_resource/attach_file",
+                "aivax_evidence_temp_dir" : "/home1/aivax/data_resource/.tmp_detail_dir",
+
+                "aivax_backup_dest_dir" : "/backup/attach_file_backup",
+
+                "file_expire_min_time" : 30
+            },
+
+            "prompt_log_backup_detail_command":
+            {
+                "desc" : [
+                    "prompt log, pipeline의 bulk 원본 로그의 백업",
+                    "1일이 지난 로그는 백업한다. pipeline에는 bulk log를 남기지 않는다."                    
+                ],
+
+                "prompt_log_bulk_dir" : "/home1/aivax/pipeline/bulk_logs",
+
+                "prompt_log_backup_dest_dir" : "/backup/prompt_log_backup",
+                "backup_daily_sub_dir_auto_create_date" : 5,
+
+                "prompt_log_elapsed_mtime" : 87400               
+
+            },
+
+            "attach_file_disk_rotation_detail_command":
+            {
+                "desc":[
+                    "정해진 주기, 기본 30분 => 스케쥴러에 등록, custom",
+                    "지정된 첨부파일 경로, customize, 경로에서 디스크 사용량 이상이면 사용량 아래일때까지 로그 삭제",
+                    "TODO: 첨부파일, 프롬프트 로그 2개를 확인해야 한다.",
+                    "등록된 목록을 순회, 삭제하면서 디스크를 체크해야 한다. 안그러면 특정 자원이 과도하게 삭제된다."
+                ],
+
+                "backup_target_disk" : "/backup",
+
+                "disk_threshold_rate" : 80.0,
+                "disk_overflow_clear_rate" : 70.0,
+
+                "date_delete_try_count" : 10,
+
+                "attach_backup_rotation":
+                {                        
+                    "attach_file_backup_cycle_date" : 365,                
+                    "attach_file_backup_dest_dir" : "/backup/attach_file_backup"
+                },
+
+                "prompt_log_backup_rotation":
+                {                                        
+                    "prompt_file_backup_cycle_date" : 365,
+                    "prompt_log_backup_dest_dir" : "/backup/prompt_log_backup"
+                }
+            }
+        }
+    },
+
     "wins_data_process_module":
     {
         "desc":
@@ -123,237 +370,6 @@
         {
 
         }
-    },
-
-    "aivax_util_module":
-    {
-
-        "local_instance_module_map":
-        {
-
-            "aivax_db_util":
-            {
-
-                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_util_modules",
-
-                "migrate_rdb":
-                {                    
-                    "package" : "command_aivax_migrate.aivax_rdb_migrate_command",
-                    "class" : "AivaxRDBMigrateCommand",
-                    "method" : "RunCommand"
-                },
-
-                "pipeline_filter":
-                {                    
-                    "package" : "command_pipeline.pipeline_filter_command",
-                    "class" : "PipelineFilterCommand",
-                    "method" : "RunCommand"
-                },
-
-                "opensearch_util":
-                {
-                    
-                }
-
-            }  
-
-        },
-
-        "aivax_rdb_migrate_command":
-        {
-            "backup_sql_query_map_id" : "rdb_select_migrate_rdb",
-            "restore_sql_query_map_id" : ""
-        },
-
-        "pipeline_filter_command":
-        {
-            "pipeline_api_request":
-            {
-                "url_option":
-                {
-                    "server_ip" : "127.0.0.1",
-                    "port" : 7000,
-                    "openapi" : ""
-                },
-
-                "post_default_parameter":
-                {
-
-                    "filter_list" : [
-
-                    ],
-                    "prompt" : "",
-                    "user_id": "user-wIwLGrOf18CagvAXrlLVAueH",
-                    "email": "ghahn@wins21.co.kr",
-                    "ai_service": 0,
-                    "client_host": "127.0.0.1",
-                    "session_id": "",
-
-                    "attachments": [
-                        {
-                            "id": "",
-                            "size": 0,
-                            "name": "",
-                            "mime_type": ""
-                        }
-                    ],
-
-                    "message_id": "aec807d3-6835-4922-bb35-daccac78a015",
-                    "debug" : true
-
-                }
-            },
-
-            "test_output_writer": 
-            {
-                "regex_policy_writer":
-                {
-                    "policy_output_path" : "./policy.csv"
-                },
-
-                "filter_detect_writer":
-                {
-                    "detect_result_output_path" : "./detect_test.csv"
-                }
-            },
-
-            "mail_sender":
-            {
-                "mail_url" : "175.113.82.233",
-                "mail_port" : 25,
-                "subject" : "aivax 탐지 결과 메일 전송 테스트",
-                "from_mail" : "aivax@wins21.co.kr",                
-                "recv_mail_list_bak" : ["ghahn@wins21.co.kr"],
-                "recv_mail_list" : ["ghahn@wins21.co.kr", "juyonglee@wins21.co.kr", "rlatkdvy12@wins21.co.kr"],
-                "contents" : "",
-                "debug_level" : 1,
-                "timeout" : 30,
-                "attach_file" : []
-            }
-
-        }
-
-    },
-
-    "aivax_pipeline_module":
-    {
-
-        "local_instance_module_map":
-        {
-
-            "aivax_pipeline_util":
-            {
-
-                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_pipeline_modules",
-
-                "aivax_backup":
-                {
-                    "package" : "command_aivax_backup.aivax_backup_command",
-                    "class" : "AivaxBackupCommand",
-                    "method" : "RunCommand"
-                }
-            } 
-        },
-
-        "aivax_backup_command":
-        {
-
-            "attach_file_backup_detail_command":
-            {
-                "aivax_attach_file_dir" : "/home1/aivax/data_resource/attach_file",
-                "aivax_evidence_temp_dir" : "/home1/aivax/data_resource/.tmp_detail_dir",
-
-                "aivax_backup_dest_dir" : "/backup/attach_file_backup",
-
-                "file_expire_min_time" : 30
-            },
-
-            "prompt_log_backup_detail_command":
-            {
-                "desc" : [
-                    "promptlog의 백업, 실시간 로그, fluent-log의 일단위 백업 + 최근 데이터 백업",
-                    "db로그의 백업, elasticdump, 과거 날짜의 백업, aivax_log는 일자별로 index가 생성된다는 가정으로 수행"
-                ]
-            },
-
-            "attach_file_disk_rotation_detail_command":
-            {
-                "desc":[
-                    "정해진 주기, 기본 30분 => 스케쥴러에 등록, custom",
-                    "지정된 첨부파일 경로, customize, 경로에서 디스크 사용량 이상이면 사용량 아래일때까지 로그 삭제",
-                    "TODO: 첨부파일, 프롬프트 로그 2개를 확인해야 한다.",
-                    "등록된 목록을 순회, 삭제하면서 디스크를 체크해야 한다. 안그러면 특정 자원이 과도하게 삭제된다."
-                ],
-
-                "disk_threshold_rate" : 70.0,
-                "disk_overflow_clear_rate" : 50.0,
-
-                "date_delete_try_count" : 30,
-
-                "backup_target_disk" : "/backup",
-
-                "attach_backup_rotation":
-                {                                        
-                    "attach_file_backup_dest_dir" : "/backup/attach_file_backup"
-                },
-
-                "prompt_log_rotation":
-                {                                        
-                    "prompt_log_backup_dest_dir" : "/backup/prmpt_log_backup"
-                }
-            }
-
-            
-        }
-    },
-
-    "aivax_log_data_module":
-    {
-        "local_instance_module_map":
-        {
-            "aivax_log_data":
-            {
-
-                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_log_data_modules",
-
-                "opensearch_log_data":
-                {
-                    "package" : "command_opensearch_data.opensearch_log_data_command",
-                    "class" : "OpensearchLogDataCommand",
-                    "method" : "RunCommand"
-                }
-            } 
-        }
-    },
-
-    "aivax_install_module":
-    {
-        "local_instance_module_map":
-        {
-            "aivax_install":
-            {
-
-                "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_install_modules",
-
-                "aivax_install_util_module":
-                {
-                    "package" : "command_install_util_module.aivax_install_util_command",
-                    "class" : "AivaxInstallUtilCommand",
-                    "method" : "RunCommand"
-                }
-            } 
-        },
-
-        "aivax_install_util_module":
-        {
-            "version_config":
-            {
-
-                "export_path" : "/home1/aivax",
-                "version_file" : "version.json"
-            }
-        }
     }
-
 
 }
