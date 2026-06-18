@@ -20,13 +20,8 @@
 			{
 				"desc" : "opensearch - snapshot repository",
 				"http_url" : "https://{server_ip}:{port}/_snapshot/aivax_snapshot",
-				"method" : "put",
-				
-				"post_data" : "",
+				"method" : "put"
 
-				"ext_local_config" : 
-				{
-				}
 			}
 		},
 
@@ -35,13 +30,7 @@
 			{
 				"desc" : "opensearch - snapshot backup",
 				"http_url" : "https://{server_ip}:{port}/_snapshot/{snapshot_repository}/{snapshot_backup_id}?wait_for_completion=true",
-				"method" : "put",
-				
-				"post_data" : "",
-
-				"ext_local_config" : 
-				{
-				}
+				"method" : "put"
 			}
 		},
 

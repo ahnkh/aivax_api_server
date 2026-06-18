@@ -73,7 +73,6 @@
             "snapshot_backup_detail_command":
             {
                 "http_query_id" :"opensearch_snapshot_backup",
-
                 "snapshot_repository" : "aivax_snapshot",
 
                 "backup_http_data": {
@@ -81,7 +80,6 @@
                     "include_global_state": false
                 }
             }
-
         }
     },
 
