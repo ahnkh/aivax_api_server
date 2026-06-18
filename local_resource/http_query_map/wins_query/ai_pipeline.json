@@ -78,21 +78,6 @@
 		},
 
 		{
-			"opensearch_snapshot_repository" :
-			{
-				"desc" : "opensearch - snapshot 요청",
-				"http_url" : "https://{server_ip}:{port}/_snapshot/aivax_snapshot",
-				"method" : "post",
-				
-				"post_data" : "",
-
-				"ext_local_config" : 
-				{
-				}
-			}
-		},
-
-		{
 			"desc_group" : "다음에 추가할 데이터"
 		}
 

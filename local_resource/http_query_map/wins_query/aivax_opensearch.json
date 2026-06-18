@@ -1,0 +1,54 @@
+{	
+	"local_common_http_option":
+	{
+		"response_encoding" : "utf-8",
+		"timeout" : 60,
+		"request_retry" : 3,
+		"ssl_verify" : 0,
+
+		"use_debug" :0,
+		"debug_file" : "debug_http_query.txt"
+		
+	},
+
+    "desc_group" : "",
+
+	"http_query_map_list":
+	[
+		{
+			"opensearch_snapshot_repository" :
+			{
+				"desc" : "opensearch - snapshot repository",
+				"http_url" : "https://{server_ip}:{port}/_snapshot/aivax_snapshot",
+				"method" : "put",
+				
+				"post_data" : "",
+
+				"ext_local_config" : 
+				{
+				}
+			}
+		},
+
+		{
+			"opensearch_snapshot_backup" :
+			{
+				"desc" : "opensearch - snapshot backup",
+				"http_url" : "https://{server_ip}:{port}/_snapshot/{snapshot_repository}/{snapshot_backup_id}?wait_for_completion=true",
+				"method" : "put",
+				
+				"post_data" : "",
+
+				"ext_local_config" : 
+				{
+				}
+			}
+		},
+
+		{
+			"desc_group" : "다음에 추가할 데이터"
+		}
+
+	]
+
+}

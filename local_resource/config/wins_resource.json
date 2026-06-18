@@ -21,7 +21,8 @@
 
         "http_query_map_list":
         [            
-            "local_resource/http_query_map/wins_query/ai_pipeline.json"
+            "local_resource/http_query_map/wins_query/ai_pipeline.json",
+            "local_resource/http_query_map/wins_query/aivax_opensearch.json"
         ]
     },
 

@@ -52,6 +52,14 @@
 
         "opensearch_log_data":
         {
+            "common_default_data":
+            {
+                "host" : "10.0.50.84",
+                "port" : 9200,
+                "id" : "admin",
+                "passwd" : "Sniper123!@#"
+            },
+
             "snapshot_setup_detail_command":
             {
                 "snapshot_directory" : "/backup/opensearch_snapshot",
@@ -64,7 +72,14 @@
 
             "snapshot_backup_detail_command":
             {
+                "http_query_id" :"opensearch_snapshot_backup",
 
+                "snapshot_repository" : "aivax_snapshot",
+
+                "backup_http_data": {
+                    "indices": "aivax_log*",
+                    "include_global_state": false
+                }
             }
 
         }
