@@ -48,6 +48,25 @@
                     "method" : "RunCommand"
                 }
             } 
+        },
+
+        "opensearch_log_data":
+        {
+            "snapshot_setup_detail_command":
+            {
+                "snapshot_directory" : "/backup/opensearch_snapshot",
+                "permission_username" : "opensearch",
+
+                "aivax_snapshot_repository" : "aivax_snapshot",
+
+                "opensearch_config_path" : "/etc/opensearch/opensearch.yml"            
+            },
+
+            "snapshot_backup_detail_command":
+            {
+
+            }
+
         }
     },
 
