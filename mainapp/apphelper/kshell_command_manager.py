@@ -67,6 +67,17 @@ class KShellCommandManager:
             if None != enable_command and CONFIG_OPT_DISABLE == enable_command:
                 continue
             
+            #TODO: 옵션, 복사되어야 한다.
+            for key in dictOpt.keys():
+                
+                value:Any = dictOpt.get(key)
+                
+                #없는건만 추가, command가 우선
+                if key in dictCommand:
+                    continue
+                
+                dictCommand[key] = value #TODO: 수정이 안된다는 전제하에서의 복사
+            
             self.__runCommandList(mainApp, dictCommand, apiResponseHandler)
             
             #TODO: 개별 호출이 되어야 한다.
