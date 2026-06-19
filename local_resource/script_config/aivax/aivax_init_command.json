@@ -1,0 +1,34 @@
+{
+    "command_list":
+    [
+        {
+            "desc" : "aivax 첨부파일 백업",
+            "enable_command" : 1,
+            "method" : ["manage_wins_modules"],
+            "ext_module" : "manage_aivax_pipeline",
+            "cmd_category" : "aivax_pipeline_util",
+            "command" : "aivax_backup",
+            "detail_cmd" : "attach_file_backup"            
+        },
+
+        {
+            "desc" : "aivax 프롬프트 로그 백업",
+            "enable_command" : 1,
+            "method" : ["manage_wins_modules"],
+            "ext_module" : "manage_aivax_pipeline",
+            "cmd_category" : "aivax_pipeline_util",
+            "command" : "aivax_backup",
+            "detail_cmd" : "aivax_disk_rotation"            
+        },
+
+        {
+            "desc" : "aivax 첨부파일, 디스크 체크",
+            "enable_command" : 1,
+            "method" : ["manage_wins_modules"],
+            "ext_module" : "manage_aivax_pipeline",
+            "cmd_category" : "aivax_pipeline_util",
+            "command" : "aivax_backup",
+            "detail_cmd" : "aivax_disk_rotation"            
+        }
+    ]
+}
