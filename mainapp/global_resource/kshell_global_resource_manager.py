@@ -95,6 +95,8 @@ class KShellGlobalResourceManager:
         sqlClientInterface:SQLClientInterface = GlobalCommonModule.SingletonFactoryInstance(FactoryInstanceDefine.CLASS_SQL_CLIENT_INTERFACE)
         
         sqlClientInterface.Initialize(dictOpt, dictJsonLocalConfigRoot)
+        
+        self.__customIntializeOpensearchService(dictJsonLocalConfigRoot)
 
         return ERR_OK
     
@@ -112,5 +114,22 @@ class KShellGlobalResourceManager:
         httpRequest:HttpRequestInterface = GlobalCommonModule.SingletonFactoryInstance(FactoryInstanceDefine.CLASS_HTTP_REQUEST_INTERFACE)
         
         httpRequest.Initialize(http_query_map_list)
+        
+        return ERR_OK
+    
+    def __customIntializeOpensearchService(self, dictJsonLocalConfigRoot:dict):
+        
+        from service_modules.db_service.opensearch_api_service import OpensearchApiService
+        
+        opensearchAPIService:OpensearchApiService = GlobalCommonModule.SingletonFactoryInstance(FactoryInstanceDefine.CLASS_OPENSEARCH_API_SERVICE)
+        
+        opensearch_connector:dict = dictJsonLocalConfigRoot.get("opensearch_connector")
+        
+        host:str = opensearch_connector.get("host")
+        port:int = opensearch_connector.get("port")
+        id:str = opensearch_connector.get("id")
+        passwd:str = opensearch_connector.get("passwd")
+                         
+        opensearchAPIService.Initliaze(host, port, id, passwd)
         
         return ERR_OK
