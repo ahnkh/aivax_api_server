@@ -1,5 +1,5 @@
 {
-    "host" : "10.0.50.84",
+    "host" : "127.0.0.1",
 	"port" : 9200,
 	"id" : "admin",
 	"passwd" : "Sniper123!@#"

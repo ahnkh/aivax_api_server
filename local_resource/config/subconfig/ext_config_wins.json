@@ -252,14 +252,15 @@
                     "등록된 목록을 순회, 삭제하면서 디스크를 체크해야 한다. 안그러면 특정 자원이 과도하게 삭제된다."
                 ],
 
-                "disk_threshold_rate" : 80.0,
-                "disk_overflow_clear_rate" : 70.0,
-
-                "date_delete_try_count" : 10,
-
+                
                 "backup_disk_config":
                 {
                     "backup_target_disk" : "/backup",
+
+                    "disk_threshold_rate" : 95.0,
+                    "disk_overflow_clear_rate" : 94.0,
+
+                    "date_delete_try_count" : 10,
 
                     "attach_backup_rotation":
                     {                        
@@ -276,7 +277,9 @@
                     "opensearch_snapshot_rotation":
                     {
                         "snapshot_backup_cycle_date" : 365,
-                        "snapshot_backup_dest_dir" : "/backup/opensearch_snapshot"
+                        "snapshot_backup_dest_dir" : "/backup/opensearch_snapshot",
+
+                        "snapshot_repository" : "aivax_snapshot"
                     }
                 },
 
@@ -284,10 +287,16 @@
                 {
                     "data_target_disk" : "/data",
 
+                    "disk_threshold_rate" : 95.0,
+                    "disk_overflow_clear_rate" : 85.0,
+
+                    "date_delete_try_count" : 10,
+
                     "opensearch_data_lotation":
                     {
                         "opensearch_log_cycle_date" : 365,
                         "opensearch_log_dest_dir" : "/data/opensearch"
+                        
                     }
                 }
                 

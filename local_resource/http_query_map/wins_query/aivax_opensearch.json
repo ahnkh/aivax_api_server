@@ -38,7 +38,7 @@
 			"opensearch_snapshot_list" :
 			{
 				"desc" : "opensearch - snapshot list",
-				"http_url" : "https://{server_ip}:{port}/_snapshot/{snapshot_repository}?h=id",
+				"http_url" : "https://{server_ip}:{port}/_cat/snapshots/{snapshot_repository}?h=id",
 				"method" : "get"
 			}
 		},
@@ -47,7 +47,25 @@
 			"opensearch_snapshot_delete" :
 			{
 				"desc" : "opensearch - snapshot delete",
-				"http_url" : "https://{server_ip}:{port}/_snapshot/{snapshot_repository}?{snapshot_backup_id}",
+				"http_url" : "https://{server_ip}:{port}/_snapshot/{snapshot_repository}/{snapshot_backup_id}",
+				"method" : "delete"
+			}
+		},
+
+		{
+			"opensearch_index_list" :
+			{
+				"desc" : "opensearch - index list",
+				"http_url" : "https://{server_ip}:{port}/_cat/indices/aivax_log-*?h=index&s=index",
+				"method" : "get"
+			}
+		},
+
+		{
+			"opensearch_index_delete" :
+			{
+				"desc" : "opensearch - index delete",
+				"http_url" : "https://{server_ip}:{port}/{index_id}",
 				"method" : "delete"
 			}
 		},
