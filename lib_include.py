@@ -79,3 +79,4 @@ from common_modules.module_function import http_request
 from common_modules.module_function import UTF8Text
 from common_modules.module_function import sqlprintf
 from common_modules.module_function import sqlbulk
+from common_modules.module_function import opensearch_api_request

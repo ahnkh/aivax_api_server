@@ -52,13 +52,6 @@
 
         "opensearch_log_data":
         {
-            "common_default_data":
-            {
-                "host" : "10.0.50.84",
-                "port" : 9200,
-                "id" : "admin",
-                "passwd" : "Sniper123!@#"
-            },
 
             "snapshot_setup_detail_command":
             {
@@ -250,7 +243,7 @@
 
             },
 
-            "attach_file_disk_rotation_detail_command":
+            "disk_rotation_detail_command":
             {
                 "desc":[
                     "정해진 주기, 기본 30분 => 스케쥴러에 등록, custom",
@@ -259,24 +252,45 @@
                     "등록된 목록을 순회, 삭제하면서 디스크를 체크해야 한다. 안그러면 특정 자원이 과도하게 삭제된다."
                 ],
 
-                "backup_target_disk" : "/backup",
-
                 "disk_threshold_rate" : 80.0,
                 "disk_overflow_clear_rate" : 70.0,
 
                 "date_delete_try_count" : 10,
 
-                "attach_backup_rotation":
-                {                        
-                    "attach_file_backup_cycle_date" : 365,                
-                    "attach_file_backup_dest_dir" : "/backup/attach_file_backup"
+                "backup_disk_config":
+                {
+                    "backup_target_disk" : "/backup",
+
+                    "attach_backup_rotation":
+                    {                        
+                        "attach_file_backup_cycle_date" : 365,                
+                        "attach_file_backup_dest_dir" : "/backup/attach_file_backup"
+                    },
+
+                    "prompt_log_backup_rotation":
+                    {                                        
+                        "prompt_file_backup_cycle_date" : 365,
+                        "prompt_log_backup_dest_dir" : "/backup/prompt_log_backup"
+                    },
+
+                    "opensearch_snapshot_rotation":
+                    {
+                        "snapshot_backup_cycle_date" : 365,
+                        "snapshot_backup_dest_dir" : "/backup/opensearch_snapshot"
+                    }
                 },
 
-                "prompt_log_backup_rotation":
-                {                                        
-                    "prompt_file_backup_cycle_date" : 365,
-                    "prompt_log_backup_dest_dir" : "/backup/prompt_log_backup"
+                "data_disk_config":
+                {
+                    "data_target_disk" : "/data",
+
+                    "opensearch_data_lotation":
+                    {
+                        "opensearch_log_cycle_date" : 365,
+                        "opensearch_log_dest_dir" : "/data/opensearch"
+                    }
                 }
+                
             }
         }
     },

@@ -30,7 +30,9 @@
     {
         "db_connection_list" : [
             "local_resource/db_resource/db_custom_wins.json"
-        ]
+        ],
+
+        "opensearch_connector" : "local_resource/db_resource/.opensearch.json"
     },
 
     "sql_query_map":

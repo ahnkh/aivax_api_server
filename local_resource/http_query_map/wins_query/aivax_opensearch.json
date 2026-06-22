@@ -35,6 +35,24 @@
 		},
 
 		{
+			"opensearch_snapshot_list" :
+			{
+				"desc" : "opensearch - snapshot list",
+				"http_url" : "https://{server_ip}:{port}/_snapshot/{snapshot_repository}?h=id",
+				"method" : "get"
+			}
+		},
+
+		{
+			"opensearch_snapshot_delete" :
+			{
+				"desc" : "opensearch - snapshot delete",
+				"http_url" : "https://{server_ip}:{port}/_snapshot/{snapshot_repository}?{snapshot_backup_id}",
+				"method" : "delete"
+			}
+		},
+
+		{
 			"desc_group" : "다음에 추가할 데이터"
 		}
 
