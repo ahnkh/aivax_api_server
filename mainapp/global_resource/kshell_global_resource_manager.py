@@ -123,12 +123,17 @@ class KShellGlobalResourceManager:
         
         opensearchAPIService:OpensearchApiService = GlobalCommonModule.SingletonFactoryInstance(FactoryInstanceDefine.CLASS_OPENSEARCH_API_SERVICE)
         
-        opensearch_connector:dict = dictJsonLocalConfigRoot.get("opensearch_connector")
+        db_connector:dict = dictJsonLocalConfigRoot.get("db_connector")
         
-        host:str = opensearch_connector.get("host")
-        port:int = opensearch_connector.get("port")
-        id:str = opensearch_connector.get("id")
-        passwd:str = opensearch_connector.get("passwd")
+        opensearch_connector:str = db_connector.get("opensearch_connector")
+        
+        dictOpenSearchConnector:dict = {}
+        JsonHelperX.JsonFileToDictionary(opensearch_connector, dictOpenSearchConnector)
+        
+        host:str = dictOpenSearchConnector.get("host")
+        port:int = dictOpenSearchConnector.get("port")
+        id:str = dictOpenSearchConnector.get("id")
+        passwd:str = dictOpenSearchConnector.get("passwd")
                          
         opensearchAPIService.Initliaze(host, port, id, passwd)
         
