@@ -13,9 +13,9 @@
                 
                 {"use":1, "id": "aivax 첨부파일 백업 (10분)", "interval":10, "schedule_unit":"minutes", "custom_kshell_command":"schedule_backup_aivax_etc_attach_file"},
 
-                {"use":1, "id": "백업 디스크 감시 (15분)", "interval":15, "schedule_unit":"minutes", "custom_kshell_command":"schedule_rotate_aivax_backup_disk"},
-
                 {"use":1, "id": "프롬프트 로그 백업 (매시 5분)", "interval":0, "schedule_unit":"hours", "at_time": "05:00", "custom_kshell_command":"schedule_backup_aivax_prompt_log"},
+
+                {"use":1, "id": "백업 디스크 감시 (매시 10분)", "interval":15, "schedule_unit":"hours", "at_time": "10:00", "custom_kshell_command":"schedule_rotate_aivax_backup_disk"},
                 
                 {"use":1, "id": "opensearch snapshot 백업 (매일 23:59)", "interval":0, "schedule_unit":"days", "at_time": "23:59", "custom_kshell_command":"schedule_snapshot_opensearch"}
                 
