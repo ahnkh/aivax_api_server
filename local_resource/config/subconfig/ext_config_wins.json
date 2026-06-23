@@ -17,8 +17,16 @@
                     "package" : "command_install_util_module.aivax_install_util_command",
                     "class" : "AivaxInstallUtilCommand",
                     "method" : "RunCommand"
+                },
+
+                "aivax_process":
+                {
+                    "package" : "command_install_util_module.aivax_process_manage_command",
+                    "class" : "AivaxProcessManageCommand",
+                    "method" : "RunCommand"
                 }
-            } 
+
+            }
         },
 
         "aivax_install_util_module":
@@ -29,6 +37,32 @@
                 "export_path" : "/home1/aivax",
                 "version_file" : "version.json"
             }
+        },
+
+        "aivax_process":
+        {
+            "service_list": 
+            [
+                {"use" : true, "id" : "nginx", "service" : "nginx"},
+                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit"},
+                {"use" : true, "id" : "opensearch", "service" : "opensearch"},
+                {"use" : true, "id" : "mariadb", "service" : "mariadb"},
+
+                {"use" : true, "id" : "management", "service" : "aivax-management"},
+                {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline"},
+                {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy"},
+                {"use" : true, "id" : "ai-engine", "service" : "ai-engine"},
+
+                {"use" : true, "id" : "squid", "service" : "squid", "custom_init_call" : ""}
+            ],
+
+            "daemon_list" : 
+            [
+                {"use" : true, "id" : "slm-filter", "custom_init_call" : "", "custom_stop_call" : ""},
+                {"use" : true, "id" : "toolkit-scheduler.01", "custom_init_call" : "", "custom_stop_call" : ""},
+                {"use" : true, "id" : "aivax-guard", "custom_init_call" : "", "custom_stop_call" : ""}
+
+            ]
         }
     },
 
