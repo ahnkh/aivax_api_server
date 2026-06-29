@@ -5,7 +5,7 @@ from lib_include import *
 from common_modules.type_hint import *
 
 #전역 모듈 관리.
-from mainapp.global_resource.kshell_global_resource_manager import KShellGlobalResourceManager
+from common_modules.global_resource.kshell_global_resource_manager import KShellGlobalResourceManager
 
 '''
 Shell App Helper, wrapping
