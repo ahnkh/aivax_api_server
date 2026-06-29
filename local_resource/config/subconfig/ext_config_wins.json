@@ -36,33 +36,113 @@
 
                 "export_path" : "/home1/aivax",
                 "version_file" : "version.json"
+            },
+
+            "install_aivax_module":
+            {
+                "default_enable_flag":
+                {
+                    "install_opensearch" : false,
+                    "install_slm" : false,
+                    "install_rpm_repo" : false,
+                    "install_mariadb" : false
+                }
+            },
+
+            "global_env_generate_config":
+            {
+                "env_default_path" : "/root/.aivenv",
+
+                "default_env_map":
+                {
+                    "aivax_root" : "/home1/aivax",
+
+                    "management":
+                    {
+                        "management_host" : "0.0.0.0",
+                        "management_port" : 3001
+                    },
+
+                    "pipeline":
+                    {
+                        "pipeline_host" : "127.0.0.1",
+                        "pipeline_port" : 9099
+                    },
+
+                    "slm":
+                    {
+                        "slm_root" : "slm",
+                        "slm_host" : "127.0.0.1",
+                        "slm_port" : "1200"
+                    },
+
+                    "mariadb":
+                    {
+                        "mariadb_host" : "127.0.0.1",
+                        "mariadb_port" : 3306,
+                        "mariadb_database" : "app",
+                        "mariadb_id" : "app",
+                        "mariadb_password" : "app"
+                    },
+
+                    "opensearch":
+                    {
+                        "opensearch_host" : "127.0.0.1",
+                        "opensearch_port" : 9200,
+                        "opensearch_id" : "admin",
+                        "opensearch_password" : "Sniper123!@#",
+
+                        "opensearch_data_root" : "/data/opensearch",
+                        "opensearch_snapshot_root" : "/backup/opensearch_snapshot"
+                    }
+                    
+                }
             }
+
         },
 
         "aivax_process":
         {
             "service_list": 
             [
-                {"use" : true, "id" : "nginx", "service" : "nginx"},
-                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit"},
-                {"use" : true, "id" : "opensearch", "service" : "opensearch"},
-                {"use" : true, "id" : "mariadb", "service" : "mariadb"},
+                {"use" : false, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : false, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : false, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : false, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
 
-                {"use" : true, "id" : "management", "service" : "aivax-management"},
-                {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline"},
-                {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy"},
-                {"use" : true, "id" : "ai-engine", "service" : "ai-engine"},
+                {"use" : false, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : false, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : false, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : false, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
 
-                {"use" : true, "id" : "squid", "service" : "squid", "custom_init_call" : ""}
+                {"use" : false, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""}
             ],
 
             "daemon_list" : 
             [
-                {"use" : true, "id" : "slm-filter", "custom_init_call" : "", "custom_stop_call" : ""},
-                {"use" : true, "id" : "toolkit-scheduler.01", "custom_init_call" : "", "custom_stop_call" : ""},
-                {"use" : true, "id" : "aivax-guard", "custom_init_call" : "", "custom_stop_call" : ""}
+                {"use" : true, "id" : "slm-filter", "custom_run_call" : "start_slm", "custom_stop_call" : "", "custom_status_call" : ""},
+                {"use" : false, "id" : "toolkit-scheduler.01", "custom_run_call" : "", "custom_stop_call" : "", "custom_status_call" : ""},
+                {"use" : false, "id" : "aivax-guard", "custom_run_call" : "", "custom_stop_call" : "", "custom_status_call" : ""},
+                {"use" : false, "id" : "toolkit-ui", "custom_run_call" : "", "custom_stop_call" : "", "custom_status_call" : ""}
+            ],
 
-            ]
+            "slm_process_config":
+            {
+                "llama_bin_default_parameter":
+                {
+                    "slm_base_dir" : "slm",
+                    "llama_bin_path" : "llama.cpp/build/bin/llama-server",
+                    "model_sym_link" : "models/cipher-guard-current.gguf",
+
+                    "thread_count" : 40,
+                    "ctx_size" : 4096,
+                    "temp" : 0.0,
+                    "top_percent" : 1.0,
+                    "repeat_penalty" : 1.1,
+                    "gpu_layer" : 999,
+                    "jinja" : "--jinja"
+                }
+            }
         }
     },
 

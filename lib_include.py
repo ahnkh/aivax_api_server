@@ -75,8 +75,4 @@ CONFIG_BASE_PATH = "./local_resource/config/wins-config.json"
 TRACE_LOG_PATH = "./trace-log"
 TRACE_PREFIX = "aivax"
 
-from common_modules.module_function import http_request
-from common_modules.module_function import UTF8Text
-from common_modules.module_function import sqlprintf
-from common_modules.module_function import sqlbulk
-from common_modules.module_function import opensearch_api_request
+from common_modules.module_function import *
