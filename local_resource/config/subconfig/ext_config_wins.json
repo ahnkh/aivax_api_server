@@ -93,7 +93,7 @@
                         "opensearch_password" : "Sniper123!@#",
 
                         "opensearch_data_root" : "/data/opensearch",
-                        "opensearch_snapshot_root" : "/backup/opensearch_snapshot"
+                        "opensearch_snapshot_root" : "/data/backup/opensearch_snapshot"
                     }
                     
                 }
@@ -105,17 +105,17 @@
         {
             "service_list": 
             [
-                {"use" : false, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "", "custom_status_call" : ""},
-                {"use" : false, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
-                {"use" : false, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
-                {"use" : false, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
 
-                {"use" : false, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
-                {"use" : false, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
-                {"use" : false, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
-                {"use" : false, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""},
+                {"use" : true, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
 
-                {"use" : false, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "", "custom_status_call" : ""}
+                {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""}
             ],
 
             "daemon_list" : 
@@ -169,7 +169,7 @@
 
             "snapshot_setup_detail_command":
             {
-                "snapshot_directory" : "/backup/opensearch_snapshot",
+                "snapshot_directory" : "/data/backup/opensearch_snapshot",
                 "permission_username" : "opensearch",
 
                 "aivax_snapshot_repository" : "aivax_snapshot",
@@ -336,7 +336,7 @@
                 "aivax_attach_file_dir" : "/home1/aivax/data_resource/attach_file",
                 "aivax_evidence_temp_dir" : "/home1/aivax/data_resource/.tmp_detail_dir",
 
-                "aivax_backup_dest_dir" : "/backup/attach_file_backup",
+                "aivax_backup_dest_dir" : "/data/backup/attach_file_backup",
 
                 "file_expire_min_time" : 30
             },
@@ -350,7 +350,7 @@
 
                 "prompt_log_bulk_dir" : "/home1/aivax/pipeline/bulk_logs",
 
-                "prompt_log_backup_dest_dir" : "/backup/prompt_log_backup",
+                "prompt_log_backup_dest_dir" : "/data/backup/prompt_log_backup",
                 "backup_daily_sub_dir_auto_create_date" : 5,
 
                 "prompt_log_elapsed_mtime" : 87400               
@@ -369,29 +369,30 @@
                 
                 "backup_disk_config":
                 {
-                    "backup_target_disk" : "/backup",
+                    "backup_target_disk" : "/data",
+                    "enable_flag": true,
 
                     "disk_threshold_rate" : 95.0,
-                    "disk_overflow_clear_rate" : 94.0,
+                    "disk_overflow_clear_rate" : 85.0,
 
                     "date_delete_try_count" : 10,
 
                     "attach_backup_rotation":
                     {                        
                         "attach_file_backup_cycle_date" : 365,                
-                        "attach_file_backup_dest_dir" : "/backup/attach_file_backup"
+                        "attach_file_backup_dest_dir" : "/data/backup/attach_file_backup"
                     },
 
                     "prompt_log_backup_rotation":
                     {                                        
                         "prompt_file_backup_cycle_date" : 365,
-                        "prompt_log_backup_dest_dir" : "/backup/prompt_log_backup"
+                        "prompt_log_backup_dest_dir" : "/data/backup/prompt_log_backup"
                     },
 
                     "opensearch_snapshot_rotation":
                     {
                         "snapshot_backup_cycle_date" : 365,
-                        "snapshot_backup_dest_dir" : "/backup/opensearch_snapshot",
+                        "snapshot_backup_dest_dir" : "/data/backup/opensearch_snapshot",
 
                         "snapshot_repository" : "aivax_snapshot"
                     }
@@ -400,6 +401,7 @@
                 "data_disk_config":
                 {
                     "data_target_disk" : "/data",
+                    "enable_flag": true,
 
                     "disk_threshold_rate" : 95.0,
                     "disk_overflow_clear_rate" : 85.0,
