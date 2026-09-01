@@ -71,7 +71,7 @@ def main():
         
         opts, args = getopt.getopt(sys.argv[1:], "dhm:pw:f:s:",
             [
-                "debug", "printlog", "method=", "module=", "dummy", "cmd_category=", "command=", "ext_module=",
+                "debug", "printlog", "method=", "module=", "dummy", "cmd_category=", "command=", "detail_cmd=", "ext_module=",
                 "open_api",
                                 
                 "api_out_response=", "api_print_console=", "app_root=", "api_root_path=",
