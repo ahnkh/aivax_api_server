@@ -12,6 +12,13 @@
 
                 "default_module_path" : "util_modules.wins_manage_modules.ext_aivax_install_modules",
 
+                "aivax_factory_install":
+                {
+                    "package" : "command_factory_install.aivax_factory_install_command",
+                    "class" : "AivaxFactoryInstallCommand",
+                    "method" : "RunCommand"
+                },
+
                 "aivax_install_util":
                 {
                     "package" : "command_install_util_module.aivax_install_util_command",
@@ -27,6 +34,34 @@
                 }
 
             }
+        },
+
+        "aivax_factory_install":
+        {
+
+            "aivax_root" : "/home1/aivax",
+            "package_root" : "../",
+
+            "directory_install":
+            {
+                "aivax_old_postfix" : ".old",
+
+                "aivax_directory_list": [
+                    "extension",
+                    "data_resource",
+                    "data_resource/attach_file",
+                    "data_resource/policy_signal"
+                ],
+
+                "ext_directory_list" : [
+                    "/home1/install/extension/rpm-repo",
+                    "/data/backup/opensearch_snapshot",
+                    "/data/backup/attach_file_backup",
+                    "/data/backup/prompt_log_backup"
+                ]
+
+            }
+            
         },
 
         "aivax_install_util_module":
@@ -105,25 +140,25 @@
         {
             "service_list": 
             [
-                {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "custom_status_call" : ""},
-                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
-                {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
-                {"use" : true, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
 
-                {"use" : true, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
-                {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
-                {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
-                {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""},
+                {"use" : true, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
 
-                {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "custom_status_call" : ""}
+                {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true}
             ],
 
             "daemon_list" : 
             [
-                {"use" : true, "id" : "slm-filter", "custom_run_call" : "start_slm", "custom_stop_call" : "", "custom_status_call" : ""},
-                {"use" : false, "id" : "toolkit-scheduler.01", "custom_run_call" : "", "custom_stop_call" : "", "custom_status_call" : ""},
-                {"use" : false, "id" : "aivax-guard", "custom_run_call" : "", "custom_stop_call" : "", "custom_status_call" : ""},
-                {"use" : false, "id" : "toolkit-ui", "custom_run_call" : "", "custom_stop_call" : "", "custom_status_call" : ""}
+                {"use" : true, "id" : "slm-filter", "custom_run_call" : "start_slm", "custom_stop_call" : "", "restart_flag" : true},
+                {"use" : false, "id" : "toolkit-scheduler.01", "custom_run_call" : "", "custom_stop_call" : "", "restart_flag" : true},
+                {"use" : false, "id" : "aivax-guard", "custom_run_call" : "", "custom_stop_call" : "", "restart_flag" : true},
+                {"use" : false, "id" : "toolkit-ui", "custom_run_call" : "", "custom_stop_call" : "", "restart_flag" : true}
             ],
 
             "slm_process_config":
@@ -221,6 +256,13 @@
                     "package" : "command_process_guard.process_guard_command",
                     "class" : "ProcessGuardCommand",
                     "method" : "RunCommand"
+                },
+
+                "audit_writer":
+                {
+                    "package" : "command_audit.wins_audit_log_write_command",
+                    "class" : "WinsAuditLogWriteCommand",
+                    "method" : "RunCommand"
                 }
 
             }  
@@ -304,6 +346,11 @@
         "process_guard":
         {
 
+        },
+
+        "audit_writer":
+        {
+            
         }
 
     },
