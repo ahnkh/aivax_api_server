@@ -123,11 +123,9 @@ def main():
                     dictOpt[strOptKey] = CONFIG_OPT_ENABLE
                     
     except getopt.GetoptError as err:
-        
-        #에러가 나면, 화면에 출력해야 함
-        AddStreamLogger() #화면출력용 Logger (디버그용) => TODO: 개선 방향 검토 필요
-        
-        # LOG().error(str(err))        
+                
+        AddStreamLogger() 
+                
         LOG().error(traceback.format_exc())
         sys.exit()
         
@@ -145,7 +143,6 @@ def main():
             
             LOG().info("start open api server")
             run_openapi_server(dictOpt, winsCliMainApp)            
-            pass
         
         winsCliMainApp.RunCLICommand(dictOpt)
         

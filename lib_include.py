@@ -65,6 +65,8 @@ from common_modules.const_define.json_local_config_define import JsonLocalConfig
 from common_modules.const_define.web_api_define import WebApiDefine
 from common_modules.const_define.error_define import ErrorDefine
 
+from common_modules.const_define.wins_string_resource_define import WinsStringResourceDefine as WSR
+
 ERR_OK = 1
 ERR_FAIL = -1 
 CONFIG_OPT_ENABLE = 1
