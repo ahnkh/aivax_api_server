@@ -99,7 +99,7 @@
             "desc" : "admin 사용자 id 조회",
             "key": "rdb_select_admin_user_id",
 	        "action" : "query_for_object",
-            "query" : "select id from app.admin order by 1 limit 1"
+            "query" : "select id from app.admin order by created_at limit 1"
         }
         
     ]
