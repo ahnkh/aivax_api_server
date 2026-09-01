@@ -1,0 +1,35 @@
+{
+    "category" : "rdb",
+    "connection_id" : "mariadb_connector",
+
+    "desc" : [        
+        "rdb - mariadb에 대한 쿼리맵, 틀만 잡음"
+    ],
+
+    "query_map":
+    [        
+        {
+            "desc" : "csv의 db bulk, %에 주의, execute_many를 호출해야 한다.",
+            "key": "mysql_insert_daily_bulk_data_yyyy",
+	        "action" : "execute_many",
+            "query" : "INSERT INTO STOCK_DBB_BULK.DAILY_BULK_DATA_{db_year} (STOCK_CODE, STOCK_NAME, REG_DATE, UNIT_PRICE, TRADE_VOLUME) 
+				VALUES (%s, %s, %s, %s, %s)"
+        },
+
+        {
+            "desc" : "종목코드 저장, 향후 query 파일을 분리, 우선 하나로 관리한다.",
+            "key": "mysql_insert_stock_csv_code",
+	        "action" : "execute",
+            "query" : "INSERT INTO STOCK_BASE_INFO.STOCK_CSV_CODE_DB (NO, STOCK_CODE, STOCK_NAME) 
+				VALUES ({no}, '{stock_code}', '{stock_name}')"
+        },
+
+        {
+            "desc" : "종목코드 업데이트",
+            "key": "mysql_update_stock_csv_code",
+	        "action" : "execute",
+            "query" : "UPDATE STOCK_BASE_INFO.STOCK_CSV_CODE_DB SET STOCK_NAME = '{stock_name}' WHERE STOCK_CODE = '{stock_code}'"
+        }
+    ]
+}
+

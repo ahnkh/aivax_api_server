@@ -116,6 +116,14 @@
             "key" : "rdb_update_regex_pattern_replace",
             "action" : "execute",
             "query" : "UPDATE app.policy_rules SET rule = '{rule}' WHERE id = '{id}'"
+        },
+
+        {
+            "desc" : "AIVAX audit log",
+            "key" : "rdb_insert_wins_audit_log",
+            "action" : "execute",
+            "query" : "REPLACE INTO app.log_audit (result, request_id, user_id, method, ip, category, message, request_body, response_body, status_code, user_agent, duration, created_at) 
+            VALUES ('Success', '{request_id}', (select id from app.admin order by 1 limit 1), 'POST', '{ip}', {category}, '{message}', '{request_body}', '{response_body}', 200, '{user_agent}', 0, '{created_at}')"
         }
 
     ]
