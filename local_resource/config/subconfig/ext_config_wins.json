@@ -36,7 +36,7 @@
                 "mariadb_host" : "127.0.0.1",
                 "mariadb_port" : 3306,
                 "mariadb_database" : "app",
-                "mariadb_id" : "app",
+                "mariadb_user" : "app",
                 "mariadb_password" : "app"
             },
 
@@ -55,7 +55,6 @@
         
     },
 
-
     "aivax_install_module":
     {
         "local_instance_module_map":
@@ -69,6 +68,13 @@
                 {
                     "package" : "command_factory_install.aivax_factory_install_command",
                     "class" : "AivaxFactoryInstallCommand",
+                    "method" : "RunCommand"
+                },
+
+                "aivax_install_dialog_menu":
+                {
+                    "package" : "command_install_dialog.aivax_install_dialog_ui_command",
+                    "class" : "AivaxInstallDialogUICommand",
                     "method" : "RunCommand"
                 },
 
@@ -240,12 +246,14 @@
                     {
                         "package_service_config_file" : "extension/fluent-bit/fluent-bit.service",
                         "dest_install_dir" : "/etc/systemd/system/"
-                    }
+                    }                    
                 },
 
                 "mariadb_install":
                 {
-                    "comment" : "db의 conf, 패스워드 설정에 대한 로직 개발 필요."
+                    "comment" : "db의 conf, 패스워드 설정에 대한 로직 개발 필요.",
+
+                    "mariadb_cnf_path" : "/etc/my.cnf.d/custom.cnf"
                 },
 
                 "nginx_install":
@@ -253,8 +261,8 @@
                     "comment" : "nginx 시스템 기동, nginx -t 이하 상세 설정은 시작+테스트 시점에 보강, 여기서는 복사만 담당",
                     "nginx_config_install_list":
                     [
-                        {"use": true, "aivax_source": "data-setup/nginx-setup/nginx-conf/aivax.conf", "desc_install_dir": "/etc/nginx/conf.d/"},
-                        {"use": true, "aivax_source": "data-setup/nginx-setup/nginx-conf/ssl", "desc_install_dir": "/etc/nginx/"}
+                        {"use": true, "aivax_source": "data-setup/nginx-setup/nginx-conf/aivax.conf", "dest_install_dir": "/etc/nginx/conf.d/"},
+                        {"use": true, "aivax_source": "data-setup/nginx-setup/nginx-conf/ssl", "dest_install_dir": "/etc/nginx/"}
                     ]
 
                 },
@@ -264,8 +272,13 @@
                     "nodejs_bin_install":
                     {
                         "aivax_source" : "extension/nodejs-install/node",
-                        "dest_install_dir" : "{aivax_install_root}/extension/"
-                    }
+                        "dest_install_dir" : "{aivax_install_root}/extension"
+                    },
+
+                    "customize_nodejs_install_command":
+                    [
+                        ["chmod", "755", "{aivax_install_root}/extension/node"]
+                    ]
                 },
 
                 "squid_proxy_install":
@@ -282,7 +295,11 @@
 
                 "opensearch_install":
                 {
-                    "comment" : "쉘 방식을 벗어나, 다시 개선 필요, config도 동적으로 만들자."
+
+                    "customize_nodejs_install_command":
+                    [
+                        ["dnf", "install", "./extension/rpm-install/3rd-repo/opensearch/v3.3.2/opensearch-3.3.2-linux-x64.rpm", "-y", "-q"]
+                    ]
                 }
             },
 
@@ -445,6 +462,105 @@
                     "jinja" : "--jinja"
                 }
             }
+        },
+
+        "aivax_install_dialog_menu":
+        {
+            "desc" : 
+            [
+                "aivax 설치 메뉴 ui"
+            ],
+
+            "main_menu":
+            {
+                "background_title" : "AIVAX INSTALLER V1.0.0.1",
+
+                "main_menu_item_list":
+                [
+                    {           
+                        "use" : true,     
+                        "tag": "01)",
+                        "menu_name": "Factory Install",
+                        "callback_event" : "on_menu_factory_install"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "02)",
+                        "menu_name": "Patch Install",
+                        "callback_event" : "on_menu_patch_install"
+                    },
+                    
+                    {                
+                        "use" : false,
+                        "tag": "03)",
+                        "menu_name": "UnInstall",
+                        "callback_event" : "on_menu_uninstall"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "",
+                        "menu_name": "-----------------",
+                        "callback_event" : ""
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "04)",
+                        "menu_name": "부가 모듈들",
+                        "callback_event" : "on_menu_sub_util"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "05)",
+                        "menu_name": "Version",
+                        "callback_event" : "on_menu_version"
+                    },
+                    
+                    {                
+                        "use" : false,
+                        "tag": "",
+                        "menu_name": "-----------------",
+                        "callback_event" : ""
+                    },
+                    
+                    {
+                        "use" : true,
+                        "tag": "06)",
+                        "menu_name": "Exit",
+                        "callback_event" : "on_menu_exit"
+                    }  
+                ]
+            },
+
+
+            "install_string_resource":
+            {
+                "cancel_factory_install" : "AIVAX의 설치를 취소하시겠습니까? (메인 화면으로 이동)",
+                "exit_menu" : "AIVAX INSTALLER UI를 종료하시겠습니까?",
+                "select_main_menu" : "AIVAX INSTALLER\n\n 설치 옵션을 선택하세요",
+                "start_factory_install" : "AIVAX의 Factory Install을 시작합니다. \n\n 시작하시겠습니까?",
+
+                "input_serial" : "Serial & License를 입력하세요.",
+                "license_error" : "license 입력중 오류가 발생하였습니다. \n\nError:{error}",
+                "cancel_check_license" : "라이선스 입력을 취소하시겠습니까? (메인 화면으로 이동)",
+
+                "start_after_install" : "AIVAX의 INSTALL 수행후 AIVAX 서비스를 자동으로 시작하시겠습니까?",
+
+                "dialog_title_mainmenu" : "AIVAX INSTALLER",
+                "dialog_title_version" : "AIVAX 버전 정보",
+                "dialog_title_install" : "AIVAX 설치",
+
+                "dialog_yes_button" : "예",
+                "dialog_no_button" : "아니오",
+
+                "dialog_ok_button" : "확인",
+                "dialog_cancel_button" : "취소",
+                "dialog_exit_button" : "종료"
+            }
+
         }
     },
 
