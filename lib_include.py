@@ -37,6 +37,8 @@ from libutil.string_buffer_bulk_writer import StringBufferBulkWriter
 
 from libutil.schedule_util import ScheduleUtil
 
+from libutil.style_printer import StylePrinter
+
 from libsql.connector.db_connector import DBConnector
 from libsql.connector.mariadb_connector import MariaDBConnector
 from libsql.connector.sqlite_connector import SQLiteConnector
