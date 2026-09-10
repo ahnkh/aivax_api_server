@@ -121,12 +121,26 @@
                     {
                         "desc" : "aivax policy file copy",
                         "source_file" : "data-setup/etc-resource/aivax_policy.json",
-                        "desc_dir" : "data_resource/policy_signal/"
+                        "desc_dir" : "{aivax_install_root}/data_resource/policy_signal/"
                     },
                     {
                         "desc" : "aivax policy file copy",
                         "source_file" : "data-setup/etc-resource/block.html",
-                        "desc_dir" : "data_resource/"
+                        "desc_dir" : "{aivax_install_root}/data_resource/"
+                    },
+
+                    {
+                        "desc" : "aivax multi license file copy",
+                        "source_file" : "data-setup/license/multi_licenses_crypt",
+                        "use_chmod" : true,
+                        "desc_dir" : "/usr/local/bin/"
+                    },
+
+                    {
+                        "desc" : "aivax license_v2 file copy",
+                        "source_file" : "data-setup/license/license_key_v2",
+                        "use_chmod" : true,
+                        "desc_dir" : "/usr/local/bin/"
                     }
                 ]
 
@@ -144,7 +158,7 @@
                     "yum.repo_path" : "/etc/yum.repos.d/",
                     "yum.backup_path" : "/etc/yum.repos.d_bak/",
 
-                    "aivax.yum_repo" : "extension/rpm-install/aviax.repo"
+                    "aivax.yum_repo" : "{package_root}/extension/rpm-install/aivax.repo"
                 },
 
                 "rpm_repository":
@@ -153,23 +167,23 @@
 
                     "aivax_rpm_repo_directory_list": [
 
-                        {"use": true, "rpm_directory": "extension/rpm-install/base-repo", "desc" : "기본 rpm"},
-                        {"use": true, "rpm_directory": "extension/rpm-install/extra-repo/libreoffice-full"},
-                        {"use": true, "rpm_directory": "extension/rpm-install/extra-repo/tesseract"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/base-repo", "desc" : "기본 rpm"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/libreoffice-full"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/tesseract"},
 
-                        {"use": true, "rpm_directory": "extension/rpm-install/extra-repo/nginx/v1.30", "desc" : "nginx, 1.3 업데이트"},
-                        {"use": true, "rpm_directory": "extension/rpm-install/extra-repo/perl"},
-                        {"use": true, "rpm_directory": "extension/rpm-install/extra-repo/mariadb/v11.3.2", "desc" : "mariadb 11.3 업데이트"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/nginx/v1.30", "desc" : "nginx, 1.3 업데이트"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/perl"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v11.3.2", "desc" : "mariadb 11.3 업데이트"},
 
-                        {"use": true, "rpm_directory": "extension/rpm-install/extra-repo/zip"},
-                        {"use": true, "rpm_directory": "extension/rpm-install/extra-repo/squid_proxy", "desc" : "proxy 서버"}
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/zip"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/squid_proxy", "desc" : "proxy 서버"}
                     
                     ],
 
                     "custom_create_repo_list":
                     [                        
-                        "extension/rpm-install/createrepo/createrepo_c-libs-0.20.1-4.el9.x86_64.rpm",
-                        "extension/rpm-install/createrepo/createrepo_c-0.20.1-4.el9.x86_64.rpm"
+                        "{package_root}/extension/rpm-install/createrepo/createrepo_c-libs-0.20.1-4.el9.x86_64.rpm",
+                        "{package_root}/extension/rpm-install/createrepo/createrepo_c-0.20.1-4.el9.x86_64.rpm"
                     ]
                 },
 
@@ -208,7 +222,8 @@
                         "libreoffice*",
                         "tesseract",
                         "tesseract-langpack-kor",
-                        "MariaDB-server MariaDB-client",
+                        "MariaDB-server",
+                        "MariaDB-client",
                         "libpcap",
                         "nginx",
                         "zip",
@@ -227,14 +242,14 @@
 
                     "fluent_bit_bin_install":
                     {
-                        "aivax_source" : "extension/fluent-bit/",
-                        "dest_install_dir" : "fluent-bit/"
+                        "aivax_source" : "{package_root}/extension/fluent-bit/",
+                        "dest_install_dir" : "{aivax_install_root}/fluent-bit/"
                     },
 
                     "aivax_fluent_bit_install_directory_list": 
                     [
-                        {"use":true, "aivax_directory": "fluent-bit/db", "desc": "fluent-bit 이력db 저장경로"},
-                        {"use":true, "aivax_directory": "fluent-bit/trace_log", "desc": "fluent-bit tracelog"}
+                        {"use":true, "aivax_directory": "{aivax_install_root}/fluent-bit/db", "desc": "fluent-bit 이력db 저장경로"},
+                        {"use":true, "aivax_directory": "{aivax_install_root}/fluent-bit/trace_log", "desc": "fluent-bit tracelog"}
                     ],
 
                     "customize_fluent_install_command":
@@ -244,7 +259,7 @@
 
                     "fluent_bit_service_install":
                     {
-                        "package_service_config_file" : "extension/fluent-bit/fluent-bit.service",
+                        "package_service_config_file" : "{package_root}/extension/fluent-bit/fluent-bit.service",
                         "dest_install_dir" : "/etc/systemd/system/"
                     }                    
                 },
@@ -261,8 +276,8 @@
                     "comment" : "nginx 시스템 기동, nginx -t 이하 상세 설정은 시작+테스트 시점에 보강, 여기서는 복사만 담당",
                     "nginx_config_install_list":
                     [
-                        {"use": true, "aivax_source": "data-setup/nginx-setup/nginx-conf/aivax.conf", "dest_install_dir": "/etc/nginx/conf.d/"},
-                        {"use": true, "aivax_source": "data-setup/nginx-setup/nginx-conf/ssl", "dest_install_dir": "/etc/nginx/"}
+                        {"use": true, "aivax_source": "{package_root}/data-setup/nginx-setup/nginx-conf/aivax.conf", "dest_install_dir": "/etc/nginx/conf.d/"},
+                        {"use": true, "aivax_source": "{package_root}/data-setup/nginx-setup/nginx-conf/ssl", "dest_install_dir": "/etc/nginx/"}
                     ]
 
                 },
@@ -271,7 +286,7 @@
                 {
                     "nodejs_bin_install":
                     {
-                        "aivax_source" : "extension/nodejs-install/node",
+                        "aivax_source" : "{package_root}/extension/nodejs-install/node",
                         "dest_install_dir" : "{aivax_install_root}/extension"
                     },
 
@@ -287,7 +302,7 @@
 
                     "squid_proxy_config_install":
                     {
-                        "aivax_source" : "data-setup/squid-setup/squid.conf",
+                        "aivax_source" : "{package_root}/data-setup/squid-setup/squid.conf",
                         "dest_install_dir" : "/etc/squid/"
                     }
                     
@@ -316,40 +331,40 @@
                     "uv_path" : "/usr/local/bin/uv",
                     "python_path" : "global_env에서 가져온다.",
 
-                    "python_whl_package_path" : "extension/python-install",
+                    "python_whl_package_path" : "{package_root}/extension/python-install",
 
                     "uv_pip_install_command" : [
                         "uv", "--quiet", "pip", "install", 
-                        "--no-index", "--find-links=.offline-wheel/",
-                        "-r", "aivax-requirement.txt"
+                        "--no-index", "--find-links={package_root}/extension/python-install/offline-wheel/",
+                        "-r", "{package_root}/extension/python-install/aivax-requirement.txt"
                     ],
 
                     "pycomlib_install":
                     {
                         "comment" : "경로변경 이슈, 경로 변경에 주의",
                         "pycom_install_command": [
-                            "uv", "--quiet", "pip", "install", "/offline-wheel/{package}",
+                            "uv", "--quiet", "pip", "install", "{package_root}/offline-wheel/{package}",
                             "--force-reinstall"
                         ],
 
                         "pycomlib_package":
                         [
-                            {"use": true, "package": "pycomlib-1.1.7-py3-none-any.whl", "desc":""},
-                            {"use": true, "package": "pycomlibex-1.1.2-py3-none-any.whl", "desc":""},
-                            {"use": true, "package": "pyservice-1.0.3-py3-none-any.whl", "desc":""},
-                            {"use": true, "package": "pytoolkit-1.0.0-py3-none-any.whl", "desc":""}
+                            {"use": true, "package": "{package_root}/extension/python-install/offline-wheel/pycomlib-1.1.7-py3-none-any.whl", "desc":""},
+                            {"use": true, "package": "{package_root}/extension/python-install/offline-wheel/pycomlibex-1.1.2-py3-none-any.whl", "desc":""},
+                            {"use": true, "package": "{package_root}/extension/python-install/offline-wheel/pyservice-1.0.3-py3-none-any.whl", "desc":""},
+                            {"use": true, "package": "{package_root}/extension/python-install/offline-wheel/pytoolkit-1.0.0-py3-none-any.whl", "desc":""}
                         ]
                     }
                 },
 
                 "pipeline_patch_install":
                 {
-                    "package_tar_gzip_path" : "aivax-patch/pipeline.tar.gz",
+                    "package_tar_gzip_path" : "{package_root}/aivax-patch/pipeline.tar.gz",
                     "tar_dest_dir" : "pipeline",
 
                     "service_install":
                     {
-                        "package_service_config_file" : "aivax-patch/systemd/pipeline-install/aivax-pipeline.service",
+                        "package_service_config_file" : "{package_root}/aivax-patch/systemd/pipeline-install/aivax-pipeline.service",
                         "dest_install_dir" : "/etc/systemd/system/"
                     },
 
@@ -360,24 +375,24 @@
 
                 "toolkit_patch_install":
                 {
-                    "package_tar_gzip_path" : "aivax-patch/toolkit.tar.gz",
+                    "package_tar_gzip_path" : "{package_root}/aivax-patch/toolkit.tar.gz",
                     "tar_dest_dir" : "toolkit", 
 
                     "service_install":
                     {
-                        "package_service_config_file" : "aivax-patch/systemd/toolkit-install/aivax-toolkit.service",
+                        "package_service_config_file" : "{package_root}/aivax-patch/systemd/toolkit-install/aivax-toolkit.service",
                         "dest_install_dir" : "/etc/systemd/system/"
                     }
                 },
 
                 "management_patch_install":
                 {
-                    "package_tar_gzip_path" : "aivax-patch/management.tar.gz",
+                    "package_tar_gzip_path" : "{package_root}/aivax-patch/management.tar.gz",
                     "tar_dest_dir" : "management", 
 
                     "service_install":
                     {
-                        "package_service_config_file" : "aivax-patch/systemd/management-install/aivax-management.service",
+                        "package_service_config_file" : "{package_root}/aivax-patch/systemd/management-install/aivax-management.service",
                         "dest_install_dir" : "/etc/systemd/system/"
                     }
                 },
@@ -439,7 +454,7 @@
 
             "daemon_list" : 
             [
-                {"use" : true, "id" : "slm-filter", "custom_run_call" : "start_slm", "custom_stop_call" : "", "restart_flag" : true},
+                {"use" : false, "id" : "slm-filter", "custom_run_call" : "start_slm", "custom_stop_call" : "", "restart_flag" : true},
                 {"use" : false, "id" : "toolkit-scheduler.01", "custom_run_call" : "", "custom_stop_call" : "", "restart_flag" : true},
                 {"use" : false, "id" : "aivax-guard", "custom_run_call" : "", "custom_stop_call" : "", "restart_flag" : true},
                 {"use" : false, "id" : "toolkit-ui", "custom_run_call" : "", "custom_stop_call" : "", "restart_flag" : true}
@@ -480,19 +495,19 @@
                     {           
                         "use" : true,     
                         "tag": "01)",
-                        "menu_name": "Factory Install",
+                        "menu_name": "Install",
                         "callback_event" : "on_menu_factory_install"
                     },
                     
                     {                
-                        "use" : true,
+                        "use" : false,
                         "tag": "02)",
                         "menu_name": "Patch Install",
                         "callback_event" : "on_menu_patch_install"
                     },
                     
                     {                
-                        "use" : false,
+                        "use" : true,
                         "tag": "03)",
                         "menu_name": "UnInstall",
                         "callback_event" : "on_menu_uninstall"
@@ -535,6 +550,40 @@
                 ]
             },
 
+            "sub_util_menu":
+            {
+
+                "main_menu_item_list":
+                [
+                    {           
+                        "use" : true,     
+                        "tag": "01)",
+                        "menu_name": "패키지 무결성",
+                        "callback_event" : "on_menu_package_integrity"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "02)",
+                        "menu_name": "License Update",
+                        "callback_event" : "on_menu_update_license"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "03)",
+                        "menu_name": "서버 무결성 (준비중)",
+                        "callback_event" : "on_menu_system_integrity"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "04)",
+                        "menu_name": " 보안 상태 검사 (준비중)",
+                        "callback_event" : "on_menu_server_process_check"
+                    } 
+                ]
+            },
 
             "install_string_resource":
             {
@@ -543,11 +592,16 @@
                 "select_main_menu" : "AIVAX INSTALLER\n\n 설치 옵션을 선택하세요",
                 "start_factory_install" : "AIVAX의 Factory Install을 시작합니다. \n\n 시작하시겠습니까?",
 
-                "input_serial" : "Serial & License를 입력하세요.",
+                "input_serial" : "Serial & License를 입력하세요. \n  Serial: (ex: SKRX4CW...) \n  License: (ex:af38d40...)",
                 "license_error" : "license 입력중 오류가 발생하였습니다. \n\nError:{error}",
                 "cancel_check_license" : "라이선스 입력을 취소하시겠습니까? (메인 화면으로 이동)",
 
                 "start_after_install" : "AIVAX의 INSTALL 수행후 AIVAX 서비스를 자동으로 시작하시겠습니까?",
+
+                "progress_install" : "설치를 진행중입니다. \n\n{detail}",
+                "progress_stop" : "설치가 완료되었습니다.",
+
+                "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
                 "dialog_title_mainmenu" : "AIVAX INSTALLER",
                 "dialog_title_version" : "AIVAX 버전 정보",
@@ -559,6 +613,12 @@
                 "dialog_ok_button" : "확인",
                 "dialog_cancel_button" : "취소",
                 "dialog_exit_button" : "종료"
+            },
+
+            "serial_license":
+            {
+                "serial_file_ext" : "*.crt",
+                "license_file_path" : "data-setup/license/multi_licenses_crypt"
             }
 
         }
