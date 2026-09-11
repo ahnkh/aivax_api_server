@@ -50,7 +50,7 @@ def do_script_file_opt(strScriptFile:str, lstMultiCommand:list):
 
 def main():
 
-    InitLogger("tracelog.txt", TRACE_LOG_PATH, TRACE_PREFIX)
+    InitLogger("tracelog.txt", TRACE_LOG_PATH)
     
     winsCliMainApp = KShellMainApp()
     
