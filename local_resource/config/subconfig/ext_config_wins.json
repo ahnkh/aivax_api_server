@@ -548,7 +548,7 @@
                     {                
                         "use" : true,
                         "tag": "05)",
-                        "menu_name": "무결성 검사 (개발중)",
+                        "menu_name": "서버 무결성 시험 (개발중)",
                         "callback_event" : "on_menu_sub_util"
                     },
                     
@@ -607,8 +607,9 @@
             {
                 "cancel_factory_install" : "AIVAX의 설치를 취소하시겠습니까? (메인 화면으로 이동)",
                 "exit_menu" : "AIVAX INSTALLER UI를 종료하시겠습니까?",
+
                 "select_main_menu" : "AIVAX INSTALLER\n\n 설치 옵션을 선택하세요",
-                "start_factory_install" : "AIVAX의 Factory Install을 시작합니다. \n\n 시작하시겠습니까?",
+                "start_factory_install" : "AIVAX의 Factory Install을 시작합니다. \n\n 진행하시겠습니까?",
 
                 "input_serial" : "Serial & License를 입력하세요. \n  Serial: (ex: SKRX4CW...) \n  License: (ex:af38d40...)",
                 "license_error" : "license 입력중 오류가 발생하였습니다. \n\nError:{error}",
@@ -619,11 +620,17 @@
                 "progress_install" : "설치를 진행중입니다. \n\n{detail}",
                 "progress_stop" : "설치가 완료되었습니다.",
 
+                "start_uninstall" : "AIVAX의 초기화를 시작합니다. \n\n 진행하시겠습니까?",
+
+                "progress_start_uninstall" : "AIVAX를 초기화 중입니다. \n\n{detail}",
+                "progress_finish_uninstall" : "AIVAX를 초기의 초기화가 완료 되었습니다.",
+
                 "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
                 "dialog_title_mainmenu" : "AIVAX INSTALLER",
                 "dialog_title_version" : "AIVAX 버전 정보",
                 "dialog_title_install" : "AIVAX 설치",
+                "dialog_title_uninstall" : "AIVAX 초기화",
 
                 "dialog_yes_button" : "예",
                 "dialog_no_button" : "아니오",
