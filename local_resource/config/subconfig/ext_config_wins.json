@@ -499,14 +499,9 @@
 
         "aivax_install_dialog_menu":
         {
-            "desc" : 
-            [
-                "aivax 설치 메뉴 ui"
-            ],
 
             "main_menu":
             {
-                "background_title" : "AIVAX INSTALLER V1.0.0.1",
 
                 "main_menu_item_list":
                 [
@@ -542,26 +537,40 @@
                         "use" : true,
                         "tag": "04)",
                         "menu_name": "Security Check (개발중)",
-                        "callback_event" : "on_menu_sub_util"
+                        "callback_event" : ""
                     },
 
                     {                
                         "use" : true,
                         "tag": "05)",
                         "menu_name": "서버 무결성 시험 (개발중)",
+                        "callback_event" : ""
+                    },
+
+                    {                
+                        "use" : true,
+                        "tag": "06)",
+                        "menu_name": "부가 기능 & UTIL",
                         "callback_event" : "on_menu_sub_util"
+                    },
+
+                    {                
+                        "use" : true,
+                        "tag": "",
+                        "menu_name": "-----------------",
+                        "callback_event" : ""
                     },
                     
                     {                
                         "use" : true,
-                        "tag": "06)",
+                        "tag": "07)",
                         "menu_name": "Version",
                         "callback_event" : "on_menu_version"
                     },
                     
                     {
                         "use" : true,
-                        "tag": "07)",
+                        "tag": "08)",
                         "menu_name": "Exit",
                         "callback_event" : "on_menu_exit"
                     }  
@@ -571,33 +580,35 @@
             "sub_util_menu":
             {
 
-                "main_menu_item_list":
+                "sub_util_menu_item_list":
                 [
                     {           
                         "use" : true,     
                         "tag": "01)",
-                        "menu_name": "패키지 무결성",
-                        "callback_event" : "on_menu_package_integrity"
+                        "menu_name": "AIVAX START & Security check",
+                        "callback_event" : "",
+                        "callback_event_back" : "on_menu_start_aivax"
                     },
                     
                     {                
                         "use" : true,
                         "tag": "02)",
-                        "menu_name": "License Update",
-                        "callback_event" : "on_menu_update_license"
+                        "menu_name": "AIVAX STOP",
+                        "callback_event" : "",
+                        "callback_event_back" : "on_menu_stop_aivax"
                     },
                     
                     {                
                         "use" : true,
                         "tag": "03)",
-                        "menu_name": "서버 무결성 (준비중)",
-                        "callback_event" : "on_menu_system_integrity"
+                        "menu_name": "GPU DRIVER 설치 (준비중)",
+                        "callback_event" : "on_menu_install_nvidia_driver"
                     },
                     
                     {                
-                        "use" : true,
+                        "use" : false,
                         "tag": "04)",
-                        "menu_name": " 보안 상태 검사 (준비중)",
+                        "menu_name": " 보안 상태 검사",
                         "callback_event" : "on_menu_server_process_check"
                     } 
                 ]
@@ -605,11 +616,13 @@
 
             "install_string_resource":
             {
+                "background_title" : "SNIPER AIVAX INSTALLER V1.0.0.0",
+
                 "cancel_factory_install" : "AIVAX의 설치를 취소하시겠습니까? (메인 화면으로 이동)",
                 "exit_menu" : "AIVAX INSTALLER UI를 종료하시겠습니까?",
 
-                "select_main_menu" : "AIVAX INSTALLER\n\n 설치 옵션을 선택하세요",
-                "start_factory_install" : "AIVAX의 Factory Install을 시작합니다. \n\n 진행하시겠습니까?",
+                "select_main_menu" : "SNIPER AIVAX 설치\n 설치 옵션을 선택하세요",
+                "start_factory_install" : "AIVAX의 Factory Install을 시작합니다. \n\n주의) 기존 aivax 설치 경로를 재설정하고 실행중인 서비스가 종료됩니다. \n\n진행하시겠습니까?",
 
                 "input_serial" : "Serial & License를 입력하세요. \n  Serial: (ex: SKRX4CW...) \n  License: (ex:af38d40...)",
                 "license_error" : "license 입력중 오류가 발생하였습니다. \n\nError:{error}",
@@ -625,25 +638,46 @@
                 "progress_start_uninstall" : "AIVAX를 초기화 중입니다. \n\n{detail}",
                 "progress_finish_uninstall" : "AIVAX를 초기의 초기화가 완료 되었습니다.",
 
+                "progress_start_aivax" : "AIVAX 서비스를 시작합니다. \n\n{detail}", 
+                "progress_finish_start_aivax" : "AIVAX 서비스가 시작되었습니다.",
+
+                "progress_stop_aivax" : "AIVAX 서비스를 종료합니다. \n\n{detail}", 
+                "progress_finish_stop_aivax" : "AIVAX 서비스가 종료되었습니다.",
+
                 "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
-                "dialog_title_mainmenu" : "AIVAX INSTALLER",
-                "dialog_title_version" : "AIVAX 버전 정보",
-                "dialog_title_install" : "AIVAX 설치",
-                "dialog_title_uninstall" : "AIVAX 초기화",
+                "select_sub_util_menu" : "SNIPER AIVAX 부가 모듈 옵션\n다음의 옵션 항목을 선택하세요",
+
+                "dialog_title_mainmenu" : "SNIPER AIVAX INSTALLER",
+                "dialog_title_version" : "SNIPER AIVAX 버전 정보",
+                "dialog_title_install" : "SNIPER AIVAX 설치",
+                "dialog_title_uninstall" : "SNIPER AIVAX 초기화",
+
+                "dialog_title_sub_util_menu" : "SNIPER AIVAX UTIL",
 
                 "dialog_yes_button" : "예",
                 "dialog_no_button" : "아니오",
 
                 "dialog_ok_button" : "확인",
                 "dialog_cancel_button" : "취소",
-                "dialog_exit_button" : "종료"
+                "dialog_exit_button" : "종료",
+
+                "install_output_final_success" : "SUCCESS", 
+                "install_output_success" : "OK",
+                "install_output_fail" : "Fail",
+
+                "exception_message" : "알수 없는 오류가 발생하여 프로그램을 종료합니다."
             },
 
             "serial_license":
             {
                 "serial_file_ext" : "*.crt",
-                "license_file_path" : "data-setup/license/multi_licenses_crypt"
+                "license_file_path" : "{package_root}/data-setup/license/multi_licenses_crypt"
+            },
+
+            "version_info":
+            {
+                "version_default_file_in_package" : "{package_root}/.version"
             }
 
         }
