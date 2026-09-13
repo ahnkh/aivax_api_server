@@ -342,9 +342,9 @@
                 "opensearch_install":
                 {
 
-                    "customize_nodejs_install_command":
+                    "customize_opensearch_install_command":
                     [
-                        ["dnf", "install", "./extension/rpm-install/3rd-repo/opensearch/v3.8.0/opensearch-3.8.0-linux-x64.rpm", "-y", "-q"]
+                        ["dnf", "install", "{package_root}/extension/rpm-install/3rd-repo/opensearch/v3.8.0/opensearch-3.8.0-linux-x64.rpm", "-y", "-q"]
                     ]
                 }
             },
