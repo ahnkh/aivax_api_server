@@ -99,6 +99,33 @@
         {
             "comment" : "install enable flag는 실행 옵션, dialog 및 외부 config에서 관리",
 
+            "enable_module_install_flag":
+            {
+                "enable_directory_install" : true,
+                "enable_env_profile" : true,
+
+                "enable_stop_aivax_service" : true,
+                "enable_3rd_module_install" :  true,
+                
+                "sub_enable_3rd_rpm_install" : true,
+                "sub_enable_3rd_fluentbit_install" : true,
+                "sub_enable_3rd_mariadb_install" : true,
+                "sub_enable_3rd_nginx_install" : true,
+                "sub_enable_3rd_nodejs_install" : true,
+
+                "sub_enable_3rd_squid_install" : true,
+                "sub_enable_3rd_opensearch_install" : true,
+                "sub_enable_3rd_slm_install" : true,
+                "sub_enable_3rd_custom_shell_install" : true,
+                
+                "enable_aivax_source_patch" : true,
+                "enable_start_aivax_service" : true,
+
+                "enable_after_config" : true,
+                "sub_enable_after_config_opensearch" : true,
+                "sub_enable_after_config_serial_license" : true
+            },
+
             "directory_install":
             {
                 "aivax_old_postfix" : ".old",
@@ -171,9 +198,13 @@
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/libreoffice-full"},
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/tesseract"},
 
-                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/nginx/v1.30", "desc" : "nginx, 1.3 업데이트"},
+                        {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/nginx/v1.30", "desc" : "nginx, 1.30 업데이트"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/nginx/v1.30.4", "desc" : "nginx, 1.30.4 업데이트"},
+                        
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/perl"},
-                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v11.3.2", "desc" : "mariadb 11.3 업데이트"},
+                        
+                        {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v11.3.2", "desc" : "mariadb 11.3 업데이트, 12.3.3 으로 변경, 폐기"},
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v12.3.3", "desc" : "mariadb 11.3 업데이트, 12.3.3 으로 변경, 폐기"},
 
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/zip"},
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/squid_proxy", "desc" : "proxy 서버"}
@@ -313,7 +344,7 @@
 
                     "customize_nodejs_install_command":
                     [
-                        ["dnf", "install", "./extension/rpm-install/3rd-repo/opensearch/v3.3.2/opensearch-3.3.2-linux-x64.rpm", "-y", "-q"]
+                        ["dnf", "install", "./extension/rpm-install/3rd-repo/opensearch/v3.8.0/opensearch-3.8.0-linux-x64.rpm", "-y", "-q"]
                     ]
                 }
             },
