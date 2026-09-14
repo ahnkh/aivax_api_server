@@ -680,7 +680,7 @@
                 "progress_finish_stop_aivax" : "AIVAX 서비스가 종료되었습니다.",
 
                 "progress_start_integrity" : "패키지 무결성 검사를 진행합니다. \n\n{detail}", 
-                "progress_finish_integrity" : "패키지 무결성 검사가 종료되었습니다. \n\n{detail}", 
+                "progress_finish_integrity" : "패키지 무결성 검사가 종료되었습니다. \n\n", 
 
                 "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
