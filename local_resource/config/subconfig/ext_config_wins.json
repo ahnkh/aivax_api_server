@@ -425,7 +425,9 @@
                     {
                         "package_service_config_file" : "{package_root}/aivax-patch/systemd/management-install/aivax-management.service",
                         "dest_install_dir" : "/etc/systemd/system/"
-                    }
+                    },
+
+                    "custom_env_management_backend_path" : "{aivax_install_root}/management/backend/.env"
                 },
 
                 "sslproxy_patch_install":
