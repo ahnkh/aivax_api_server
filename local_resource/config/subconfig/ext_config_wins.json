@@ -576,7 +576,7 @@
                     {                
                         "use" : true,
                         "tag": "04)",
-                        "menu_name": "서버 무결성 시험 (개발중)",
+                        "menu_name": "서버 무결성 검사 (개발중)",
                         "callback_event" : ""
                     },
 
