@@ -668,6 +668,7 @@
                 "confirm_aivax_start" : "AIVAX의 서비스를 시작합니다. \n\n 진행하시겠습니까?",
                 "confirm_aivax_stop" : "AIVAX의 서비스를 종료합니다. \n\n 진행하시겠습니까?",
 
+                "error_package_integrity" : "패키지 무결성 오류가 발생하였습니다.",
 
                 "progress_start_uninstall" : "AIVAX를 초기화 중입니다. \n\n{detail}",
                 "progress_finish_uninstall" : "AIVAX를 초기의 초기화가 완료 되었습니다.",
@@ -677,6 +678,9 @@
 
                 "progress_stop_aivax" : "AIVAX 서비스를 종료합니다. \n\n{detail}", 
                 "progress_finish_stop_aivax" : "AIVAX 서비스가 종료되었습니다.",
+
+                "progress_start_integrity" : "패키지 무결성 검사를 진행합니다. \n\n{detail}", 
+                "progress_finish_integrity" : "패키지 무결성 검사가 종료되었습니다. \n\n{detail}", 
 
                 "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
@@ -708,6 +712,7 @@
 
             "serial_license":
             {
+                "enable_serial_license" : true,
                 "serial_file_ext" : "*.crt",
                 "license_file_path" : "{package_root}/data-setup/license/multi_licenses_crypt"
             },
@@ -715,6 +720,12 @@
             "version_info":
             {
                 "version_default_file_in_package" : "{package_root}/.version"
+            },
+
+            "package_integrity":
+            {
+                "enable_integrity" : true,
+                "package_hash_digest" : "{package_root}/.integrity.digest"
             }
 
         }
