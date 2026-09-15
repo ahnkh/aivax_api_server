@@ -47,15 +47,22 @@
         {
             "desc" : "AIVAX 무결성, 최초 등록",
             "key" : "rdb_bulk_integrity_file",
-            "action" : "execute",
-            "query" : "INSERT INTO app.system_integrity_files (created_at, id, process_name, file_path, current_hash, previous_hash) VALUES (%s,%s,%s,%s,%s,%s)"
+            "action" : "execute_many",
+            "query" : "INSERT INTO app.system_integrity_files (id, file_path, current_hash, previous_hash, synced_at) VALUES (%s,%s,%s,%s,%s)"
         },
 
         {
             "desc" : "AIVAX 무결성, 업데이트, 오류 발생시에만",
             "key" : "rdb_update_integrity_file",
             "action" : "execute",
-            "query" : "UPDATE app.system_integrity_files SET previous_hash = '{previous_hash}', synced_at = '{previous_hash}', last_error = '{last_error}' WHERE id = '{id}'"
+            "query" : "UPDATE app.system_integrity_files SET previous_hash = '{previous_hash}', synced_at = '{synced_at}', last_error = '{last_error}' WHERE id = '{id}'"
+        },
+
+        {
+            "desc" : "AIVAX 무결성, 주기",
+            "key" : "rdb_replace_integrity_duration",
+            "action" : "execute",
+            "query" : "REPLACE INTO app.settings (`key`, `value`, `category`) VALUES ('file-integrity-check-cycle', '{min_cycle}', 'file-integrity-policy')"
         }
 
     ]
