@@ -512,8 +512,7 @@
                         "include_target_list" : 
                         [
                             {
-                                "use" : true,
-                                "process_name" : "pipeline",
+                                "use" : true,                                
                                 "directory" : "{aivax_install_root}/pipeline",                                 
                                 "include_ext" : [".py", ".json"],
                                 "exclude_ext" : [".pyc", ".log", ".txt", ".sql"],
@@ -521,7 +520,11 @@
                                 [
                                     "slm_request",
                                     "pipe_request",
-                                    "dummy"
+                                    "dummy",
+                                    "test",
+                                    ".git",
+                                    ".vscode",
+                                    "pipe_notify"
                                 ]
                             }                            
                         ]
@@ -529,22 +532,28 @@
 
                     {
                         "desc" : "management",
-                        "use" : false,
+                        "use" : true,
                         "include_target_list" : 
                         [
                             {
-                                "use" : true,
-                                "process_name" : "management",
+                                "use" : true,                                
                                 "directory" : "{aivax_install_root}/management/backend/src/", 
                                 "include_ext" : ["*.", ".ts", ".tsx", ".json"],
-                                "exclude_ext" : [".css", ".md", ".woff", ".svg"]
+                                "exclude_ext" : [".css", ".md", ".woff", ".svg"],
+                                "custom_exclude_match" : 
+                                [
+                                    ".env"
+                                ]
                             },
                             {
-                                "use" : true,
-                                "process_name" : "management",
+                                "use" : true,                                
                                 "directory" : "{aivax_install_root}/management/frontend/src/", 
                                 "include_ext" : ["*.", ".ts", ".tsx", ".json"],
-                                "exclude_ext" : [".css", ".md", ".woff", ".svg"]
+                                "exclude_ext" : [".css", ".md", ".woff", ".svg"],
+                                "custom_exclude_match" : 
+                                [
+                                    ".env"
+                                ]
                             }
                         ]
 
@@ -556,8 +565,7 @@
                         "include_target_list" : 
                         [
                             {
-                                "use" : true,
-                                "process_name" : "sslproxy",
+                                "use" : true,                                
                                 "directory" : "{aivax_install_root}/management/backend/src/", 
                                 "include_ext" : ["*", ".crt", ".pem", ".conf", ".sh"],
                                 "exclude_ext" : [".log", ".md"]
@@ -568,25 +576,45 @@
 
                     {
                         "desc" : "extension",
-                        "use" : false,
+                        "use" : true,
                         "include_target_list" : 
                         [
                             {
 
-                                "use" : true,
-                                "process_name" : "system",
+                                "use" : true,                                
                                 "directory" : "{aivax_install_root}/extension/node", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : []
                             },
 
                             {
-                                "use" : true,
-                                "process_name" : "system",
+                                "use" : true,                                
                                 "directory" : "/usr/bin/mariadb", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : []
+                            },
+
+                            {
+                                "use" : true,                                
+                                "directory" : "/usr/bin/openssl", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : []
+                            },
+
+                            {
+                                "use" : true,                                
+                                "directory" : "/usr/bin/ssh", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : []
+                            },
+
+                            {
+                                "use" : true,                                
+                                "directory" : "/usr/bin/bash", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : []
                             }
+
                         ]
 
                     }
@@ -790,6 +818,9 @@
 
                 "progress_start_integrity" : "패키지 무결성 검사를 진행합니다. \n\n{detail}", 
                 "progress_finish_integrity" : "패키지 무결성 검사가 종료되었습니다. \n\n", 
+
+                "progress_start_server_integrity" : "서버 무결성 정보를 업데이트합니다. \n\n{detail}", 
+                "progress_finish_server_integrity" : "서버 무결성 정보를 업데이트 하였습니다. \n\n", 
 
                 "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
