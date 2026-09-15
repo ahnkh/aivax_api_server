@@ -221,6 +221,12 @@
                         "{package_root}/extension/rpm-install/createrepo/createrepo_c-libs-0.20.1-4.el9.x86_64.rpm",
                         "{package_root}/extension/rpm-install/createrepo/createrepo_c-0.20.1-4.el9.x86_64.rpm"
                     ]
+                    
+                },
+
+                "dnf_custom_install":
+                {
+                    "mysql_selinux" : "{aivax_install_root}/extension/rpm-repo/mysql-selinux-1.0.14-1.el9_6.noarch.rpm"
                 },
 
                 "dnf_local_install":
@@ -248,6 +254,8 @@
 
                     "rpm_pre_clear_list":
                     [
+                        "MariaDB-server",
+                        "MariaDB-client",
                         "nginx", 
                         "nginx-core", 
                         "nginx-filesystem"
@@ -265,8 +273,7 @@
                         "nginx",
                         "zip",
                         "unzip",
-                        "squid",
-                        "cmake"
+                        "squid"
                     ]
                 }
 
