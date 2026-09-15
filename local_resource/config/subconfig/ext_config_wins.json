@@ -713,8 +713,8 @@
                     {                
                         "use" : true,
                         "tag": "04)",
-                        "menu_name": "서버 무결성 검사 (개발중)",
-                        "callback_event" : ""
+                        "menu_name": "서버 무결성 검사",
+                        "callback_event" : "on_menu_server_integrity"
                     },
 
                     {                
@@ -804,6 +804,7 @@
                 "confirm_start_uninstall" : "AIVAX의 초기화를 시작합니다. \n\n 진행하시겠습니까?",
                 "confirm_aivax_start" : "AIVAX의 서비스를 시작합니다. \n\n 진행하시겠습니까?",
                 "confirm_aivax_stop" : "AIVAX의 서비스를 종료합니다. \n\n 진행하시겠습니까?",
+                "confirm_start_server_integrity" : "AIVAX의 서버 무결성 검사를 시작합니다. \nAIVAX 서비스가 기동중 상태에서 무결성 불일치 확인 및 감사 정보가 기록됩니다.\n\n 진행하시겠습니까?",
 
                 "error_package_integrity" : "패키지 무결성 오류가 발생하였습니다.",
 
@@ -821,6 +822,9 @@
 
                 "progress_start_server_integrity" : "서버 무결성 정보를 업데이트합니다. \n\n{detail}", 
                 "progress_finish_server_integrity" : "서버 무결성 정보를 업데이트 하였습니다. \n\n", 
+
+                "progress_start_server_integrity_check" : "서버 무결성 검사를 시작합니다. \n\n{detail}", 
+                "progress_finish_server_integrity_check" : "서버 무결성 검사가 종료 되었습니다. \n\n", 
 
                 "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
