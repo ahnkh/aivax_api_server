@@ -226,7 +226,7 @@
 
                 "dnf_custom_install":
                 {
-                    "mysql_selinux" : "{aivax_install_root}/extension/rpm-repo/mysql-selinux-1.0.14-1.el9_6.noarch.rpm"
+                    "mysql_selinux" : "/home1/install/extension/rpm-repo/mysql-selinux-1.0.14-1.el9_6.noarch.rpm"
                 },
 
                 "dnf_local_install":
