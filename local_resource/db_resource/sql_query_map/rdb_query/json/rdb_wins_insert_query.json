@@ -124,6 +124,27 @@
             "action" : "execute",
             "query" : "REPLACE INTO app.log_audit (result, request_id, user_id, method, ip, category, message, request_body, response_body, status_code, user_agent, duration, created_at) 
             VALUES ('Success', '{request_id}', (select id from app.admin order by 1 limit 1), 'POST', '{ip}', {category}, '{message}', '{request_body}', '{response_body}', 200, '{user_agent}', 0, '{created_at}')"
+        },
+
+        {
+            "desc" : "AIVAX 무결성, 초기화",
+            "key" : "rdb_delete_integrity_file",
+            "action" : "execute",
+            "query" : "DELETE FROM app.system_integrity_files"
+        },
+
+        {
+            "desc" : "AIVAX 무결성, 최초 등록",
+            "key" : "rdb_bulk_integrity_file",
+            "action" : "execute",
+            "query" : "INSERT INTO app.system_integrity_files (created_at, id, process_name, file_path, current_hash, previous_hash) VALUES (%s,%s,%s,%s,%s,%s)"
+        },
+
+        {
+            "desc" : "AIVAX 무결성, 업데이트, 오류 발생시에만",
+            "key" : "rdb_update_integrity_file",
+            "action" : "execute",
+            "query" : "UPDATE app.system_integrity_files SET previous_hash = '{previous_hash}', synced_at = '{previous_hash}', last_error = '{last_error}' WHERE id = '{id}'
         }
 
     ]

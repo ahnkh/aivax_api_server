@@ -300,6 +300,9 @@
                     "comment" : "db의 conf, 패스워드 설정에 대한 로직 개발 필요.",
 
                     "mariadb_cnf_path" : "/etc/my.cnf.d/custom.cnf"
+
+                     
+
                 },
 
                 "nginx_install":
@@ -482,6 +485,99 @@
 
                 "export_path" : "/home1/aivax",
                 "version_file" : "version.json"
+            },
+
+            "server_integrity_check":
+            {
+                "desc" : "서버 무결성 검사",
+
+                "integrity_check_list": 
+                [
+                    {
+                        "desc" : "pipeline",
+                        "use" : true,
+                        "include_target_list" : 
+                        [
+                            {
+                                "use" : true,
+                                "process_name" : "pipeline",
+                                "directory" : "{aivax_install_root}/pipeline",                                 
+                                "include_ext" : [".py", ".json"],
+                                "exclude_ext" : [".pyc", ".log", ".txt", ".sql"],
+                                "custom_exclude_match" : 
+                                [
+                                    "slm_request",
+                                    "pipe_request",
+                                    "dummy"
+                                ]
+                            }                            
+                        ]
+                    },
+
+                    {
+                        "desc" : "management",
+                        "use" : false,
+                        "include_target_list" : 
+                        [
+                            {
+                                "use" : true,
+                                "process_name" : "management",
+                                "directory" : "{aivax_install_root}/management/backend/src/", 
+                                "include_ext" : ["*.", ".ts", ".tsx", ".json"],
+                                "exclude_ext" : [".css", ".md", ".woff", ".svg"]
+                            },
+                            {
+                                "use" : true,
+                                "process_name" : "management",
+                                "directory" : "{aivax_install_root}/management/frontend/src/", 
+                                "include_ext" : ["*.", ".ts", ".tsx", ".json"],
+                                "exclude_ext" : [".css", ".md", ".woff", ".svg"]
+                            }
+                        ]
+
+                    },
+
+                    {
+                        "desc" : "sslproxy",
+                        "use" : false,
+                        "include_target_list" : 
+                        [
+                            {
+                                "use" : true,
+                                "process_name" : "sslproxy",
+                                "directory" : "{aivax_install_root}/management/backend/src/", 
+                                "include_ext" : ["*", ".crt", ".pem", ".conf", ".sh"],
+                                "exclude_ext" : [".log", ".md"]
+                            }
+                        ]
+
+                    },
+
+                    {
+                        "desc" : "extension",
+                        "use" : false,
+                        "include_target_list" : 
+                        [
+                            {
+
+                                "use" : true,
+                                "process_name" : "system",
+                                "directory" : "{aivax_install_root}/extension/node", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : []
+                            },
+
+                            {
+                                "use" : true,
+                                "process_name" : "system",
+                                "directory" : "/usr/bin/mariadb", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : []
+                            }
+                        ]
+
+                    }
+                ]
             }
 
         },
