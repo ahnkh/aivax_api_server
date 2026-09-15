@@ -9,94 +9,6 @@
     "query_map":
     [
 
-	    {
-            "desc" : "browser request",
-            "key": "rdb_insert_to_browse_info",
-	        "action" : "execute",
-            "query" : "INSERT INTO LLM_DATA.PROMPT_REQUEST(AGENT_ID, REG_DATE, PROMPT_QUERY, SESSION_ID, USER_ROLE, ALLOWED, MODIFIED_QUERY, REASON) VALUES 
-            ({agent_id}, '{reg_date}', '{prompt_query}', '{session_id}','{user_role}', {allowed}, '{modified_query}', '{reason}')"
-        },
-
-        {
-            "desc" : "llm request",
-            "key": "rdb_insert_to_llm_request_info",
-	        "action" : "execute",
-            "query" : "INSERT INTO LLM_DATA.LLM_REQUEST(AGENT_ID, REG_DATE, MESSAGES, LLM_KEY, ITERATION, STREAM, ALLOWED, SOURCE) VALUES 
-            ({AGENT_ID}, '{REG_DATE}', '{MESSAGES}', '{LLM_KEY}', {ITERATION}, {STREAM}, {ALLOWED}, '{SOURCE}')"
-        },
-
-        {
-            "desc" : "mcp call request",
-            "key": "rdb_insert_to_mcp_call_info",
-	        "action" : "execute",
-            "query" : "INSERT INTO LLM_DATA.MCP_CALL_REQUEST(AGENT_ID, REG_DATE, SERVER_NAME, TOOL_NAME, ARGUMENTS, ALLOWED, SOURCE) VALUES 
-            ({AGENT_ID}, '{REG_DATE}', '{SERVER_NAME}', '{TOOL_NAME}', '{ARGUMENTS}', {ALLOWED}, '{SOURCE}')"
-        },
-
-        {
-            "desc" : "계정 추가",
-            "key": "rdb_insert_to_user_account",
-	        "action" : "execute",
-            "query" : "INSERT INTO LLM_POLICY.USER_ACCOUNT(
-                USER_ID, USER_PASSWD, PASSWD_SALT, REG_DATE, EMAIL, 
-                DEPT, TEL, ETC_COMMENT, LOGIN_STATUS, MODIFY_DATE, LIMIT_DATE) VALUES 
-            (
-                '{user_id}', '{user_passwd}', '{passwd_salt}', '{reg_date}', '{email}', 
-                '{dept}', '{tel}', '{etc_comment}', '{login_status}, '{modify_date}, '{limit_date}
-            )"
-        },
-
-        {
-            "desc" : "계정 수정",
-            "key": "rdb_update_user_account",
-	        "action" : "execute",
-            "query" : "UPDATE LLM_POLICY.USER_ACCOUNT {set} {where}"
-        },
-
-        {
-            "desc" : "계정 삭제",
-            "key": "rdb_delete_user_account",
-	        "action" : "execute",
-            "query" : "DELETE FROM LLM_POLICY.USER_ACCOUNT {where}"
-        },
-
-        {
-            "desc" : "그룹 추가",
-            "key": "rdb_insert_to_user_group",
-	        "action" : "execute",
-            "query" : "INSERT INTO LLM_POLICY.USER_GROUP(GROUP_ID, GROUP_NAME, REG_DATE, ETC_COMMENT, USE_FLAG) VALUES 
-            ({group_id}, '{group_name}', '{reg_date}', '{etc_comment}', {use_flag})"
-        },
-
-        {
-            "desc" : "그룹 수정",
-            "key": "rdb_update_set_user_group",
-	        "action" : "execute",
-            "query" : "UPDATE LLM_POLICY.USER_GROUP {set} {where}"            
-        },
-
-        {
-            "desc" : "그룹 삭제",
-            "key": "rdb_delete_user_group",
-	        "action" : "execute",
-            "query" : "DELETE FROM LLM_POLICY.USER_GROUP {where}"            
-        },
-
-        {
-            "desc" : "필터뷰 추가",
-            "key": "rdb_insert_to_filter_view",
-	        "action" : "execute",
-            "query" : "INSERT INTO LLM_POLICY.FILTER_VIEW_INFO(TYPE_ID, FILTER_NAME, REG_DATE, FILTER_CONDITION, ETC_COMMENT, USE_FLAG) VALUES 
-            ({type_id}, '{filter_name}', '{reg_date}', '{filter_condition}', '{etc_comment}', {use_flag})"
-        },
-
-        {
-            "desc" : "필터뷰 수정",
-            "key": "rdb_update_set_filter_view",
-	        "action" : "execute",
-            "query" : "UPDATE LLM_POLICY.FILTER_VIEW_INFO {set} {where}"
-        },
-
         {
             "desc" : "DB Migration 임의의 bulk",
             "key" : "rdb_bulk_migration_any_table",
@@ -122,8 +34,7 @@
             "desc" : "AIVAX audit log",
             "key" : "rdb_insert_wins_audit_log",
             "action" : "execute",
-            "query" : "REPLACE INTO app.log_audit (result, request_id, user_id, method, ip, category, message, request_body, response_body, status_code, user_agent, duration, created_at) 
-            VALUES ('Success', '{request_id}', (select id from app.admin order by 1 limit 1), 'POST', '{ip}', {category}, '{message}', '{request_body}', '{response_body}', 200, '{user_agent}', 0, '{created_at}')"
+            "query" : "REPLACE INTO app.log_audit (result, request_id, user_id, method, ip, category, message, request_body, response_body, status_code, user_agent, duration, created_at) VALUES ('Success', '{request_id}', (select id from app.admin order by 1 limit 1), 'POST', '{ip}', {category}, '{message}', '{request_body}', '{response_body}', 200, '{user_agent}', 0, '{created_at}')"
         },
 
         {
@@ -144,7 +55,7 @@
             "desc" : "AIVAX 무결성, 업데이트, 오류 발생시에만",
             "key" : "rdb_update_integrity_file",
             "action" : "execute",
-            "query" : "UPDATE app.system_integrity_files SET previous_hash = '{previous_hash}', synced_at = '{previous_hash}', last_error = '{last_error}' WHERE id = '{id}'
+            "query" : "UPDATE app.system_integrity_files SET previous_hash = '{previous_hash}', synced_at = '{previous_hash}', last_error = '{last_error}' WHERE id = '{id}'"
         }
 
     ]
