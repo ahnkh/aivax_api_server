@@ -48,14 +48,14 @@
             "desc" : "AIVAX 무결성, 최초 등록",
             "key" : "rdb_bulk_integrity_file",
             "action" : "execute_many",
-            "query" : "INSERT INTO app.system_integrity_files (id, file_path, current_hash, previous_hash, synced_at) VALUES (%s,%s,%s,%s,%s)"
+            "query" : "INSERT INTO app.system_integrity_files (id, file_path, original_hash, update_hash, updated_at) VALUES (%s,%s,%s,%s,%s)"
         },
 
         {
             "desc" : "AIVAX 무결성, 업데이트, 오류 발생시에만",
             "key" : "rdb_update_integrity_file",
             "action" : "execute",
-            "query" : "UPDATE app.system_integrity_files SET previous_hash = '{previous_hash}', synced_at = '{synced_at}', last_error = '{last_error}' WHERE id = '{id}'"
+            "query" : "UPDATE app.system_integrity_files SET update_hash = '{update_hash}', updated_at = '{updated_at}', last_error = '{last_error}' WHERE `id` = '{id}'"
         },
 
         {
