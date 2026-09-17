@@ -671,16 +671,16 @@
             "service_list": 
             [
                 {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "restart_flag" : true},
-                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
-                {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
-                {"use" : true, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
+                {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_open_search", "custom_stop_call": "stop_service", "restart_flag" : false},
+                {"use" : true, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
 
                 {"use" : true, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
                 {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
                 {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
                 {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
 
-                {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true}
+                {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false}
             ],
 
             "daemon_list" : 
@@ -841,15 +841,15 @@
 
                 "start_after_install" : "AIVAX의 INSTALL 수행후 AIVAX 서비스를 자동으로 시작하시겠습니까?",
 
-                "progress_install" : "설치를 진행중입니다. \n\n{detail}",
-                "progress_stop" : "설치가 완료되었습니다.",
-
                 "confirm_start_uninstall" : "AIVAX의 초기화를 시작합니다. \n\n 진행하시겠습니까?",
                 "confirm_aivax_start" : "AIVAX의 서비스를 시작합니다. \n\n 진행하시겠습니까?",
                 "confirm_aivax_stop" : "AIVAX의 서비스를 종료합니다. \n\n 진행하시겠습니까?",
                 "confirm_start_server_integrity" : "AIVAX의 서버 무결성 검사를 시작합니다. \n AIVAX 서비스가 기동중 상태에서 진행됩니다. \n (무결성 HASH 와 감사 이력이 기록됩니다.)\n\n진행하시겠습니까?",
 
                 "error_package_integrity" : "패키지 무결성 오류가 발생하였습니다.",
+
+                "progress_start_install" : "설치를 진행중입니다. \n\n{detail}",
+                "progress_finish_install" : "설치가 완료되었습니다.",
 
                 "progress_start_uninstall" : "AIVAX를 초기화 중입니다. \n\n{detail}",
                 "progress_finish_uninstall" : "AIVAX를 초기의 초기화가 완료 되었습니다.",
@@ -860,11 +860,14 @@
                 "progress_stop_aivax" : "AIVAX 서비스를 종료합니다. \n\n{detail}", 
                 "progress_finish_stop_aivax" : "AIVAX 서비스가 종료되었습니다.",
 
-                "progress_start_integrity" : "패키지 무결성 검사를 진행합니다. \n\n{detail}", 
-                "progress_finish_integrity" : "패키지 무결성 검사가 종료되었습니다. \n\n", 
+                "progress_start_package_integrity" : "패키지 무결성 검사를 진행합니다. \n\n{detail}", 
+                "progress_finish_package_integrity" : "패키지 무결성 검사가 종료되었습니다. \n\n", 
 
                 "progress_start_server_integrity" : "서버 무결성 정보를 업데이트합니다. \n\n{detail}", 
                 "progress_finish_server_integrity" : "서버 무결성 정보를 업데이트 하였습니다. \n\n", 
+
+                "progress_start_serial_license" : "시리얼 라이선스를 등록합니다. \n\n{detail}", 
+                "progress_finish_serial_license" : "시리얼 라이선스를 등록하였습니다. \n\n", 
 
                 "progress_start_server_integrity_check" : "서버 무결성 검사를 시작합니다. \n\n{detail}", 
                 "progress_finish_server_integrity_check" : "서버 무결성 검사가 종료 되었습니다. \n\n", 
