@@ -201,7 +201,7 @@
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/libatomic"},
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/libreoffice-full"},
 
-                        {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v11.3.2", "desc" : "mariadb 11.3 업데이트, 12.3.3 으로 변경, 폐기"},
+                        {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v11.3.2"},
                         {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v12.3.3", "custom_rpm_repo" : "/home1/install/extension/rpm-repo/mariadb"},
 
                         {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/nginx/v1.30", "desc" : "nginx, 1.30 업데이트"},
@@ -226,8 +226,7 @@
 
                         "reposity_root_list":
                         [
-                            "/home1/install/extension/rpm-repo/",
-                            "/home1/install/extension/rpm-repo/mariadb/"
+                            "/home1/install/extension/rpm-repo/"                            
                         ]
                     }
                     
