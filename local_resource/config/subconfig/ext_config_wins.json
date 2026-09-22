@@ -321,8 +321,6 @@
 
                     "mariadb_cnf_path" : "/etc/my.cnf.d/custom.cnf"
 
-                     
-
                 },
 
                 "nginx_install":
@@ -532,6 +530,11 @@
                                     ".git",
                                     ".vscode",
                                     "pipe_notify"
+                                ],
+
+                                "custom_new_file_allow_match":
+                                [
+                                    "trace-log"
                                 ]
                             }                            
                         ]
@@ -550,6 +553,11 @@
                                 "custom_exclude_match" : 
                                 [
                                     ".env"
+                                ],
+
+                                "custom_new_file_allow_match":
+                                [
+                                    
                                 ]
                             },
                             {
@@ -560,6 +568,11 @@
                                 "custom_exclude_match" : 
                                 [
                                     ".env"
+                                ],
+
+                                "custom_new_file_allow_match":
+                                [
+                                    
                                 ]
                             }
                         ]
@@ -585,6 +598,11 @@
                                     ".git",
                                     ".vscode",
                                     "pipe_notify"
+                                ],
+
+                                "custom_new_file_allow_match":
+                                [
+                                    "trace-log"
                                 ]
                             }
                         ]
@@ -596,10 +614,35 @@
                         "include_target_list" : 
                         [
                             {
-                                "use" : true,                                
-                                "directory" : "{aivax_install_root}/management/backend/src/", 
+                                "use" : false,                                
+                                "directory" : "{aivax_install_root}/sslproxy/", 
                                 "include_ext" : ["*", ".crt", ".pem", ".conf", ".sh"],
-                                "exclude_ext" : [".log", ".md"]
+                                "exclude_ext" : [".log", ".md"],
+
+                                "custom_new_file_allow_match":
+                                [
+                                    "trace-log"
+                                ]
+                            }
+                        ]
+
+                    },
+
+                    {
+                        "desc" : "ai_engine",
+                        "use" : false,
+                        "include_target_list" : 
+                        [
+                            {
+                                "use" : true,                                
+                                "directory" : "{aivax_install_root}/ai_engine/", 
+                                "include_ext" : ["*", ".conf", ".sh"],
+                                "exclude_ext" : [".pyc", ".md"],
+
+                                "custom_new_file_allow_match":
+                                [
+                                    "trace-log"
+                                ]
                             }
                         ]
 
@@ -615,7 +658,8 @@
                                 "use" : true,                                
                                 "directory" : "{aivax_install_root}/extension/node", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : []
+                                "exclude_ext" : [],
+                                "custom_new_file_allow_match": []
                             },
 
                             {
@@ -623,35 +667,43 @@
                                 "use" : true,                                
                                 "directory" : "{aivax_install_root}/fluent-bit", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log"]
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log"],
+                                "custom_new_file_allow_match":
+                                [
+                                    "trace-log"
+                                ]
                             },
 
                             {
                                 "use" : true,                                
                                 "directory" : "/usr/bin/mariadb", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : []
+                                "exclude_ext" : [],
+                                "custom_new_file_allow_match": []
                             },
 
                             {
                                 "use" : true,                                
                                 "directory" : "/usr/bin/openssl", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : []
+                                "exclude_ext" : [],
+                                "custom_new_file_allow_match": []
                             },
 
                             {
                                 "use" : true,                                
                                 "directory" : "/usr/bin/ssh", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : []
+                                "exclude_ext" : [],
+                                "custom_new_file_allow_match": []
                             },
 
                             {
                                 "use" : true,                                
                                 "directory" : "/usr/bin/bash", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : []
+                                "exclude_ext" : [],
+                                "custom_new_file_allow_match": []
                             }
 
                         ]
