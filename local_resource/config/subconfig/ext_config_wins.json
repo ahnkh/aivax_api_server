@@ -534,7 +534,9 @@
                                 "custom_new_file_allow_match":
                                 [
                                     "trace-log",
-                                    ".pyc"                                    
+                                    ".pyc",
+                                    "pipeline-stderr.log",
+                                    "pipeline-stdout.log"
                                 ]
                             }                            
                         ]
