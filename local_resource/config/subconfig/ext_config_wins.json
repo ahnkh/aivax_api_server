@@ -532,7 +532,8 @@
 
                                 "custom_new_file_allow_match":
                                 [
-                                    "trace-log"
+                                    "trace-log",
+                                    ".pyc"                                    
                                 ]
                             }                            
                         ]
@@ -600,7 +601,8 @@
 
                                 "custom_new_file_allow_match":
                                 [
-                                    "trace-log"
+                                    "trace-log",
+                                    ".pyc"
                                 ]
                             }
                         ]
@@ -667,8 +669,9 @@
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log"],
                                 "custom_new_file_allow_match":
-                                [
-                                    "trace-log"
+                                [                                    
+                                    "trace_log",
+                                    "db/"
                                 ]
                             },
 
@@ -707,7 +710,9 @@
                         ]
 
                     }
-                ]
+                ],
+
+                "all_integrity_file_info" : "{aivax_install_root}/.integrity.file"
             }
 
         },
