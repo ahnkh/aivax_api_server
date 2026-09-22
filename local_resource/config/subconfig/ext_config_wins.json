@@ -14,7 +14,7 @@
 
             "management":
             {
-                "management_host" : "0.0.0.0",
+                "management_host" : "127.0.0.1",
                 "management_port" : 3001
             },
 
@@ -202,7 +202,9 @@
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/libreoffice-full"},
 
                         {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v11.3.2", "desc" : "mariadb 11.3 업데이트, 12.3.3 으로 변경, 폐기"},
-                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v12.3.3", "desc" : "mariadb 11.3 업데이트, 12.3.3 으로 변경, 폐기"},
+                        {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v12.3.3"},
+
+                        {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/mariadb/v12.3.3", "custom_rpm_repo" : "/home1/install/extension/rpm-repo/mariadb"},
 
                         {"use": false, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/nginx/v1.30", "desc" : "nginx, 1.30 업데이트"},
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/nginx/v1.30.4", "desc" : "nginx, 1.30.4 업데이트"},
@@ -216,11 +218,20 @@
                     
                     ],
 
-                    "custom_create_repo_list":
-                    [                        
-                        "{package_root}/extension/rpm-install/createrepo/createrepo_c-libs-0.20.1-4.el9.x86_64.rpm",
-                        "{package_root}/extension/rpm-install/createrepo/createrepo_c-0.20.1-4.el9.x86_64.rpm"
-                    ]
+                    "custom_create_repo":
+                    {
+                        "create_repo_rpm_list":
+                        [                        
+                            "{package_root}/extension/rpm-install/createrepo/createrepo_c-libs-0.20.1-4.el9.x86_64.rpm",
+                            "{package_root}/extension/rpm-install/createrepo/createrepo_c-0.20.1-4.el9.x86_64.rpm"
+                        ],
+
+                        "reposity_root_list":
+                        [
+                            "/home1/install/extension/rpm-repo/",
+                            "/home1/install/extension/rpm-repo/mariadb/"
+                        ]
+                    }
                     
                 },
 
@@ -254,8 +265,6 @@
 
                     "rpm_pre_clear_list":
                     [
-                        "MariaDB-server",
-                        "MariaDB-client",
                         "nginx", 
                         "nginx-core", 
                         "nginx-filesystem"
@@ -266,8 +275,6 @@
                         "libreoffice*",
                         "tesseract",
                         "tesseract-langpack-kor",
-                        "MariaDB-server",
-                        "MariaDB-client",
                         "libatomic",
                         "libpcap",
                         "nginx",
@@ -579,19 +586,8 @@
                                     ".vscode",
                                     "pipe_notify"
                                 ]
-                            },
-                            {
-                                "use" : true,                                
-                                "directory" : "{aivax_install_root}/management/frontend/src/", 
-                                "include_ext" : ["*.", ".ts", ".tsx", ".json"],
-                                "exclude_ext" : [".css", ".md", ".woff", ".svg"],
-                                "custom_exclude_match" : 
-                                [
-                                    ".env"
-                                ]
                             }
                         ]
-
                     },
 
                     {
@@ -707,6 +703,11 @@
                     "gpu_layer" : 999,
                     "jinja" : "--jinja"
                 }
+            },
+
+            "service_status_config":
+            {
+
             }
         },
 
