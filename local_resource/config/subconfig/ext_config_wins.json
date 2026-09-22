@@ -536,7 +536,7 @@
                                     "trace-log",
                                     ".pyc",
                                     "pipeline-stderr.log",
-                                    "pipeline-stdout.log"
+                                    "pipeline-stdio.log"
                                 ]
                             }                            
                         ]
