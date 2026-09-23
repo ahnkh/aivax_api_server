@@ -804,19 +804,19 @@
                         "menu_name": "-----------------",
                         "callback_event" : ""
                     },
-                    
+
                     {                
                         "use" : true,
                         "tag": "03)",
-                        "menu_name": "Security Check (개발중)",
-                        "callback_event" : ""
+                        "menu_name": "서버 무결성 검사",
+                        "callback_event" : "on_menu_server_integrity"
                     },
 
                     {                
                         "use" : true,
                         "tag": "04)",
-                        "menu_name": "서버 무결성 검사",
-                        "callback_event" : "on_menu_server_integrity"
+                        "menu_name": "서버 보안 검사",
+                        "callback_event" : "on_menu_security_check"
                     },
 
                     {                
@@ -904,8 +904,10 @@
                 "confirm_aivax_start" : "AIVAX의 서비스를 시작합니다. \n\n 진행하시겠습니까?",
                 "confirm_aivax_stop" : "AIVAX의 서비스를 종료합니다. \n\n 진행하시겠습니까?",
                 "confirm_start_server_integrity" : "AIVAX의 서버 무결성 검사를 시작합니다. \n AIVAX 서비스가 기동중 상태에서 진행됩니다. \n (무결성 HASH 와 감사 이력이 기록됩니다.)\n\n진행하시겠습니까?",
+                "confirm_start_server_security_status_checik" : "AIVAX의 서버 보안 검사를 시작합니다.\n AIVAX의 시스템 및 프로세스의 상태를 검사하며, \n 감사 이력이 기록됩니다\n\n진행하시겠습니까?",
 
                 "error_package_integrity" : "패키지 무결성 오류가 발생하였습니다.",
+                "error_package_service_status" : "패키지 설치후 서비스 기동중 오류가 발생하였습니다.",
 
                 "progress_start_install" : "설치를 진행중입니다. \n\n{detail}",
                 "progress_finish_install" : "설치가 완료되었습니다.",
@@ -931,6 +933,12 @@
                 "progress_start_server_integrity_check" : "서버 무결성 검사를 시작합니다. \n\n{detail}", 
                 "progress_finish_server_integrity_check" : "서버 무결성 검사가 종료 되었습니다. \n\n", 
 
+                "progress_start_server_status_check" : "설치후 상태 검사를 시작합니다. \n\n{detail}", 
+                "progress_finish_server_status_check" : "설치후 상태 검사가 종료 되었습니다. \n\n", 
+
+                "progress_start_server_security_check" : "서버 보안 검사를 시작합니다. \n\n{detail}", 
+                "progress_finish_server_security_check" : "서버 보안 검사가 종료 되었습니다. \n\n", 
+
                 "prepared_message" : "중비중입니다. \n\n 다음 패키지 버전에서 제공해 드리겠습니다.",
 
                 "select_sub_util_menu" : "SNIPER AIVAX 부가 모듈 옵션\n다음의 옵션 항목을 선택하세요",
@@ -940,6 +948,7 @@
                 "dialog_title_install" : "SNIPER AIVAX 설치",
                 "dialog_title_uninstall" : "SNIPER AIVAX 초기화",
                 "dialog_title_integrity" : "SNIPER AIVAX 무결성 검사",
+                "dialog_title_server_security_check" : "SNIPER AIVAX 서버 보안 검사",
 
                 "dialog_title_sub_util_menu" : "SNIPER AIVAX UTIL",
 
@@ -953,6 +962,12 @@
                 "install_output_final_success" : "SUCCESS", 
                 "install_output_success" : "OK",
                 "install_output_fail" : "Fail",
+
+                "output_string_service_success" : "OK (Running)",
+                "output_string_service_fail" : "Fail (not Running)",
+
+                "output_string_hw_success" : "OK (Good Condition)",
+                "output_string_hw_fail" : "Fail ({detail})",
 
                 "serivce_status_on" : "ON",
                 "serivce_status_off" : "OFF",
