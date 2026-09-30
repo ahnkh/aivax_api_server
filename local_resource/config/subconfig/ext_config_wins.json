@@ -209,7 +209,9 @@
 
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/perl"},
 
-                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/tesseract"},                       
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/tesseract"},
+
+                        {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/network-tools"},
 
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/zip"},
                         {"use": true, "rpm_directory": "{package_root}/extension/rpm-install/extra-repo/squid_proxy", "desc" : "proxy 서버"}
@@ -270,7 +272,9 @@
                     ],
 
                     "rpm_list": [
+                        "curl",
                         "jq",
+                        "nftables",
                         "libreoffice*",
                         "tesseract",
                         "tesseract-langpack-kor",
@@ -279,7 +283,13 @@
                         "nginx",
                         "zip",
                         "unzip",
-                        "squid"
+                        "squid",
+                        "numactl",
+                        "numactl-libs",
+                        "numactl-devel",
+                        "ethtool",
+                        "pciutils",
+                        "pciutils-libs"
                     ]
                 }
 

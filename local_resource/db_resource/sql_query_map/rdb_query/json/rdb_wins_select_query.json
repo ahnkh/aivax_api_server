@@ -63,6 +63,13 @@
             "key": "rdb_select_mail_client_info",
 	        "action" : "query_for_object",
             "query" : "select mail_url, mail_port, from_mail, use_auth, login_id, login_password, use_tls from app.smtp_mail_client_setting"
+        },
+
+        {
+            "desc" : "System HW 서버 정보 조회",
+            "key": "rdb_select_system_hw_policy",
+	        "action" : "query_for_object",
+            "query" : "select `key`, `value`, `category` from app.settings where category = 'system-health-monitoring'"
         }
         
     ]
