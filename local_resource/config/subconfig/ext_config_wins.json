@@ -750,6 +750,8 @@
                 {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
                 {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
 
+                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true},
+
                 {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false}
             ],
 
