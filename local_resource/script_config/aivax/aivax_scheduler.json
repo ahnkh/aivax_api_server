@@ -11,7 +11,8 @@
 
             "schedule_pre_init" :
             [
-                {"use":false, "id": "pre init", "task_worker":"aivax_task", "method":"pre_custom_init_aivax", "parameter":""}
+                {"use":true, "id": "pre init", "task_worker":"aivax_task", "method":"pre_custom_init_aivax", "parameter":""},
+                {"use":true, "id": "백업 디스크 감시", "task_worker":"aivax_task", "method":"schedule_rotate_aivax_backup_disk", "parameter":""}
             ],
 
             "schedule_list": [
