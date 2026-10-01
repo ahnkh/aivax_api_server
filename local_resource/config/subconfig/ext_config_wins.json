@@ -564,7 +564,9 @@
                                 "exclude_ext" : [".css", ".md", ".woff", ".svg"],
                                 "custom_exclude_match" : 
                                 [
-                                    ".env"
+                                    ".env",
+                                    "stderr.log",
+                                    "stdio.log"
                                 ],
 
                                 "custom_new_file_allow_match":
@@ -615,7 +617,9 @@
                                 "custom_new_file_allow_match":
                                 [
                                     "trace-log",
-                                    ".pyc"
+                                    ".pyc",
+                                    "stderr.log",
+                                    "stdio.log"
                                 ]
                             }
                         ]
@@ -654,7 +658,9 @@
 
                                 "custom_new_file_allow_match":
                                 [
-                                    "trace-log"
+                                    "trace-log",
+                                    "stderr.log",
+                                    "stdio.log"
                                 ]
                             }
                         ]
