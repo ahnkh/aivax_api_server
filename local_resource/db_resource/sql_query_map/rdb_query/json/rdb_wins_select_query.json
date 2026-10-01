@@ -68,7 +68,7 @@
         {
             "desc" : "System HW 서버 정보 조회",
             "key": "rdb_select_system_hw_policy",
-	        "action" : "query_for_object",
+	        "action" : "query_for_list",
             "query" : "select `key`, `value`, `category` from app.settings where category = 'system-health-monitoring'"
         }
         
