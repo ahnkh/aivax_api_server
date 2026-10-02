@@ -739,7 +739,7 @@
         "aivax_process":
         {
             "service_list": 
-            [
+            [                
                 {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "restart_flag" : true},
                 {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
                 {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_open_search", "custom_stop_call": "stop_service", "restart_flag" : false},
