@@ -168,6 +168,13 @@
                         "source_file" : "data-setup/license/license_key_v2",
                         "use_chmod" : true,
                         "desc_dir" : "/usr/local/bin/"
+                    },
+
+                    {
+                        "desc" : "uv copy, cross check",
+                        "source_file" : "extension/python-install/uv",
+                        "use_chmod" : true,
+                        "desc_dir" : "/usr/local/bin/"
                     }
                 ]
 
@@ -738,6 +745,12 @@
 
         "aivax_process":
         {
+
+            "custom_pre_stop" : 
+            {
+                "use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true
+            },
+
             "service_list": 
             [                
                 {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "restart_flag" : true},
@@ -750,9 +763,9 @@
                 {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
                 {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
 
-                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
 
-                {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false}
+                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true}
             ],
 
             "daemon_list" : 
