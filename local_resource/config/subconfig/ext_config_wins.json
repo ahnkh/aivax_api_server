@@ -618,7 +618,8 @@
                                     "test",
                                     ".git",
                                     ".vscode",
-                                    "pipe_notify"
+                                    "pipe_notify",
+                                    ".toolkit"
                                 ],
 
                                 "custom_new_file_allow_match":
@@ -626,7 +627,8 @@
                                     "trace-log",
                                     ".pyc",
                                     "stderr.log",
-                                    "stdio.log"
+                                    "stdio.log",
+                                    ".toolkit"
                                 ]
                             }
                         ]
