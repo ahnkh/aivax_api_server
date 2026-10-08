@@ -16,7 +16,7 @@
             ],
 
             "schedule_list": [
-                
+
                 {"use":true, "id": "aivax 첨부파일 백업 (10분)", "interval":10, "schedule_unit":"minutes", "task_worker":"etc_task", "method":"do_extern_command", "parameter":"ls -al"},
 
                 {"use":true, "id": "프롬프트 로그 백업 (매시 5분)", "interval":0, "schedule_unit":"hours", "at_time": "05:00", "task_worker":"aivax_task", "method":"schedule_backup_aivax_prompt_log", "parameter":""},
