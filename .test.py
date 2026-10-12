@@ -52,7 +52,6 @@ def check_integrity(kshellMainApp:KShellMainApp):
         "api_print_console" : 1
     })  
     
-    
     pass
 
 

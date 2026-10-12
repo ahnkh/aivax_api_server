@@ -733,7 +733,18 @@
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [],
                                 "custom_new_file_allow_match": []
+                            },
+
+                            {
+                                "use" : true,                                
+                                "directory" : "/lib/modules/5.14.0_SNIPER_OS", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [],
+                                "custom_new_file_allow_match": []
                             }
+
+
+                            
 
                         ]
 
@@ -755,19 +766,19 @@
 
             "service_list": 
             [                
-                {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "restart_flag" : true},
-                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
-                {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_open_search", "custom_stop_call": "stop_service", "restart_flag" : false},
-                {"use" : true, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
+                {"use" : true, "id" : "nginx", "service" : "nginx", "custom_run_call": "run_nginx", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": true},
+                {"use" : true, "id" : "fluent-bit", "service" : "fluent-bit", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false, "use_run_audit": false},
+                {"use" : true, "id" : "opensearch", "service" : "opensearch", "custom_run_call": "run_open_search", "custom_stop_call": "stop_service", "restart_flag" : false, "use_run_audit": true},
+                {"use" : true, "id" : "mariadb", "service" : "mariadb", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false, "use_run_audit": true},
 
-                {"use" : true, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
-                {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
-                {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
-                {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true},
+                {"use" : true, "id" : "management", "service" : "aivax-management", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": true},
+                {"use" : true, "id" : "pipeline", "service" : "aivax-pipeline", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": true},
+                {"use" : true, "id" : "sslproxy", "service" : "aivax-sslproxy", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": true},
+                {"use" : true, "id" : "ai-engine", "service" : "ai-engine", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": true},
 
                 {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
 
-                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true}
+                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": true}
             ],
 
             "daemon_list" : 
@@ -799,6 +810,11 @@
             "service_status_config":
             {
 
+            },
+
+            "process_run_config":
+            {
+                "pid_file_save_dir" : "/tmp/service.pid"
             }
         },
 
