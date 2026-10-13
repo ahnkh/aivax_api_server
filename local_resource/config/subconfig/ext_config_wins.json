@@ -175,6 +175,13 @@
                         "source_file" : "extension/python-install/uv",
                         "use_chmod" : true,
                         "desc_dir" : "/usr/local/bin/"
+                    },
+
+                    {
+                        "desc" : "mail client",
+                        "source_file" : "extension/python-install/mail_client",
+                        "use_chmod" : true,
+                        "desc_dir" : "/usr/local/bin/"
                     }
                 ]
 
@@ -778,7 +785,7 @@
 
                 {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
 
-                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": true}
+                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": false}
             ],
 
             "daemon_list" : 
