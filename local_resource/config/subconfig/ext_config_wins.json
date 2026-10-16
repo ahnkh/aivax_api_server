@@ -1288,7 +1288,7 @@
                 "backup_disk_config":
                 {
                     "backup_target_disk" : "/data",
-                    "enable_flag": true,
+                    "enable_flag": false,
 
                     "disk_threshold_rate" : 95.0,
                     "disk_overflow_clear_rate" : 85.0,
@@ -1319,7 +1319,7 @@
                 "data_disk_config":
                 {
                     "data_target_disk" : "/data",
-                    "enable_flag": true,
+                    "enable_flag": false,
 
                     "disk_threshold_rate" : 95.0,
                     "disk_overflow_clear_rate" : 85.0,
@@ -1332,6 +1332,19 @@
                         "opensearch_log_dest_dir" : "/data/opensearch"
                         
                     }
+                },
+
+                "var_disk_config":
+                {
+                    "var_target_disk" : "/var",
+                    "enable_flag": true,
+
+                    "disk_threshold_rate" : 90.0,
+                    "disk_overflow_clear_rate" : 90.0,
+
+                    "audit_log_delete_count" : 1000,
+                    "audit_log_reserve_limit" : 1000
+
                 }
                 
             }

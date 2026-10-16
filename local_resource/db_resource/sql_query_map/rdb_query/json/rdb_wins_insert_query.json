@@ -63,6 +63,29 @@
             "key" : "rdb_replace_integrity_duration",
             "action" : "execute",
             "query" : "REPLACE INTO app.settings (`key`, `value`, `category`) VALUES ('file-integrity-check-cycle', '{min_cycle}', 'file-integrity-policy')"
+        },
+
+        {
+            "desc" : "AIVAX 감사로그 삭제",
+            "key" : "rdb_delete_log_audit_rotate",
+            "action" : "execute",
+            "query" : "DELETE FROM app.log_audit WHERE id IN (
+                            SELECT id
+                            FROM (
+                                SELECT id
+                                FROM app.log_audit
+                                ORDER BY id ASC
+                                LIMIT {del_count}
+                            ) AS old_logs
+                        )
+                        AND (SELECT COUNT(*) FROM app.log_audit) >= {reserve_limit}"
+        },
+
+        {
+            "desc" : "AIVAX log audit 디스크 공간 회수",
+            "key" : "rdb_optimize_log_audit",
+            "action" : "execute",
+            "query" : "OPTIMIZE TABLE app.log_audit"
         }
 
     ]
