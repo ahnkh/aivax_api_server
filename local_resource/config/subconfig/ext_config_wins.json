@@ -560,7 +560,8 @@
                                     "trace-log",
                                     ".pyc",
                                     "pipeline-stderr.log",
-                                    "pipeline-stdio.log"
+                                    "pipeline-stdio.log",
+                                    "pipeline/bulk_logs"
                                 ]
                             }                            
                         ]
