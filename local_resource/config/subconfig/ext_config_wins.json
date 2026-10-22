@@ -390,12 +390,59 @@
                     [
                         ["dnf", "install", "{package_root}/extension/rpm-install/3rd-repo/opensearch/v3.8.0/opensearch-3.8.0-linux-x64.rpm", "-y", "-q"]
                     ]
+                },
+
+                "slm_install":
+                {
+
+                    "slm_default_directory":
+                    [
+                        "{aivax_install_root}/slm/models/"
+                    ],
+
+                    "custom_file_install_list" : [
+                        {
+                            "desc" : "slm model copy",
+                            "source_file" : "{package_root}/safeguard-e2b-v0.4.2-q8_0.gguf",
+                            "dest_dir" : "{aivax_install_root}/slm/models/"
+                        }
+                    ],
+
+                    "customize_install_command":
+                    [
+                        ["ln", "-sfn", "{aivax_install_root}/slm/models/safeguard-e2b-v0.4.2-q8_0.gguf", "{aivax_install_root}/slm/models/cipher-guard-current.gguf"]
+                    ],
+
+                    "gpu_standard_llama":
+                    {
+                        "llama_cpp_install":
+                        {
+                            "source_file" : "{package_root}/extension/slm-install/llama-server-cpu",
+                            "dest_file" : "/usr/local/bin/llama-server"
+                        },
+
+                        "slm_service_install":
+                        {
+                            "package_service_config_file" : "{package_root}/extension/slm-install/aivax-llama.service",
+                            "dest_install_dir" : "/etc/systemd/system/aivax-llama.service"
+                        }
+                    },
+                        
+                    "cpu_custom_llama": 
+                    {
+                        "llama_cpp_install":
+                        {
+                            "source_file" : "{package_root}/extension/slm-install/llama-server-gpu",
+                            "dest_file" : "/usr/local/bin/llama-server"
+                        },
+
+                        "slm_service_install":
+                        {
+                            "package_service_config_file" : "{package_root}/extension/slm-install/aivax-llama-custom.service",
+                            "dest_install_dir" : "/etc/systemd/system/aivax-llama.service"
+                        }
+                    }
                 }
-            },
-
-            "slm_install":
-            {
-
             },
 
             "aivax_source_patch_install":
