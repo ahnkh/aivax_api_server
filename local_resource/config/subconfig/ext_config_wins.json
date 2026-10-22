@@ -403,14 +403,14 @@
                     "custom_file_install_list" : [
                         {
                             "desc" : "slm model copy",
-                            "source_file" : "{package_root}/safeguard-e2b-v0.4.2-q8_0.gguf",
+                            "source_file" : "{package_root}/safeguard-2b-explain-v0.4-q8_0.gguf",
                             "dest_dir" : "{aivax_install_root}/slm/models/"
                         }
                     ],
 
                     "customize_install_command":
                     [
-                        ["ln", "-sfn", "{aivax_install_root}/slm/models/safeguard-e2b-v0.4.2-q8_0.gguf", "{aivax_install_root}/slm/models/cipher-guard-current.gguf"]
+                        ["ln", "-sfn", "{aivax_install_root}/slm/models/safeguard-2b-explain-v0.4-q8_0.gguf", "{aivax_install_root}/slm/models/cipher-guard-current.gguf"]
                     ],
 
                     "gpu_standard_llama":
