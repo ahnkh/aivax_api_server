@@ -448,7 +448,9 @@
                 {
                     "valkey_default_directory":
                     [
-                        "/etc/valkey"
+                        "/etc/valkey",
+                        "/var/log/valkey",
+                        "/var/lib/valkey"
                     ],
 
                     "custom_file_install_list" : [
