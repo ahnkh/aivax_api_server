@@ -455,13 +455,13 @@
                         {
                             "desc" : "valkey server copy",
                             "source_file" : "{package_root}/extension/valkey-install/valkey-server",
-                            "dest_dir" : "/usr/local/bin/"
+                            "dest_file" : "/usr/local/bin/valkey-server"
                         },
 
                         {
                             "desc" : "valkey server config",
                             "source_file" : "{package_root}/extension/valkey-install/valkey.conf",
-                            "dest_dir" : "/etc/valkey/"
+                            "dest_file" : "/etc/valkey/valkey.conf"
                         }
                     ],
 
