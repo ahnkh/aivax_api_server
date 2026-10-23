@@ -442,6 +442,34 @@
                             "dest_install_dir" : "/etc/systemd/system/aivax-llama.service"
                         }
                     }
+                },
+
+                "valkey_install":
+                {
+                    "valkey_default_directory":
+                    [
+                        "/etc/valkey"
+                    ],
+
+                    "custom_file_install_list" : [
+                        {
+                            "desc" : "valkey server copy",
+                            "source_file" : "{package_root}/extension/valkey-install/valkey-server",
+                            "dest_dir" : "/usr/local/bin/"
+                        },
+
+                        {
+                            "desc" : "valkey server config",
+                            "source_file" : "{package_root}/extension/valkey-install/valkey.conf",
+                            "dest_dir" : "/etc/valkey/"
+                        }
+                    ],
+
+                    "valkey_service_install":
+                    {
+                        "package_service_config_file" : "{package_root}/extension/valkey-install/aivax-valkey.service",
+                        "dest_install_dir" : "/etc/systemd/system/aivax-valkey.service"
+                    }
                 }
             },
 
