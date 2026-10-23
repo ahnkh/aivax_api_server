@@ -66,6 +66,13 @@
         },
 
         {
+            "desc" : "AIVAX 시스템 로그 추가",
+            "key" : "rdb_insert_anomaly",
+            "action" : "execute",
+            "query" : "INSERT INTO app.system_topology_anomalies (`id`, `node_id`, `schema_version`, `occurred_at`, `payload`) VALUES ('{id}', '{node_id}', {schema_version}, '{occurred_at}', '{payload}')"
+        },
+
+        {
             "desc" : "AIVAX 감사로그 삭제",
             "key" : "rdb_delete_log_audit_rotate",
             "action" : "execute",
