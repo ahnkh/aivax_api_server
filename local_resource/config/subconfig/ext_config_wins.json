@@ -865,7 +865,8 @@
 
                 {"use" : true, "id" : "squid", "service" : "squid", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : false},
 
-                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": false}
+                {"use" : true, "id" : "toolkit", "service" : "aivax-toolkit", "custom_run_call": "run_toolkit", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": false},
+                {"use" : true, "id" : "llama-server", "service" : "aivax-llama", "custom_run_call": "run_service", "custom_stop_call": "stop_service", "restart_flag" : true, "use_run_audit": false}
             ],
 
             "daemon_list" : 
