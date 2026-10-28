@@ -20,15 +20,28 @@ if [[ $- == *i* && -n ${SSH_CONNECTION:-} ]]; then
         now=$(date +%s%N)
         elapsed=$((now - __AIVAX_PROMPT_NS))
 
-        # TMOUT 만료 시점에 가까운 종료를 후보로 기록합니다.
-        # 정확한 원인 판정이 아닌 근사 판정입니다.
-        if (( elapsed >= limit * 1000000000 - 100000000 )); then
-            read -r client_ip client_port server_ip server_port \
-                <<< "$SSH_CONNECTION"
+        if (( elapsed >= limit * 1000000000 )); then
+            # event="SSH_TIMEOUT"
 
             logger -p authpriv.notice -s -t sshd-session -- \
-                "SSH_TIMEOUT_CANDIDATE user=${USER:-unknown} client_ip=${client_ip} client_port=${client_port} tmout=${limit} elapsed_ns=${elapsed}"
+                "AIVAX_SSH_TIMEOUT user=${USER:-unknown} client_ip=${client_ip} client_port=${client_port} tmout=${limit} elapsed_ns=${elapsed}"
+        else
+            # event="SSH_LOGOUT"
+            logger -p authpriv.notice -s -t sshd-session -- \
+                "AIVAX_SSH_LOGOUT user=${USER:-unknown} client_ip=${client_ip} client_port=${client_port} tmout=${limit} elapsed_ns=${elapsed}"
         fi
+
+        
+
+        # # TMOUT 만료 시점에 가까운 종료를 후보로 기록합니다.
+        # # 정확한 원인 판정이 아닌 근사 판정입니다.
+        # if (( elapsed >= limit * 1000000000 - 100000000 )); then
+        #     read -r client_ip client_port server_ip server_port \
+        #         <<< "$SSH_CONNECTION"
+
+        #     logger -p authpriv.notice -s -t sshd-session -- \
+        #         "SSH_TIMEOUT_CANDIDATE user=${USER:-unknown} client_ip=${client_ip} client_port=${client_port} tmout=${limit} elapsed_ns=${elapsed}"
+        # fi
     }
 
     __aivax_prompt_stamp
