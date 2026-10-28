@@ -1,0 +1,44 @@
+
+logger -p authpriv.notice -t sshd-session -- "start aivax profile"
+
+# AIVAX SSH timeout audit - Bash 5.1
+if [[ $- == *i* && -n ${SSH_CONNECTION:-} ]]; then
+    __aivax_prompt_stamp() {
+        __AIVAX_PROMPT_NS=$(date +%s%N)
+    }
+
+    __aivax_shell_exit_audit() {
+        local now elapsed limit client_ip client_port
+        local server_ip server_port
+
+        limit=${TMOUT:-0}
+
+        [[ $limit =~ ^[0-9]+$ ]] || return
+        (( limit > 0 )) || return
+        [[ ${__AIVAX_PROMPT_NS:-} =~ ^[0-9]+$ ]] || return
+
+        now=$(date +%s%N)
+        elapsed=$((now - __AIVAX_PROMPT_NS))
+
+        # TMOUT 만료 시점에 가까운 종료를 후보로 기록합니다.
+        # 정확한 원인 판정이 아닌 근사 판정입니다.
+        if (( elapsed >= limit * 1000000000 - 100000000 )); then
+            read -r client_ip client_port server_ip server_port \
+                <<< "$SSH_CONNECTION"
+
+            logger -p authpriv.notice -s -t sshd-session -- \
+                "SSH_TIMEOUT_CANDIDATE user=${USER:-unknown} client_ip=${client_ip} client_port=${client_port} tmout=${limit} elapsed_ns=${elapsed}"
+        fi
+    }
+
+    __aivax_prompt_stamp
+
+    if declare -p PROMPT_COMMAND 2>/dev/null |
+        grep -q '^declare -a'; then
+        PROMPT_COMMAND+=(__aivax_prompt_stamp)
+    else
+        PROMPT_COMMAND="${PROMPT_COMMAND:+${PROMPT_COMMAND}; }__aivax_prompt_stamp"
+    fi
+
+    trap '__aivax_shell_exit_audit' EXIT
+fi

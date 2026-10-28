@@ -189,7 +189,9 @@
 
             "os_env_install":
             {
-                "comment" : "OS, 시스템 환경 설정 관련, 아직 미구현"
+                "comment" : "OS, 시스템 환경 설정 관련",
+
+                "aivax_etc_profile" : "{aivax_install_root}/toolkit/local_resource/script_config/aivax/aivax_profile"
             },
 
             "rpm_install":
