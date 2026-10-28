@@ -419,7 +419,7 @@
                     {
                         "llama_cpp_install":
                         {
-                            "source_file" : "{package_root}/extension/slm-install/llama-server-cpu",
+                            "source_file" : "{package_root}/extension/slm-install/llama-server-gpu",
                             "dest_file" : "/usr/local/bin/llama-server"
                         },
 
@@ -434,7 +434,7 @@
                     {
                         "llama_cpp_install":
                         {
-                            "source_file" : "{package_root}/extension/slm-install/llama-server-gpu",
+                            "source_file" : "{package_root}/extension/slm-install/llama-server-cpu",
                             "dest_file" : "/usr/local/bin/llama-server"
                         },
 
