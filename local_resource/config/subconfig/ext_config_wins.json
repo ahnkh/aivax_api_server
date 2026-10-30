@@ -1057,6 +1057,7 @@
                 "text_input_opensearch_auth" : "AIVAX LOG DB의 계정을 입력해 주세요 \n  입력한 계정 정보는 암호화되어 보관됩니다.",
 
                 "license_error" : "license 입력중 오류가 발생하였습니다. \n\nError:{error}",
+                "db_auth_error" : "DB 정보의 입력중 오류가 발생하였습니다. \n\nError:{error}",
                 "cancel_check_license" : "라이선스 입력을 취소하시겠습니까? (메인 화면으로 이동)",
                 "cancel_check_mariadb_auth" : "정책 DB 계정의 입력을 취소하시겠습니까? (메인 화면으로 이동)",
                 "cancel_check_opensearch_auth" : "로그 DB 계정의 입력을 취소하시겠습니까? (메인 화면으로 이동)",
