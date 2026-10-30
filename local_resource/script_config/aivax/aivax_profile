@@ -23,15 +23,13 @@ if [[ $- == *i* && -n ${SSH_CONNECTION:-} ]]; then
         if (( elapsed >= limit * 1000000000 )); then
             # event="SSH_TIMEOUT"
 
-            logger -p authpriv.notice -s -t sshd-session -- \
+            logger -p authpriv.notice -t sshd-session -- \
                 "AIVAX_SSH_TIMEOUT user=${USER:-unknown} client_ip=${client_ip} client_port=${client_port} tmout=${limit} elapsed_ns=${elapsed}"
         else
             # event="SSH_LOGOUT"
-            logger -p authpriv.notice -s -t sshd-session -- \
+            logger -p authpriv.notice -t sshd-session -- \
                 "AIVAX_SSH_LOGOUT user=${USER:-unknown} client_ip=${client_ip} client_port=${client_port} tmout=${limit} elapsed_ns=${elapsed}"
         fi
-
-        
 
         # # TMOUT 만료 시점에 가까운 종료를 후보로 기록합니다.
         # # 정확한 원인 판정이 아닌 근사 판정입니다.
