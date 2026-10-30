@@ -9,6 +9,23 @@
         
         "env_default_path" : "/root/.aivenv",
 
+        "db_key_encrypt":
+        {
+            "mariadb_encrypt":
+            {
+                "kek_file" : "{aivax_install_root}/rdb_kek",
+                "dek_file" : "{aivax_install_root}/management/backend/rdb_dek",
+                "data_file" : "{aivax_install_root}/management/backend/rdb_enc"
+            },
+
+            "opensearch_encrypt":
+            {
+                "kek_file" : "{aivax_install_root}/logdb_kek",
+                "dek_file" : "{aivax_install_root}/management/backend/logdb_dek",
+                "data_file" : "{aivax_install_root}/management/backend/logdb_enc"
+            }
+        },
+
         "default_auth_env":
         {
 
@@ -1006,7 +1023,7 @@
                     },
                     
                     {                
-                        "use" : true,
+                        "use" : false,
                         "tag": "03)",
                         "menu_name": "GPU DRIVER 설치 (준비중)",
                         "callback_event" : "on_menu_install_nvidia_driver"
@@ -1031,9 +1048,13 @@
                 "select_main_menu" : "SNIPER AIVAX 설치\n 설치 옵션을 선택하세요",
                 "start_factory_install" : "AIVAX의 Factory Install을 시작합니다. \n\n주의) 기존 aivax 설치 경로를 재설정하고 실행중인 서비스가 종료됩니다. \n\n진행하시겠습니까?",
 
-                "input_serial" : "Serial & License를 입력하세요. \n  Serial: (ex: SKRX4CW...) \n  License: (ex:af38d40...) \n {detail}",
+                "text_input_serial" : "Serial & License를 입력하세요. \n  Serial: (ex: SKRX4CW...) \n  License: (ex:af38d40...) \n {detail}",
+                "text_input_mariadb_auth" : "",
+                "text_input_opensearch_auth" : "",
+
                 "license_error" : "license 입력중 오류가 발생하였습니다. \n\nError:{error}",
                 "cancel_check_license" : "라이선스 입력을 취소하시겠습니까? (메인 화면으로 이동)",
+                "cancel_check_mariadb_auth" : "DB 계정의 입력을 취소하시겠습니까? (메인 화면으로 이동)",
 
                 "start_after_install" : "AIVAX의 INSTALL 수행후 AIVAX 서비스를 자동으로 시작하시겠습니까?",
 
@@ -1042,6 +1063,7 @@
                 "confirm_aivax_stop" : "AIVAX의 서비스를 종료합니다. \n\n 진행하시겠습니까?",
                 "confirm_start_server_integrity" : "AIVAX의 서버 무결성 검사를 시작합니다. \n AIVAX 서비스가 기동중 상태에서 진행됩니다. \n (무결성 HASH 와 감사 이력이 기록됩니다.)\n\n진행하시겠습니까?",
                 "confirm_start_server_security_status_checik" : "AIVAX의 서버 보안 검사를 시작합니다.\n AIVAX의 시스템 및 프로세스의 상태를 검사하며, \n 감사 이력이 기록됩니다\n\n진행하시겠습니까?",
+                "confirm_changed_db_auth_passwd" : "AIVAX의 DB 계정을 변경하시겠습니까?",
 
                 "error_package_integrity" : "패키지 무결성 오류가 발생하였습니다.",
                 "error_package_service_status" : "패키지 설치후 서비스 기동중 오류가 발생하였습니다.",
@@ -1087,6 +1109,8 @@
                 "dialog_title_integrity" : "SNIPER AIVAX 무결성 검사",
                 "dialog_title_server_security_check" : "SNIPER AIVAX 서버 보안 검사",
 
+                "dialog_title_mariadb_auth_setup" : "SNIPER AIVAX 정책 DB 계정 설정",
+                "dialog_title_opensearch_auth_setup" : "SNIPER AIVAX 로그 DB 계정 설정",
                 "dialog_title_sub_util_menu" : "SNIPER AIVAX UTIL",
 
                 "dialog_yes_button" : "예",
