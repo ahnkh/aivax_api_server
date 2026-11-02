@@ -12,21 +12,21 @@
             "default_directory":
             [
                 "/etc/.encrypt",
-                "/home1/install"
+                "/home1/install/.db_config"
             ],
 
             "mariadb_encrypt":
             {
                 "kek_file" : "/etc/.encrypt/.rdb_kek",
-                "dek_file" : "/home1/install/.rdb_dek",
-                "data_file" : "/home1/install/.rdb_enc"
+                "dek_file" : "/home1/install/.db_config/.rdb_dek",
+                "data_file" : "/home1/install/.db_config/.rdb_enc"
             },
 
             "opensearch_encrypt":
             {
                 "kek_file" : "/etc/.encrypt/.logdb_kek",
-                "dek_file" : "/home1/install/.logdb_dek",
-                "data_file" : "/home1/install/.logdb_enc"
+                "dek_file" : "/home1/install/.db_config/.logdb_dek",
+                "data_file" : "/home1/install/.db_config/.logdb_enc"
             }
         },
 
@@ -576,8 +576,6 @@
 
                 "sslproxy_patch_install":
                 {
-                    "desc" : "TODO: 이 시점부터는 사양이 변경되었다. 그 쓰레기 소스 확인 필요",
-
                     "package_tar_gzip_path" : "{package_root}/aivax-patch/sslproxy.tar.gz",
                     "tar_dest_dir" : "sslproxy", 
 
@@ -591,8 +589,6 @@
 
                 "ai_engine_patch_install":
                 {
-                    "desc" : "TODO: 이 시점부터는 사양이 변경되었다. 그 쓰레기 소스 확인 필요",
-
                     "package_tar_gzip_path" : "{package_root}/aivax-patch/ai_engine.tar.gz",
                     "tar_dest_dir" : "ai_engine", 
 
@@ -607,9 +603,7 @@
                 {
                     "desc" : 
                     [
-                        "management에서 db테이블, 로그를 설정하는 구조를 변경하고, 다시 구현",
-                        "1차 그대로 반영후, 쓰레기 코드 제거",
-                        "기존의 쓰레기 코드는 쉘스크립트로 호출후, 검증 및 보강을 별도로 만든다.",
+                        "management에서 db테이블, 로그를 설정하는 구조를 변경하고, 다시 구현",                        
                         "이 기능은 start 모듈에서 처리하는 것도 고민한다. 최소 start 수행시 상태 검증이 되어야 한다."
                     ],
 
@@ -850,9 +844,6 @@
                                 "exclude_ext" : [],
                                 "custom_new_file_allow_match": []
                             }
-
-
-                            
 
                         ]
 
