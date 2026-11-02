@@ -84,8 +84,7 @@
                                 ORDER BY id ASC
                                 LIMIT {del_count}
                             ) AS old_logs
-                        )
-                        AND (SELECT COUNT(*) FROM app.log_audit) >= {reserve_limit}"
+                        )"
         },
 
         {
