@@ -1060,6 +1060,7 @@
 
                 "error_package_integrity" : "패키지 무결성 오류가 발생하였습니다.",
                 "error_package_service_status" : "패키지 설치후 서비스 기동중 오류가 발생하였습니다.",
+                "error_db_password_select" : "DB 계정 입력중 오류가 발생하였습니다.",
 
                 "progress_start_install" : "설치를 진행중입니다. \n\n{detail}",
                 "progress_finish_install" : "설치가 완료되었습니다.",
