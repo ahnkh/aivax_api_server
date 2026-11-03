@@ -56,17 +56,13 @@
             {
                 "mariadb_host" : "127.0.0.1",
                 "mariadb_port" : 3306,
-                "mariadb_database" : "app",
-                "mariadb_user" : "app",
-                "mariadb_password" : "app"
+                "mariadb_database" : "app"                
             },
 
             "opensearch":
             {
                 "opensearch_host" : "127.0.0.1",
                 "opensearch_port" : 9200,
-                "opensearch_id" : "admin",
-                "opensearch_password" : "Sniper123!@#",
 
                 "opensearch_data_root" : "/data/opensearch",
                 "opensearch_snapshot_root" : "/data/backup/opensearch_snapshot"
