@@ -888,6 +888,14 @@
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [],
                                 "custom_new_file_allow_match": []
+                            },
+
+                            {
+                                "use" : true,                                
+                                "directory" : "/boot", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [],
+                                "custom_new_file_allow_match": []
                             }
 
                         ]
