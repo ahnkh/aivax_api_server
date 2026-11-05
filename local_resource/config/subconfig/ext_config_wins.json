@@ -711,25 +711,8 @@
                                 [
                                     
                                 ]
-                            },
-
-                            {
-                                "use" : true,                                
-                                "directory" : "{aivax_install_root}/management/frontend/node_modules/", 
-                                "include_ext" : ["*.", ".ts", ".tsx", ".json"],
-                                "exclude_ext" : [".css", ".md", ".woff", ".svg"],
-                                "custom_exclude_match" : 
-                                [
-                                    ".env",
-                                    "stderr.log",
-                                    "stdio.log"
-                                ],
-
-                                "custom_new_file_allow_match":
-                                [
-                                    
-                                ]
                             }
+                            
                         ]
 
                     },
@@ -830,19 +813,6 @@
                                 "directory" : "{aivax_install_root}/fluent-bit", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log"],
-                                "custom_new_file_allow_match":
-                                [                                    
-                                    "trace_log",
-                                    "db/"
-                                ]
-                            },
-
-                            {
-
-                                "use" : true,                                
-                                "directory" : "{aivax_install_root}/aivax-venv", 
-                                "include_ext" : ["*"],                                
-                                "exclude_ext" : [".pyc", ".log", ".txt", ".sql"],
                                 "custom_new_file_allow_match":
                                 [                                    
                                     "trace_log",
