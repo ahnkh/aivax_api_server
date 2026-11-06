@@ -966,7 +966,7 @@
 
                             {
 
-                                "use" : true,                                
+                                "use" : false,                                
                                 "directory" : "/var", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
@@ -1392,9 +1392,16 @@
                     
                     {                
                         "use" : true,
-                        "tag": "05)",
+                        "tag": "06)",
                         "menu_name": "DB 패스워드 테스트",
                         "callback_event" : "on_menu_test_db_password"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "07)",
+                        "menu_name": "license 업데이트",
+                        "callback_event" : "on_menu_update_serial_license"
                     } 
                 ]
             },
