@@ -879,6 +879,94 @@
                             {
 
                                 "use" : true,                                
+                                "directory" : "/usr/lib", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_exclude_match" : 
+                                [
+                                    "/usr/src",
+                                    "/usr/tmp"                                    
+                                ],
+                                "custom_new_file_allow_match":
+                                [                                    
+                                    "/usr/src",
+                                    "/usr/tmp"
+                                ]
+                            },
+
+                            {
+
+                                "use" : true,                                
+                                "directory" : "/usr/lib64", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_exclude_match" : 
+                                [
+                                    "/usr/src",
+                                    "/usr/tmp"                                    
+                                ],
+                                "custom_new_file_allow_match":
+                                [                                    
+                                    "/usr/src",
+                                    "/usr/tmp"
+                                ]
+                            },
+
+                            {
+
+                                "use" : true,                                
+                                "directory" : "/usr/local", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_exclude_match" : 
+                                [
+                                    "src",
+                                    "tmp",
+                                    "conf",
+                                    "debug",
+                                    "pyc",
+                                    "pycache"                                    
+                                ],
+                                "custom_new_file_allow_match":
+                                [                                    
+                                    "src",
+                                    "tmp",
+                                    "conf",
+                                    "debug",
+                                    "pyc",
+                                    "pycache"
+                                ]
+                            },
+
+                            {
+
+                                "use" : true,                                
+                                "directory" : "/usr/share", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_exclude_match" : 
+                                [
+                                    "src",
+                                    "tmp",
+                                    "conf",
+                                    "debug",
+                                    "pyc",
+                                    "pycache"                                    
+                                ],
+                                "custom_new_file_allow_match":
+                                [                                    
+                                    "src",
+                                    "tmp",
+                                    "conf",
+                                    "debug",
+                                    "pyc",
+                                    "pycache"
+                                ]
+                            },
+
+                            {
+
+                                "use" : true,                                
                                 "directory" : "/var", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
@@ -1025,11 +1113,11 @@
                                     "cnf",
                                     "snmp",
                                     "pip",
-                                    "rsyslog"  
+                                    "rsyslog",
+                                    "opensearch.old"  
                                 ],
                                 "custom_new_file_allow_match":
-                                [
-                                    "/etc/mtab",
+                                [                                    
                                     "/etc/mnt",
                                     "/etc/libssh",
                                     "/etc/krb",
@@ -1104,7 +1192,8 @@
                                     "cnf",
                                     "snmp",
                                     "pip",
-                                    "rsyslog"                                    
+                                    "rsyslog",
+                                    "opensearch.old"  
                                 ]
                             }
 
