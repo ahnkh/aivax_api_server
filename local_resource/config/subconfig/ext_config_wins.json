@@ -902,7 +902,8 @@
                                     "/var/.update",
                                     "/var/adm",
                                     "/var/spool",
-                                    "/var/run"                                  
+                                    "/var/run",
+                                    "/container"
                                 ],
                                 "custom_new_file_allow_match":
                                 [                                    
@@ -924,7 +925,8 @@
                                     "/var/.update",
                                     "/var/adm",
                                     "/var/spool",
-                                    "/var/run"
+                                    "/var/run",
+                                    "/container"
                                 ]
                             },
 
