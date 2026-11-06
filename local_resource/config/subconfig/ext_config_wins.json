@@ -1295,7 +1295,7 @@
                     },
 
                     {                
-                        "use" : false,
+                        "use" : true,
                         "tag": "05)",
                         "menu_name": "서버 무결성 업데이트",
                         "callback_event" : "on_menu_update_server_integrity"
