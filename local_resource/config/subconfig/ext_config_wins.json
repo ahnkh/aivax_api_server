@@ -1295,10 +1295,17 @@
                     },
 
                     {                
-                        "use" : true,
+                        "use" : false,
                         "tag": "05)",
                         "menu_name": "서버 무결성 업데이트",
                         "callback_event" : "on_menu_update_server_integrity"
+                    },
+                    
+                    {                
+                        "use" : true,
+                        "tag": "05)",
+                        "menu_name": "DB 패스워드 테스트",
+                        "callback_event" : "on_menu_test_db_password"
                     } 
                 ]
             },
