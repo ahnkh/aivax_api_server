@@ -863,7 +863,7 @@
                                 "use" : true,                                
                                 "directory" : "/usr/bin", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "/usr/src",
@@ -881,7 +881,7 @@
                                 "use" : true,                                
                                 "directory" : "/usr/lib", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "/usr/src",
@@ -899,7 +899,7 @@
                                 "use" : true,                                
                                 "directory" : "/usr/lib64", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "/usr/src",
@@ -917,7 +917,7 @@
                                 "use" : true,                                
                                 "directory" : "/usr/local", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "src",
@@ -943,7 +943,7 @@
                                 "use" : true,                                
                                 "directory" : "/usr/share", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "src",
@@ -969,7 +969,7 @@
                                 "use" : false,                                
                                 "directory" : "/var", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "/var/log",
@@ -1023,7 +1023,7 @@
                                 "use" : true,                                
                                 "directory" : "/wins", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_new_file_allow_match":
                                 [                                    
                                 ]
@@ -1034,7 +1034,7 @@
                                 "use" : true,                                
                                 "directory" : "/etc", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "/etc/mtab",
