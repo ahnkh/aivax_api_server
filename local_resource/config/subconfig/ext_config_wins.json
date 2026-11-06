@@ -680,23 +680,7 @@
                                 ]
                             },
 
-                            {
-                                "use" : true,                                
-                                "directory" : "{aivax_install_root}/management/backend/node_modules/", 
-                                "include_ext" : ["*.", ".ts", ".tsx", ".json"],
-                                "exclude_ext" : [".css", ".md", ".woff", ".svg"],
-                                "custom_exclude_match" : 
-                                [
-                                    ".env",
-                                    "stderr.log",
-                                    "stdio.log"
-                                ],
-
-                                "custom_new_file_allow_match":
-                                [
-                                    
-                                ]
-                            },
+                            
                             {
                                 "use" : true,                                
                                 "directory" : "{aivax_install_root}/management/frontend/src/", 
@@ -821,7 +805,7 @@
                             },
 
                             {
-                                "use" : true,                                
+                                "use" : false,                                
                                 "directory" : "/usr/bin/mariadb", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [],
@@ -829,7 +813,7 @@
                             },
 
                             {
-                                "use" : true,                                
+                                "use" : false,                                
                                 "directory" : "/usr/bin/openssl", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [],
@@ -837,7 +821,7 @@
                             },
 
                             {
-                                "use" : true,                                
+                                "use" : false,                                
                                 "directory" : "/usr/bin/ssh", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [],
@@ -845,7 +829,7 @@
                             },
 
                             {
-                                "use" : true,                                
+                                "use" : false,                                
                                 "directory" : "/usr/bin/bash", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [],
@@ -866,6 +850,147 @@
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [],
                                 "custom_new_file_allow_match": []
+                            },
+
+                            {
+
+                                "use" : true,                                
+                                "directory" : "/usr/bin", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_new_file_allow_match":
+                                [                                    
+                                    "/usr/src",
+                                    "/usr/tmp"
+                                ]
+                            },
+
+                            {
+
+                                "use" : true,                                
+                                "directory" : "/var", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_new_file_allow_match":
+                                [                                    
+                                    "/var/log",
+                                    "/var/cache",
+                                    "/var/crash",
+                                    "/var/db",
+                                    "/var/empty",
+                                    "/var/ftp",
+                                    "/var/games",
+                                    "/var/kerberos",
+                                    "/var/lib",
+                                    "/var/local",
+                                    "/var/nis",
+                                    "/var/opt",
+                                    "/var/preserve",
+                                    "/var/tmp",
+                                    "/var/yp",
+                                    "/var/.update",
+                                    "/var/adm",
+                                    "/var/spool",
+                                    "/var/run"
+                                ]
+                            },
+
+                            {
+
+                                "use" : true,                                
+                                "directory" : "/wins", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_new_file_allow_match":
+                                [                                    
+                                ]
+                            },
+
+                            {
+
+                                "use" : true,                                
+                                "directory" : "/etc", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug"],
+                                "custom_new_file_allow_match":
+                                [
+                                    "/etc/mtab",
+                                    "/etc/mnt",
+                                    "/etc/libssh",
+                                    "/etc/krb",
+                                    "/etc/dbus",
+                                    "/etc/smart",
+                                    "/etc/.updated",
+                                    "/etc/gdbinit",
+                                    "/etc/shadow",
+                                    "/etc/open",
+                                    "/etc/DIR",
+                                    "conf",
+                                    "/etc/rocky-release",
+                                    "/etc/system",
+                                    "/etc/csh",
+                                    "/etc/environ",
+                                    "/etc/ether",
+                                    "/etc/filesys",
+                                    "/etc/input",
+                                    "/etc/motd",
+                                    "/etc/print",
+                                    "/etc/kdump",
+                                    "/etc/subgit",
+                                    "ldap",
+                                    "/etc/sub",
+                                    "/etc/rwtab",
+                                    "/etc/nss",
+                                    "/etc/mke",
+                                    "/etc/rpc",
+                                    "/etc/vir",
+                                    "/etc/magic",
+                                    "/etc/GREP",
+                                    "/lock",
+                                    "/etc/locale",
+                                    "/etc/group",
+                                    "/etc/gshadow",
+                                    "/etc/libre",
+                                    "/etc/krb",
+                                    "/etc/adj",
+                                    "/etc/passwd",
+                                    "/etc/init",
+                                    "/etc/rc.local",
+                                    "blacklist",
+                                    "netconfig",
+                                    "tuna",
+                                    "infiniband",
+                                    "subuid",
+                                    "wget",
+                                    "pip",
+                                    "var",
+                                    "plugin",
+                                    "crypto",
+                                    "debug",
+                                    "kernel",
+                                    "syslog",
+                                    "tpm",
+                                    "libnl",
+                                    "grub",
+                                    "default",
+                                    "driver",
+                                    "ssh",
+                                    "selinux",
+                                    "local",
+                                    "nftable",
+                                    "sasl",
+                                    "security",
+                                    "mcelog",
+                                    "tuned",
+                                    "pcp",
+                                    "keys",
+                                    "xml",
+                                    "odbc",
+                                    "cnf",
+                                    "snmp",
+                                    "pip",
+                                    "rsyslog"                                    
+                                ]
                             }
 
                         ]
@@ -1050,8 +1175,15 @@
                     {                
                         "use" : false,
                         "tag": "04)",
-                        "menu_name": " 보안 상태 검사",
+                        "menu_name": "보안 상태 검사",
                         "callback_event" : "on_menu_server_process_check"
+                    },
+
+                    {                
+                        "use" : true,
+                        "tag": "05)",
+                        "menu_name": "서버 무결성 업데이트",
+                        "callback_event" : "on_menu_update_server_integrity"
                     } 
                 ]
             },
