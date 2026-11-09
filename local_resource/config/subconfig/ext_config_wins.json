@@ -1398,7 +1398,7 @@
                     },
                     
                     {                
-                        "use" : true,
+                        "use" : false,
                         "tag": "07)",
                         "menu_name": "license 업데이트",
                         "callback_event" : "on_menu_update_serial_license"
