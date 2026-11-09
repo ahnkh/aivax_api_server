@@ -680,6 +680,24 @@
                                 ]
                             },
 
+                            {
+                                "use" : false,                                
+                                "directory" : "{aivax_install_root}/management/backend/node_modules/", 
+                                "include_ext" : ["*.", ".ts", ".tsx", ".json"],
+                                "exclude_ext" : [".css", ".md", ".woff", ".svg"],
+                                "custom_exclude_match" : 
+                                [
+                                    ".env",
+                                    "stderr.log",
+                                    "stdio.log"
+                                ],
+
+                                "custom_new_file_allow_match":
+                                [
+                                    
+                                ]
+                            },
+
                             
                             {
                                 "use" : true,                                
@@ -863,52 +881,86 @@
                                 "use" : true,                                
                                 "directory" : "/usr/bin", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "/usr/src",
-                                    "/usr/tmp"                                    
+                                    "/usr/tmp",
+                                    "debug"                                    
                                 ],
                                 "custom_new_file_allow_match":
                                 [                                    
                                     "/usr/src",
-                                    "/usr/tmp"
+                                    "/usr/tmp",
+                                    "debug"
                                 ]
                             },
 
                             {
 
-                                "use" : true,                                
+                                "use" : false,                                
                                 "directory" : "/usr/lib", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
                                 "custom_exclude_match" : 
                                 [
-                                    "/usr/src",
-                                    "/usr/tmp"                                    
+                                    "src",
+                                    "tmp",
+                                    "build",
+                                    "debug",
+                                    "rpm"
                                 ],
                                 "custom_new_file_allow_match":
                                 [                                    
-                                    "/usr/src",
-                                    "/usr/tmp"
+                                    "src",
+                                    "tmp",
+                                    "build",
+                                    "debug",
+                                    "rpm"
                                 ]
                             },
 
                             {
 
                                 "use" : true,                                
-                                "directory" : "/usr/lib64", 
+                                "directory" : "/usr/lib/firmware", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
                                 "custom_exclude_match" : 
                                 [
-                                    "/usr/src",
-                                    "/usr/tmp"                                    
+                                    "src",
+                                    "tmp",
+                                    "build",
+                                    "debug",
+                                    "rpm"
                                 ],
                                 "custom_new_file_allow_match":
                                 [                                    
-                                    "/usr/src",
-                                    "/usr/tmp"
+                                    "src",
+                                    "tmp",
+                                    "build",
+                                    "debug",
+                                    "rpm"
+                                ]
+                            },
+
+                            {
+
+                                "use" : false,                                
+                                "directory" : "/usr/lib64", 
+                                "include_ext" : ["*"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
+                                "custom_exclude_match" : 
+                                [
+                                    "debug", 
+                                    "src",
+                                    "tmp"                                    
+                                ],
+                                "custom_new_file_allow_match":
+                                [            
+                                    "debug",                         
+                                    "src",
+                                    "tmp"
                                 ]
                             },
 
@@ -917,7 +969,7 @@
                                 "use" : true,                                
                                 "directory" : "/usr/local", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "src",
@@ -943,7 +995,7 @@
                                 "use" : false,                                
                                 "directory" : "/usr/share", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "src",
@@ -966,10 +1018,10 @@
 
                             {
 
-                                "use" : false,                                
+                                "use" : true,                                
                                 "directory" : "/var", 
                                 "include_ext" : ["*"],
-                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "debug", "json"],
+                                "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
                                 "custom_exclude_match" : 
                                 [
                                     "/var/log",
