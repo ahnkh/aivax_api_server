@@ -738,7 +738,8 @@
                                     ".git",
                                     ".vscode",
                                     "pipe_notify",
-                                    ".toolkit"
+                                    ".toolkit",
+                                    "txt"
                                 ],
 
                                 "custom_new_file_allow_match":
@@ -747,7 +748,8 @@
                                     ".pyc",
                                     "stderr.log",
                                     "stdio.log",
-                                    ".toolkit"
+                                    ".toolkit",
+                                    "txt"
                                 ]
                             }
                         ]
@@ -922,7 +924,7 @@
 
                             {
 
-                                "use" : true,                                
+                                "use" : false,                                
                                 "directory" : "/usr/lib/firmware", 
                                 "include_ext" : ["*"],
                                 "exclude_ext" : [".db", ".db-wal", ".db-shm", ".log", "conf", "json"],
