@@ -1692,7 +1692,7 @@
                 "url_option":
                 {
                     "server_ip" : "127.0.0.1",
-                    "port" : 7000,
+                    "port" : 9099,
                     "openapi" : ""
                 },
 
@@ -1743,8 +1743,8 @@
                 "mail_port" : 25,
                 "subject" : "aivax 탐지 결과 메일 전송 테스트",
                 "from_mail" : "aivax@wins21.co.kr",                
-                "recv_mail_list_bak" : ["ghahn@wins21.co.kr"],
-                "recv_mail_list" : ["ghahn@wins21.co.kr", "juyonglee@wins21.co.kr", "rlatkdvy12@wins21.co.kr"],
+                "recv_mail_list" : ["ghahn@wins21.co.kr"],
+                "recv_mail_list_old" : ["ghahn@wins21.co.kr", "juyonglee@wins21.co.kr", "rlatkdvy12@wins21.co.kr"],
                 "contents" : "",
                 "debug_level" : 1,
                 "timeout" : 30,
