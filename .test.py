@@ -37,18 +37,30 @@ def init_command(kshellMainApp:KShellMainApp):
     # })           
     # pass
     
+def run_aivax_ui(kshellMainApp:KShellMainApp):
+    
+    kshellMainApp.RunCLICommand({                
+            "method" : ["manage_wins_modules"],
+            "ext_module" : "manage_aivax_util",
+            "cmd_category" : "aivax_util",
+            "command" : "aivax_tui",
+            "detail_cmd" : "aivax_util_menu",        
+        })  
+    
+    pass
+    
 def check_integrity(kshellMainApp:KShellMainApp):
     
-    strAivaxInstallPath:str = "/home1/aivax"
+    # strAivaxInstallPath:str = "/home1/aivax"
     
     kshellMainApp.RunCLICommand({                
         "method" : ["manage_wins_modules"],
         "ext_module" : "manage_aivax_install",
         "cmd_category" : "aivax_install",
         "command" : "aivax_install_util",
-        "detail_cmd" : "server_integrity",
-        "detail_sub_cmd" : "check_server_integrity",
-        "aivax_install_root" :"/home1/aivax",
+        "detail_cmd" : "server_integrity",     
+        "detail_sub_cmd" : "check_server_integrity",  
+        "aivax_install_root" :"/home1/aivax", 
         "api_print_console" : 1
     })  
     
@@ -74,7 +86,8 @@ def main():
     dictFunction:dict[str:Any] = {
         "debug" : debug_print,
         "init" : init_command,
-        "integrity" : check_integrity        
+        "integrity" : check_integrity,
+        "aivax" : run_aivax_ui
     }
     
     for strCommand in sys.argv[1:]:
